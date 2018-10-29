@@ -1,0 +1,206 @@
+/*Styling for the body background*/
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+}
+/* General Styling */
+#informationFields{
+    margin-top: 20px;
+    height: max-content;
+    text-align: left;
+}
+h1{
+    text-align: center;
+    width: 95%;
+    height: max-content;
+    color: black;
+    font-size: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    padding: 20px 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2{
+    margin: 0% 0% 0% 0%;
+    padding: 2% 0% 2% 0%;
+    color: black;
+}
+/* Styling the Text */
+b, p{
+    color: black;
+    font-family: 'sans serif';
+}
+p{
+    display: inline-block;
+    margin: 1px;
+}
+/* Styling the Top background Section */
+#section3 {
+    height: 170px;
+    width: 100%;
+    background-image: url("img/background3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ /* Styling the Parcel delivery Orders Section background */
+ #information{
+    color: #e9e9e9;
+    font-size: 18px;
+    border-radius: 5px;
+    height: max-content;
+    text-align: left;
+    height: 100%;
+    width: 100%;
+  }
+  /* Styling the Parcel order status section */
+
+  button {
+    float:left;
+  display: block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+  font-size: 120%;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow:	3px 3px rgba(31, 26, 46, 0.4);
+  width: 35%;
+}
+.new #pending{
+    background-color: rgba(140, 110, 224, 0.4);
+   
+}
+.pending #pending{
+    background-color:  rgba(245, 216, 52, 0.4);
+}
+.delivered #pending{
+    background-color: rgba(94, 224, 82, 0.4);
+}
+/* Styling the profile Section */
+ #createAshipment{
+    margin: 2% 0% 0% 0%;
+    position:auto;
+    display:block;
+}
+
+ .createShipment{
+    display:block;
+    width: 90%;
+    margin: 1% 1% 0% 6%;
+    display:flex;
+    border-radius: 30px 30px 30px 30px;	
+    box-shadow:	5px 5px rgba(140, 110, 224, 0.4);
+}
+
+#fromform,
+#toform{
+    top: 0px;
+    width: 90%;	
+}
+
+
+#loginParticulars{
+    padding: 10px;
+    text-align: center;
+  }
+
+/* Styling the Delivered and Pending Parcel Delivery Order Section */
+
+#fromform{
+    margin:0px 30px 0px 0px;
+    overflow: auto;
+    height:175px;
+    top: 0px;
+    padding: 18px 4% 20px 4%;   	
+}
+
+.row{
+    border-radius: 30px 30px 30px 30px;	
+    box-shadow:	5px 5px yellowgreen;
+}
+.column{
+    border-radius: 30px 30px 30px 30px;	
+    box-shadow:	5px 5px green;
+    }
+
+/* Styling the User Information Section */
+
+#toform{
+    margin:0px 30px 0px 0px;
+    overflow: auto;
+    height:175px;
+    top: 0px;
+    padding: 18px 4% 20px 4%;
+}
+
+/* Styling the Parcel delivery Orders Section */
+#preview{
+    margin: 0% 10% 0% 5%;
+    height: 90%;
+    width: 90%;
+    text-align: left; 
+}
+
+#fromPreview,
+#toPreview,
+#parcel{
+    padding: 0px 10px 0px 10px;
+    margin: 0px 0px 0px 0px;
+    font-size: 100%;
+    display: inline-block;
+  }
+#shipmentOrderPreview{
+    margin: 2% 0% 0% 1%;
+    overflow: auto;
+    top: 0px;
+    width: 90%;	
+    height: 220px;
+    padding: 0px 4% 0px 4%;
+    border-radius: 30px 30px 30px 30px;	
+    border: 2px solid;	
+ }
+
+#createShipmentPreview{
+    display:flex;
+    justify-content: space-between;
+}
+
+.new{
+    box-shadow:	5px 5px rgba(140, 110, 224, 0.4);
+}
+.pending{
+    box-shadow:	5px 5px rgba(241, 220, 101, 0.7);
+}
+
+.delivered{
+    box-shadow:	5px 5px	rgba(94, 224, 82, 0.4);
+}
+.particulars{
+    height:175px;
+    border-right:1px solid black;
+  }
+#particulars{
+    padding: 0px 2%
+  }
+
+  /* For desktop: */
+  @media only screen and (min-width: 768px) {
+    #preview{
+        margin: 5% 10% 0% 5%;
+    }
+  }
+
+  h1{
+    font-size: 200%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+button {
+    font-size: 120%;
+    width: 15%;
+  }
+  
