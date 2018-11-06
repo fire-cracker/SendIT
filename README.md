@@ -30,7 +30,6 @@
 - The admin can mark orders as pending (in transit) or delivered.
 
 ## Demo
-![demogif](https://user-images.githubusercontent.com/25525765/46247609-baa42400-c405-11e8-923f-3df54b87ca0e.gif)
 
 Visit [User Dashboard](https://oyedejipeace.github.io/SendIT/UI)
 
