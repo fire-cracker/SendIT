@@ -10,7 +10,7 @@
     "build": "npm run clear && babel ./ --out -d dist --ignore node_modules,UI",
     "clear": "rimraf dist coverage",
     "start": "nodemon app.js --exec babel-node --presets env",
-    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ../dist/test/*.js --exit",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit",
     "coverage": "npm run cover"
   },
   "repository": {
@@ -34,7 +34,7 @@
     "bcryptjs": "2.4.3",
     "body-parser": "1.18.3",
     "dotenv": "6.0.0",
-    "express": "4.16.3",
+    "express": "^4.16.4",
     "express-validator": "5.3.0",
     "jsonwebtoken": "8.3.0",
     "morgan": "1.9.0",

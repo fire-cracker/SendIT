@@ -1,16 +1,23 @@
 import logger from 'morgan'
+import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import ordersRoutes from './Api/routes/index.js';
 
+dotenv.config();
 
+//port declaration
+const PORT = process.env.PORT || process.env.SV_PORT;
 
 // Set up the express app
 const app = express()
-// Parse incoming requests data
+
+//instanciate imported middlewares
 app.use(logger('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// Parse incoming requests data
 app.use('/api/v1', ordersRoutes);
 
 app.get('/api/v1', (req, res) => {
@@ -28,7 +35,7 @@ app.use('*', (req, res) => {
   })
 });
 
-const PORT = 5000;
+
 
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}`)
