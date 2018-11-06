@@ -4,30 +4,30 @@ import * as test from '../test/model/ordersModel';
 
 // Tests for the GET Route
 describe('Validate GET Route', () => {
-    it('should be valid route /api/v1/orders returns 200 (orders retrieved successfully)', (end) => {
-        request(app).get('/api/v1/orders')
+    it('should be valid route /api/v1/parcels returns 200 (parcels retrieved successfully)', (end) => {
+        request(app).get('/api/v1/parcels')
             .expect("Content-type", /json/)
             .expect(function (res) {
                 res.body.success = 'true';
-                res.body.Status = "Orders Retrieved Successfully";
+                res.body.Status = "parcels Retrieved Successfully";
                 res.body.orders = test.databaseOrders;
             })
             .expect(200, end)
     });
 
     describe('GET a single question', () => {
-        it('should be valid route /api/v1/orders/1 returns 200 (orders retrieved successfully)', (end) => {
-            request(app).get('/api/v1/orders/1')
+        it('should be valid route /api/v1/parcels/1 returns 200 (parcels retrieved successfully)', (end) => {
+            request(app).get('/api/v1/parcels/1')
                 .expect("Content-type", /json/)
                 .expect(function (res) {
                     res.body.success = 'true';
                     res.body.Status = "Order retrieved successfully";
-                    res.body.orders = test.firstOrder;
+                    res.body.parcels = test.firstOrder;
                 })
                 .expect(200, end)
         });
         it('should return error 404(order not found in the database) if database does not have data at that location', (end) => {
-            request(app).get('/api/v1/orders/2000000')
+            request(app).get('/api/v1/parcels/2000000')
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
                     res.body.success = "false";
@@ -35,9 +35,9 @@ describe('Validate GET Route', () => {
                 })
                 .expect(404, end)
         });
-        describe("When non integer orderId is sent", () => {
+        describe("When non integer parcelId is sent", () => {
             it('should return statusCode of 400(Bad Request)', (end) => {
-                request(app).get('/api/v1/orders/A')
+                request(app).get('/api/v1/parcels/A')
                     .expect('Content-Type', /json/)
                     .expect(function (res) {
                         res.body.status = "unsuccessful";
@@ -51,8 +51,8 @@ describe('Validate GET Route', () => {
 // Tests for the POST Route
 describe('Validate POST Route', () => {
     // describe("When Correct input data is supplied", () => {
-    //     it('should be valid /api/v1/orders', (end) => {
-    //         request(app).post('/api/v1/orders')
+    //     it('should be valid /api/v1/parcels', (end) => {
+    //         request(app).post('/api/v1/parcels')
     //             .type("JSON")
     //             .send(test.fullOrder)
     //             .expect('Content-Type', /json/)
@@ -62,9 +62,9 @@ describe('Validate POST Route', () => {
     //             .expect(201, end)
     //     });
     // });
-    describe("When an orderId sent to a post route", () => {
+    describe("When an parcelId sent to a post route", () => {
         it('should return statusCode of 400(Bad Request)', (end) => {
-            request(app).post('/api/v1/orders/10')
+            request(app).post('/api/v1/parcels/10')
                 .type('JSON').send(test.fullOrder)
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
@@ -75,7 +75,7 @@ describe('Validate POST Route', () => {
     });
     describe('Check POST input for Error', () => {
         it('should return Error status code 400 if no data was passed', (end) => {
-            request(app).post('/api/v1/orders')
+            request(app).post('/api/v1/parcels')
                 .type('JSON')
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
@@ -86,7 +86,7 @@ describe('Validate POST Route', () => {
                 .expect(400, end);
         });
         it('should return Error status code 400 req.body.name has the wrong data type', (end) => {
-            request(app).post('/api/v1/orders')
+            request(app).post('/api/v1/parcels')
                 .type('JSON')
                 .send(test.wrongDataType)
                 .expect('Content-Type', /json/)
@@ -103,8 +103,8 @@ describe('Validate POST Route', () => {
 // Tests for the PUT Route
 describe('Validate PUT Route', () => {
     // describe("when Correct PUT Query is supplied", () => {
-    //     it('should be valid route /api/v1/orders/1 editted successfully returning status code 200(Update Successful)', (end) => {
-    //         request(app).put('/api/v1/orders/1')
+    //     it('should be valid route /api/v1/parcels/1 editted successfully returning status code 200(Update Successful)', (end) => {
+    //         request(app).put('/api/v1/parcels/1')
     //             .type('JSON').send(test.fullOrder)
     //             .expect(function (res) {
     //                 res.body.Status = "Update successful";
@@ -112,9 +112,9 @@ describe('Validate PUT Route', () => {
     //             .expect(200, end)
     //     });
     // });
-    describe("When non integer orderId is sent", () => {
+    describe("When non integer parcelId is sent", () => {
         it('should return statusCode of 400(Bad Request)', (end) => {
-            request(app).put('/api/v1/orders/A')
+            request(app).put('/api/v1/parcels/A')
                 .type('JSON').send(test.fullOrder)
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
@@ -125,7 +125,7 @@ describe('Validate PUT Route', () => {
     });
     describe("Check PUT input for Error", () => {
         it("should return 400(Bad request, when an item in the body is missing)", (end) => {
-            request(app).put('/api/v1/orders/0')
+            request(app).put('/api/v1/parcels/0')
                 .type('JSON')
                 .send({})
                 .expect('Content-Type', /json/)
@@ -135,8 +135,8 @@ describe('Validate PUT Route', () => {
                 })
                 .expect(400, end);
         });
-        it("should return 404(Bad Request, when orderId is undefined)", (end) => {
-            request(app).put('/api/v1/orders/')
+        it("should return 404(Bad Request, when parcelId is undefined)", (end) => {
+            request(app).put('/api/v1/parcels/')
                 .type('JSON')
                 .send(test.fullOrder)
                 .expect(function (res) {
@@ -148,7 +148,7 @@ describe('Validate PUT Route', () => {
     });
     describe("Resolve Conflicts", () => {
         it("should return 400(Previous order not found, when memory has no data to modify)", (end) => {
-            request(app).put('/api/v1/orders/300')
+            request(app).put('/api/v1/parcels/300')
                 .type('JSON')
                 .send(test.fullOrder)
                 .expect('Content-Type', /json/)
@@ -163,9 +163,9 @@ describe('Validate PUT Route', () => {
 
 //Tests for the DELETE Route
 describe("Validate Delete Route", () => {
-    describe("When orderId is correctly supplied", () => {
+    describe("When parcelId is correctly supplied", () => {
         it('should return StatusCode 200(Order successfully deleted)', (end) => {
-            request(app).delete('/api/v1/orders/1')
+            request(app).delete('/api/v1/parcels/1')
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
                     res.body.success = "true";
@@ -176,7 +176,7 @@ describe("Validate Delete Route", () => {
     });
     describe("When item can not be found in the database", () => {
         it('should return statusCode of 404(Order not found)', (end) => {
-            request(app).delete('/api/v1/orders/300')
+            request(app).delete('/api/v1/parcels/300')
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
                     res.body.success = "false";
@@ -185,9 +185,9 @@ describe("Validate Delete Route", () => {
                 .expect(404, end)
         });
     });
-    describe("When non integer orderId is sent", () => {
+    describe("When non integer parcelId is sent", () => {
         it('should return statusCode of 400(Bad Request)', (end) => {
-            request(app).delete('/api/v1/orders/A')
+            request(app).delete('/api/v1/parcels/A')
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
                     res.body.status = "unsuccessful";
@@ -197,7 +197,7 @@ describe("Validate Delete Route", () => {
     });
     describe("When Order Id is not sent", () => {
         it('should return statusCode of 400(Bad Request)', (end) => {
-            request(app).delete('/api/v1/orders')
+            request(app).delete('/api/v1/parcels')
                 .expect('Content-Type', /json/)
                 .expect(function (res) {
                     res.body.status = "unsuccessful";

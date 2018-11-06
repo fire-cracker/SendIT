@@ -10,7 +10,7 @@
     "build": "npm run clear && babel ./ --out -d dist --ignore node_modules,UI",
     "clear": "rimraf dist coverage",
     "start": "nodemon app.js --exec babel-node --presets env",
-    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit",
+    "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ../dist/test/*.js --exit",
     "coverage": "npm run cover"
   },
   "repository": {

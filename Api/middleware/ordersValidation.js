@@ -35,19 +35,19 @@ function orderValidation(req, res, next) {
 * @param {*} res - response to the request Validity
 * @param {*} next 
 */
-function orderIdValidation(req, res, next) {
-    const orderId = req.params.orderId;
-    if (orderId === undefined || orderId === null || orderId === "") { 
+function parcelIdValidation(req, res, next) {
+    const parcelId = req.params.parcelId;
+    if (parcelId === undefined || parcelId === null || parcelId === "") { 
         console.log("got here")
         return res.status(400).send({
             success: 'false',
-            message: 'orderId is required',
+            message: 'parcelId is required',
           }); 
-    }else if (!(Number.isInteger(parseInt(orderId))===true)){
+    }else if (!(Number.isInteger(parseInt(parcelId))===true)){
             console.log("got here 2") 
             return res.status(400).send({
                 success: 'false',
-                message: ' OrderId is not Valid',
+                message: ' parcelId is not Valid',
               }); 
           }
     next();
@@ -60,6 +60,6 @@ function orderPostIdValidation(req, res, next) {
 //export statement
 export default {
     Validation: orderValidation,
-    orderIdValidation: orderIdValidation,
+    parcelIdValidation: parcelIdValidation,
     PostIdValidation: orderPostIdValidation
 };

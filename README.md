@@ -48,11 +48,11 @@ Visit [Admin Dashboard](https://oyedejipeace.github.io/SendIT/UI/admin.html)
 - `morgan`
 
 ## API End Points
-- `GET /api/v1/orders`                -   Fetches all Available Orders in the Database
-- `GET /api/v1/orders/< orderId >`    -   Fetches a particular order in the database
-- `POST /api/v1/orders/< orderId >`   -   Saves an Order in the database
-- `PUT /api/v1/orders/< orderId >`    -   Updates the status of an order in the database
-- `DELETE /api/v1/orders/< orderId >` -   Deletes an order in the database
+- `GET /api/v1/parcels`                -   Fetches all Available Orders in the Database
+- `GET /api/v1/parcels/<parcelId>`     -   Fetches a particular order in the database
+- `POST /api/v1/parcels/`              -   Saves an Order in the database
+- `PUT /api/v1/parcels/<parcelId >`    -   Updates the status of an order in the database
+- `DELETE /api/v1/parcels/<parcelId >` -   Deletes an order in the database
  
  ## Known issues
 Everything works as expected; However:

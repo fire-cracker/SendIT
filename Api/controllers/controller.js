@@ -12,9 +12,9 @@ class controller {
   getOrder(req, res) {
     try {
     let orderFound;
-    const orderId = parseInt(req.params.orderId, 10);
+    const parcelId = parseInt(req.params.parcelId, 10);
     db.map((order) => {
-      if (order.orderId === orderId) {
+      if (order.parcelId === parcelId) {
         orderFound = order;
         return res.status(200).send({
           success: 'true',
@@ -38,7 +38,7 @@ class controller {
 
   createOrder(req, res) {
     const order = {
-      orderId: db.length + 1,
+      parcelId: db.length + 1,
       from: {
         name: req.body.name,
         address: req.body.address,
@@ -73,11 +73,11 @@ class controller {
   }
 
   updateOrder(req, res) {
-    const orderId = parseInt(req.params.orderId, 10);
+    const parcelId = parseInt(req.params.parcelId, 10);
     let orderFound;
     let itemIndex;
     db.map((order, index) => {
-      if (order.orderId === orderId) {
+      if (order.parcelId === parcelId) {
         orderFound = order;
         itemIndex = index;
       }
@@ -91,7 +91,7 @@ class controller {
     }
 
     const neworder = {
-      orderId: orderFound.orderId,
+      parcelId: orderFound.parcelId,
       from: {
         name: req.body.name || orderFound.name,
         address: req.body.address || orderFound.address,
@@ -127,11 +127,11 @@ class controller {
   }
 
   deleteOrder(req, res) {
-    const orderId = parseInt(req.params.orderId, 10);
+    const parcelId = parseInt(req.params.parcelId, 10);
     let orderFound;
     let itemIndex;
     db.map((order, index) => {
-      if (order.orderId === orderId) {
+      if (order.parcelId === parcelId) {
         orderFound = order;
         itemIndex = index;
       }

@@ -1,7 +1,7 @@
 //Model of the database content
 export const databaseOrders = [
     {
-        orderId: 1,
+        parcelId: 1,
         from: {
             name: 'Oyedeji Peace',
             address: 'University of Ibadan',
@@ -24,7 +24,7 @@ export const databaseOrders = [
 
     },
     {
-        orderId: 2,
+        parcelId: 2,
         from: {
             name: 'Jamal Empire ',
             address: 'Bodija,Ibadan Oyo State',
@@ -51,7 +51,7 @@ export const databaseOrders = [
 //Model data for a complete Order
 export const fullOrder = [
     {
-          orderId: 1,
+          parcelId: 1,
           from: {
                 name: 'Oyedeji Peace',
                 address: 'University of Ibadan',
@@ -78,7 +78,7 @@ export const fullOrder = [
 //Model of the database[1]
 export const firstOrder = [
     {
-        orderId: 1,
+        parcelId: 1,
         from: {
             name: 'Oyedeji Peace',
             address: 'University of Ibadan',
@@ -105,7 +105,7 @@ export const firstOrder = [
 //Model for wrong orders
 export const wrongDataType = [
     {
-        orderId: 1,
+        parcelId: 1,
         from: {
             name: '',
             address: '',
@@ -131,7 +131,7 @@ export const wrongDataType = [
 
 export const orders = [
     {
-          orderId: 1,
+          parcelId: 1,
           from: {
                 name: 'Oyedeji Peace',
                 address: 'University of Ibadan',

@@ -5,16 +5,16 @@ const router = express.Router();
 
 //create an instance of the request validation middlewares
 let validate = Validate.Validation;
-let validateOrderId = Validate.orderIdValidation;
+let validateparcelId = Validate.parcelIdValidation;
 let postvalidation = Validate.PostIdValidation
 
 // get all questions
-router.get('/api/v1/orders', Controller.getAllOrders);
-router.get('/api/v1/orders/:orderId',validateOrderId, Controller.getOrder);
-router.post('/api/v1/orders',validate,Controller.createOrder);
-router.post('/api/v1/orders/:orderId', postvalidation,validate);
-router.put('/api/v1/orders/:orderId',validateOrderId, validate, Controller.updateOrder);
-router.delete('/api/v1/orders/:orderId', validateOrderId,Controller.deleteOrder);
-router.delete('/api/v1/orders',  validateOrderId);
+router.get('/parcels', Controller.getAllOrders);
+router.get('/parcels/:parcelId',validateparcelId, Controller.getOrder);
+router.post('/parcels',validate,Controller.createOrder);
+router.post('/parcels/:parcelId', postvalidation,validate);
+router.put('/parcels/:parcelId',validateparcelId, validate, Controller.updateOrder);
+router.delete('/parcels/:parcelId', validateparcelId,Controller.deleteOrder);
+router.delete('/parcels',  validateparcelId);
 
 export default router;
