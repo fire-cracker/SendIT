@@ -4,6 +4,7 @@
 * @param {*} res - response to the validity of the data
 * @param {*} next 
 */
+
 function orderValidation(req, res, next) {
     let wrong = {};
     if (!(req.body.from_name)) { wrong.from_nameError = 'name of parcel sender is required'; }
