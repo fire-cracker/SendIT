@@ -18,7 +18,7 @@ router.post('/auth/login', validate,verifyUserToken,Controller.login);
 router.post('/auth/signup', validate, Controller.signup);
 router.post('/users/:userId', verifyUserToken,postvalidation);
 router.put('/users', validateUserId);
-router.put('/users/:userId', validateUserId, validate,verifyUserToken, Controller.updateUser);
+router.put('/users/:userId', validateUserId, validate, Controller.updateUser);
 router.delete('/users/:userId', validateUserId,verifyUserToken, Controller.deleteUser);
 router.delete('/users',  validateUserId);
 

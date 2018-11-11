@@ -1,6 +1,6 @@
 //Import statments
 import model from '../seed/seeder';
-import database from '../db/Index';
+import database from '../db/config';
 import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
@@ -114,28 +114,36 @@ class controller {
      */
     async updateUser(req, res) {
         const hashedPassword = req.body.user_password;
-        let user = model.seeder(req, hashedPassword);
+        let user = model.seeder(req,hashedPassword );
         let date = new Date();
         user.push(date);
         user.push(req.params.userId);
         const findQuery = `SELECT * FROM user_accounts WHERE user_id=$1`;
-        const updateQuery = `UPDATE user_accounts SET user_name=$1,user_email=$2,user_password=$3,,user_role=$4 modified_date=$5 WHERE user_id=$6 returning *`;
-        const { rows } = await database.query(findQuery, [req.params.userId]);
-        if (!rows[0]) {
-            return res.status(410).send({
+        const updateQuery = `UPDATE user_accounts SET user_name=$1,user_email=$2,user_password=$3, modified_date=$4 WHERE user_id=$5 returning *`;
+        try {
+            const { rows } = await database.query(findQuery, [req.params.userId]);
+            if (!rows[0]) {
+                return res.status(410).send({
+                    success: 'false',
+                    status: 'Requested resourse is no longer available'
+                });
+            }
+            const response = await database.query(updateQuery, user);
+            return res.status(200).send({
+                userId: req.params.userId,
+                old_user: rows[0],
+                update: response.rows[0],
+                status: "Update successful"
+            });
+        } catch (error) {
+            console.log(error);
+            return res.status(400).send({
                 success: 'false',
-                status: 'Requested resourse is no longer available'
+                status: 'Bad Request',
+                message: 'User Not Found'
             });
         }
-        const response = await database.query(updateQuery, user);
-        return res.status(200).send({
-            userId: req.params.userId,
-            old_user: rows[0],
-            update: response.rows[0],
-            status: "Update successful"
-        });
     }
-
     /**
     * Delete an User in the database
     *  @param {*} req - incomming request data

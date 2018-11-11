@@ -3,9 +3,17 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const pool = new Pool({
-    connectionString: process.env.DATABASE_URL
-});
+let connection = '';
+
+if (process.env.NODE_ENV === 'test') {
+  connection = process.env.DATABASE_TEST;
+}
+
+if (process.env.NODE_ENV === 'production') {
+  connection = process.env.HEROKU_POSTGRESQL_RED_URL;
+}
+const pool  = new Pool({ connectionString: connection || process.env.DATABASE_TEST });
+
 
 export default {
 /**

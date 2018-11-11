@@ -1,156 +1,201 @@
 //Model of the database content
 export const databaseOrders = [
     {
-        parcelId: 1,
-        from: {
-            name: 'Oyedeji Peace',
-            address: 'University of Ibadan',
-            emailaddress: 'oyedejipeace@gmail.com',
-            phonenumber: '08162514166',
-        },
-
-        to: {
-            toName: 'Anabelle Oliver',
-            toAddress: 'University of Ilorin',
-            toEmailaddress: 'anabelleoliver@gmail.com',
-            toPhonenumber: '08162789045',
-        },
-
-        parceldetails: {
-            type: 'Packages',
-            weight: '5',
-            dimension: { length: '20', width: '10', height: '30' }
-      },
+        parcel_id: 1,
+        from_name: 'Oyedeji Peace',
+        from_address: 'University of Ibadan',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20', 
+        width: '10', 
+        height: '30',
+        price :'5000',
 
     },
     {
-        parcelId: 2,
-        from: {
-            name: 'Jamal Empire ',
-            address: 'Bodija,Ibadan Oyo State',
-            emailaddress: 'oyedejipeace@gmail.com',
-            phonenumber: '08162514166',
-        },
-
-        to: {
-            toName: 'Anabelle Oliver',
-            toAddress: 'University of Ilorin',
-            toEmailaddress: 'anabelleoliver@gmail.com',
-            toPhonenumber: '08162789045',
-        },
-
-        parceldetails: {
-            type: 'Packages',
-            weight: '5',
-            dimension: { length: '20', width: '10', height: '30' }
-      },
-
+        parcel_id: 2,
+        from_name: 'Jamal Empire ',
+        from_address: 'Bodija,Ibadan Oyo State',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20',
+        width: '10',
+        height: '30',
+        price :'2000',
     }
 ]
 
-//Model data for a complete Order
-export const fullOrder = [
+//Model of a particular user orders
+export const orders = [
     {
-          parcelId: 1,
-          from: {
-                name: 'Oyedeji Peace',
-                address: 'University of Ibadan',
-                emailaddress: 'oyedejipeace@gmail.com',
-                phonenumber: '08162514166',
-          },
+        parcel_id: 1,
+        from_name: 'Oyedeji Peace',
+        from_address: 'University of Ibadan',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20', 
+        width: '10', 
+        height: '30',
+        price :'5000',
+        user_id: '1',
+        created_at: "2018-10-18T07:13:56.584Z",
+        modified_date: null,
+        order_status: 'New',
+        present_location:null
 
-          to: {
-                toName: 'Anabelle Oliver',
-                toAddress: 'University of Ilorin',
-                toEmailaddress: 'anabelleoliver@gmail.com',
-                toPhonenumber: '08162789045',
-          },
+    },
+    {
+        parcel_id: 2,
+        from_name: 'Jamal Empire ',
+        from_address: 'Bodija,Ibadan Oyo State',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20',
+        width: '10',
+        height: '30',
+        price :'2000',
+        user_id: '1',
+        created_at: "2018-10-18T07:13:56.584Z",
+        modified_date: null,
+        order_status: 'New',
+        present_location:null
+    }
+]
 
-          parceldetails: {
-                type: 'Packages',
-                weight: '5',
-                dimension: { length: '20', width: '10', height: '30' }
-          },
+//Model data for a updated Order
+export const updateOrder = [
+    {
+        parcel_id: 1,
+        from_name: 'Oyedeji Peace',
+        from_address: 'University of Ibadan',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20', 
+        width: '10', 
+        height: '30',
+        price :'2000',
+        created_at: "2018-10-18T07:13:56.584Z",
+        modified_date:"2018-10-18T07:13:56.584Z",
+        order_status: 'Pending',
+        present_location:'University of Ilorin'
+    }
+];
 
+export const update = [
+    {
+        parcel_id: 1,
+        from_name: 'Oyedeji Peace',
+        from_address: 'University of Ibadan',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20', 
+        width: '10', 
+        height: '30',
+        price :'2000',
+        created_at: "2018-10-18T07:13:56.584Z",
+        modified_date:"2018-10-18T07:13:56.584Z",
+        order_status: 'Delivered',
+        present_location:'University of Ilorin'
     }
 ];
 
 //Model of the database[1]
 export const firstOrder = [
     {
-        parcelId: 1,
-        from: {
-            name: 'Oyedeji Peace',
-            address: 'University of Ibadan',
-            emailaddress: 'oyedejipeace@gmail.com',
-            phonenumber: '08162514166',
-        },
-
-        to: {
-            toName: 'Anabelle Oliver',
-            toAddress: 'University of Ilorin',
-            toEmailaddress: 'anabelleoliver@gmail.com',
-            toPhonenumber: '08162789045',
-        },
-
-        parceldetails: {
-            type: 'Packages',
-            weight: '5',
-            dimension: { length: '20', width: '10', height: '30' }
-      },
-
+        from_name: 'Oyedeji Peace',
+        from_address: 'University of Ibadan',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20', 
+        width: '10', 
+        height: '30',
+        price :'2000'
     }
-];
+]
+
+//Model data for an order void of req.body.customer_id
+export const invalidUser = [
+{
+        parcel_id: 'A',
+        from_name: 'Oyedeji Peace',
+        from_address: 'University of Ibadan',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20', 
+        width: '10', 
+        height: '30',
+        price :'2000',
+        user_id: 'A'
+}
+]
 
 //Model for wrong orders
-export const wrongDataType = [
+export const invalidParcel_id= [
     {
-        parcelId: 1,
-        from: {
-            name: '',
-            address: '',
-            emailaddress: 'oyedejipeace@gmail.com',
-            phonenumber: '08162514166',
-        },
-
-        to: {
-            toName: 'Anabelle Oliver',
-            toAddress: 'University of Ilorin',
-            toEmailaddress: 'anabelleoliver@gmail.com',
-            toPhonenumber: '08162789045',
-        },
-
-        parceldetails: {
-            type: 'Packages',
-            weight: 5,
-            dimension: { length: 20, width: 10, height: 30 }
-        },
+        parcel_id: 'A',
+        from_name: 'Oyedeji Peace',
+        from_address: 'University of Ibadan',
+        from_emailaddress: 'oyedejipeace@gmail.com',
+        from_phonenumber: '08162514166',
+        to_name: 'Anabelle Oliver',
+        to_address: 'University of Ilorin',
+        to_emailaddress: 'anabelleoliver@gmail.com',
+        to_phonenumber: '08162789045',
+        type: 'Packages',
+        weight: '5',
+        length: '20', 
+        width: '10', 
+        height: '30',
+        price :'2000'
 
     }
 ];
 
-export const orders = [
-    {
-          parcelId: 1,
-          from: {
-                name: 'Oyedeji Peace',
-                address: 'University of Ibadan',
-                emailaddress: 'oyedejipeace@gmail.com',
-                phonenumber: '08162514166',
-          },
-
-          to: {
-                toName: 'Anabelle Oliver',
-                toAddress: 'University of Ilorin',
-                toEmailaddress: 'anabelleoliver@gmail.com',
-                toPhonenumber: '08162789045',
-          },
-
-          parceldetails: {
-                type: 'Packages',
-                weight: '5',
-                dimension: { length: '20', width: '10', height: '30' }
-          },
-
-    }
-];

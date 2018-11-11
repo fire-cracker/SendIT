@@ -1,4 +1,4 @@
-import database from './Index'
+import database from './config'
 import bcrypt from 'bcryptjs'
 
 /**
@@ -35,12 +35,13 @@ async function createTables() {
             width integer NOT NULL,
             height integer NOT NULL,
             price integer NOT NULL,
-            user_id SERIAL NOT NULL,
+            user_id SERIAL REFERENCES user_accounts(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
             created_at TIMESTAMP DEFAULT NOW(),
             modified_date varchar(255) DEFAULT NULL,
             order_status status DEFAULT 'New',
-            present_location varchar(255) DEFAULT NULL,
-            FOREIGN KEY (user_id) REFERENCES user_accounts(user_id)
+            present_location varchar(255) DEFAULT NULL 
+           
+
           );`;
      
     let user_data = `INSERT INTO user_accounts (user_name, user_email,user_password,user_role)
@@ -49,8 +50,8 @@ async function createTables() {
       ('backEndTester', 'backendtester1@address.com', '${bcrypt.hashSync('backendtester123', 10)}','User');`
 
 
-    let order_data = `INSERT INTO orders (from_name, from_address, from_emailaddress, from_phonenumber, to_name, to_address, to_emailaddress, to_phonenumber, type, weight, length, width, height, price, user_id, order_status,present_location)
-      VALUES ('Oyedeji Peace', 'Andela EPIC Tower, Lagos', 'oyedejipeace@gmail.com', '07063707124', 'Akin Omobayo', 'University of Ibadan', 'akinomo@gmail.com','08123456789','Documents','3', '6', '5', '4','2000','1','New','Orogun Ibadan'),('Angelina Jolie', 'Andela EPIC Tower, Lagos', 'angelina@gmail.com', '07034123344', 'Jamal Smollet', 'University of Abuja', 'jsmollet@gmail.com','08123456789','Packages','3', '6', '5', '4','5000','1','Delivered','University of Ibadan')`
+    let order_data = `INSERT INTO orders (from_name, from_address, from_emailaddress, from_phonenumber, to_name, to_address, to_emailaddress, to_phonenumber, type, weight, length, width, height, price, order_status,present_location)
+      VALUES ('Oyedeji Peace', 'Andela EPIC Tower, Lagos', 'oyedejipeace@gmail.com', '07063707124', 'Akin Omobayo', 'University of Ibadan', 'akinomo@gmail.com','08123456789','Documents','3', '6', '5', '4','2000','New','Orogun Ibadan'),('Angelina Jolie', 'Andela EPIC Tower, Lagos', 'angelina@gmail.com', '07034123344', 'Jamal Smollet', 'University of Abuja', 'jsmollet@gmail.com','08123456789','Packages','3', '6', '5', '4','5000','Delivered','University of Ibadan')`
 
 
     const input = dropTables + enum_account + enum_role + userAccounts  + orders;

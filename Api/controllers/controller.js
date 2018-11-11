@@ -1,6 +1,6 @@
 //Import statments
 import model from '../seed/seeder';
-import database from '../db/Index';
+import database from '../db/config';
 
 
 class controller {
