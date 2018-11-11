@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
 import ordersRoutes from './Api/routes/index.js';
+import usersRoutes from './Api/routes/usersRoute';
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Parse incoming requests data
 app.use('/api/v1', ordersRoutes);
+app.use('/api/v1', usersRoutes);
 
 app.get('/api/v1', (req, res) => {
   return res.status(404).send({
