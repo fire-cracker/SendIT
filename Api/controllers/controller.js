@@ -1,6 +1,6 @@
 import db from '../db/db';
 /* eslint-disable class-methods-use-this */
-class controller {
+class Controller {
   getAllOrders(req, res) {
     return res.status(200).send({
       success: 'true',
@@ -10,7 +10,6 @@ class controller {
   }
 
   getOrder(req, res) {
-    try {
     let orderFound;
     const parcelId = parseInt(req.params.parcelId, 10);
     db.map((order) => {
@@ -22,47 +21,28 @@ class controller {
           order,
         });
       }
-    });if (!orderFound) {
+    }); if (!orderFound) {
       return res.status(404).send({
         success: 'false',
         message: 'order not found',
       });
-    }
-  }catch(error) {
-    return res.status(404).send({
+    } return res.status(404).send({
       success: 'false',
       message: 'order does not exist',
     });
-  }
   }
 
   createOrder(req, res) {
     const order = {
       parcelId: db.length + 1,
-      from: {
-        name: req.body.name,
-        address: req.body.address,
-        emailaddress: req.body.emailaddress,
-        phonenumber: req.body.phonenumber,
-      },
-    
-      to: {
-        toName: req.body.toName,
-        toAddress: req.body.toAddress,
-        toEmailaddress: req.body.toEmailaddress,
-        toPhonenumber: req.body.toPhonenumber,
-      },
-    
-      parceldetails: {
-        type: req.body.type,
-        weight: req.body.weight,
-        dimension: {
-          width: req.body.width,
-          length: req.body.length,
-          height: req.body.height,
-        }
-      },
-     
+      fromName: req.body.fromName,
+      fromAddress: req.body.fromAddress,
+      fromEmail: req.body.fromEmail,
+      toName: req.body.toName,
+      toAddress: req.body.toAddress,
+      toEmail: req.body.toEmail,
+      type: req.body.type,
+      weight: req.body.weight,
     };
     db.push(order);
     return res.status(201).send({
@@ -92,34 +72,19 @@ class controller {
 
     const neworder = {
       parcelId: orderFound.parcelId,
-      from: {
-        name: req.body.name || orderFound.name,
-        address: req.body.address || orderFound.address,
-        emailaddress: req.body.emailaddress || orderFound.emailaddress,
-        phonenumber: req.body.phonenumber || orderFound.phonenumber,
-      },
-    
-      to: {
-        toName: req.body.toName || orderFound.toName,
-        toAddress: req.body.toAddress || orderFound.toAddress,
-        toEmailaddress: req.body.toEmailaddress || orderFound.toEmailaddress,
-        toPhonenumber: req.body.toPhonenumber || orderFound.toPhoneNumber,
-      },
-    
-      parceldetails: {
-        type: req.body.type || orderFound.type,
-        weight: req.body.weight || orderFound.weight,
-        dimension: {
-          width: req.body.width || orderFound.width,
-          length: req.body.length || orderFound.length,
-          height: req.body.height || orderFound.height,
-        }
-      },
-    
+      fromName: req.body.fromName || orderFound.fromName,
+      fromAddress: req.body.fromAddress || orderFound.fromAddress,
+      fromEmail: req.body.fromEmail || orderFound.fromEmail,
+      toName: req.body.toName || orderFound.toName,
+      toAddress: req.body.toAddress || orderFound.toAddress,
+      toEmail: req.body.toEmail || orderFound.toEmail,
+      type: req.body.type || orderFound.type,
+      weight: req.body.weight || orderFound.weight,
+
     };
     db.splice(itemIndex, 1, neworder);
 
-    return res.status(201).send({
+    return res.status(200).send({
       success: 'true',
       message: 'order added successfully',
       neworder,
@@ -150,10 +115,7 @@ class controller {
       message: 'order deleted successfuly',
     });
   }
-
- 
 }
 
-
-const Controller = new controller();
-export default Controller;
+const controller = new Controller();
+export default controller;
