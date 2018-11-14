@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
     <!-- font -->
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
 </head>
 
 <!-- Body Section -->
@@ -25,11 +26,6 @@
     <!-- header with Navigation bar -->
     <header id="navBar">
         <div id="headerContent">
-            <aside>
-                <a href="index.html">
-                    <img src="css/img/logo.jpg" id="headerLogo" />
-                </a>
-            </aside>
 
             <div class="navigation">
                 <a id="login-nav" href="index.html">Logout</a>
@@ -40,15 +36,16 @@
         </div>
 
         <!-- Blinking text on Navigation bar -->
-        <div id="blink_caption">
+        <div id="blink_caption" href="home.html">
             <label id="blin" class="blink">Just SendIT!!!</label>
         </div>
     </header>
 
    <!-- Create Shipment Section -->
    <div id="createAshipment">
-   <h1> Create Shipment </h1>
-   <div id="shipmentOrder" action="mysuperscript.php" autocomplete="on" required>
+  
+   <div id="shipmentOrder" >
+        <h1> Create Shipment </h1>
     <div id="createShipment" class="createShipment">
             <form class="fromform" id="fromform" action="mysuperscript.php" autocomplete="on">
                 <div class="img_login">
@@ -58,73 +55,48 @@
             <div id="loginParticulars" class="required">
                     <label ><b>Name</b></label>
                     <input type="text" id="username" name="name" required>
-                    <label id="countryLabel"><b>Country</b></label>
-                    <input type="text" id="country" name="country" required>
                     <label id="addressLabel"><b>Address</b></label>
                     <input type="text" id="address" name="address" required>
                     <label id="emailLabel"><b>Email Address</b></label>
                     <input type="email" id="email" name="Email" required>
-                    <label id="phoneNumberLabel"><b>Phone Number</b></label>
-                    <input type="number" id="phoneNumber" name="phoneNumber" required>  
             </div>
-            </form>
+            <div class="img_login">
+                <h2> To </h2> 
+        </div>
 
-            <form class="toform" id="toform" action="mysuperscript.php" autocomplete="on">
-                    <div class="img_login">
-                            <h2> To </h2> 
-                    </div>
-    
-                    <div id="loginParticulars" class="required" >
-                        <label><b>Name</b></label>
-                        <input type="text" id="nameTo" name="username" required>
-                        <label id="countryLabel"><b>Country</b></label>
-                        <input type="text" id="countryTo" name="country" required>
-                        <label id="addressLabel"><b>Address</b></label>
-                        <input type="text" id="addressTo" name="address" required>
-                        <label id="emailLabel"><b>Email Address</b></label>
-                        <input type="email" id="emailTo" name="Email" required>
-                        <label id="phoneNumberLabel"><b>Phone Number</b></label>
-                        <input type="number" id="phoneNumberTo" name="phoneNumber" required>   
-                    </div>
-                </form>
-    </div>
+        <div id="loginParticulars" class="required" >
+            <label><b>Name</b></label>
+            <input type="text" id="nameTo" name="username" required>
+            <label id="addressLabel"><b>Address</b></label>
+            <input type="text" id="addressTo" name="address" required>
+            <label id="emailLabel"><b>Email Address</b></label>
+            <input type="email" id="emailTo" name="Email" required>  
+        </div>
 
-     <!-- Parcel Details Section -->
-    <div id="parcelDetails" action="mysuperscript.php" autocomplete="on" required>
-            <h2> Parcel Details </h2> 
-        <form class="Particulars" action="mysuperscript.php" autocomplete="on">
-            <div id="label">
-            <label id="typeLabel"><b>Type </b></label>
-                <div >
+        <label id="typeLabel"><b>Type </b></label>
                 <select id="parcelPreference" required>
                         <option>Documents</option>
                         <option>Packages</option>
                 </select>
-                </div>
-        </div>
+
         <div class="label" id="label">
-            <label id="weightLabel"><b>weight(kg) </b></label><br>
+            <label id="weightLabel"><b>weight(kg) </b></label>
             <input type="number" id="weight" name="weight" required> 
         </div>
         <div class="label" id="label">
-            <label id="dimensionLabel"><b>Dimension(cm)</b></label>
-            <div id="dimension"> 
-                <input type="number" id="length" placeholder="Length" name="length" required>  
-                <input type="number" id="width" placeholder="Width" name="wdith" required>  
-                <input type="number" id="height" placeholder="Height" name="height" required>  
-            </div>
-        </div>
-    </form> 
-        
-        <button type="submit" id="previewButton" class="submitBtn" type="submit">Preview</button>
+            <button type="submit" id="previewButton" class="submitBtn" type="submit">Preview</button>
+            </form>
+
+         
     </div>
+
 
 </div>
 </div>
 
 <div id="preview">
         <h1> Preview </h1>
-        <div id="shipmentOrderPreview">
+        <div id="shipmentOrderPreview" required>
          <div id="createShipmentPreview" class="createShipmentPreview">
 
                  <form class="fromPreview" id="fromPreview">
@@ -164,15 +136,6 @@
                  <b>weight(kg) :</b> <p id="weightPreview"></p>
                  <p> kg </p>
                  <br><br>
-                 <b>Dimension(cm) :</b>
-                 <div id="dimensionPreview"> 
-                     <p id="lengthPreview"></p>
-                     <p> x </p>
-                     <p id="widthPreview"></p> 
-                     <p> x </p>
-                     <p id="heightPreview"></p> 
-                     <p> cm </p>
-                 </div>
                  <b>Price :</b> <p id="parcelPreferencePreview">&#8358;8,100</p>
              </div> 
              <div id="buttons">
@@ -183,6 +146,8 @@
      
      </div>
      </div>
+
+    
     <!-- JavaScript -->
     <script type="text/JavaScript" src="js/home.js"></script>
 </body>

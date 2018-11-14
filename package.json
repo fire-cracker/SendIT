@@ -10,7 +10,7 @@
     "node": "10.9.0"
   },
   "scripts": {
-    "test": " npm run build && mocha dist/test/test.js --exit",
+    "test": " npm run build && mocha dist/test/*.js --exit",
     "start": "npm run build && node ./dist/app.js",
     "build": "npm run clear && babel ./ --out -d dist --ignore node_modules,UI",
     "clear": "rimraf dist coverage",
@@ -43,9 +43,10 @@
     "yamljs": "0.3.0"
   },
   "devDependencies": {
+    "babel-eslint": "^8.2.6",
     "chai": "4.1.2",
     "coveralls": "3.0.2",
-    "eslint": "5.5.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.14.0",
     "istanbul": "1.1.0-alpha.1",
