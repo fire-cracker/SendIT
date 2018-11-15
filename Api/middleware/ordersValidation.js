@@ -4,18 +4,19 @@
 * @param {*} res - response to the validity of the data
 * @param {*} next 
 */
+
 function orderValidation(req, res, next) {
     let wrong = {};
-    if (!(req.body.name)) { wrong.nameError = 'name of parcel sender is required'; }
-    if (!(req.body.address)) { wrong.addressError = 'address of parcel sender is required'; }
-    if (!(req.body.emailaddress)) { wrong.emailaddressError = 'emailaddress of parcel sender is required'; }
-    if ((req.body.phonenumber) != undefined) { if (!(Number.isInteger(parseInt(req.body.phonenumber))===true)) {wrong.phonenumberError = 'Phone number of parcel sender is not Valid';}} 
-    if (!(req.body.phonenumber)) { wrong.phonenumberError = 'Phone Number of parcel sender is Required'; }
-    if (!(req.body.toName)) { wrong.toNameError = 'name of recipient is required'; }
-    if (!(req.body.toAddress)) { wrong.toAddressError = 'address of recipient is required'; }
-    if (!(req.body.toEmailaddress)) { wrong.toEmailaddressError = 'emailaddress of recipient is required'; }
-    if ((req.body.toPhonenumber) != undefined) { if (!(Number.isInteger(parseInt(req.body.toPhonenumber))===true)) {wrong.toPhonenumber = 'Phone number of recipient is not Valid';}} 
-    if (!(req.body.toPhonenumber)) { wrong.toPhonenumberError = 'Phone number of recipient is required'; }
+    if (!(req.body.from_name)) { wrong.from_nameError = 'name of parcel sender is required'; }
+    if (!(req.body.from_address)) { wrong.from_addressError = 'address of parcel sender is required'; }
+    if (!(req.body.from_emailaddress)) { wrong.from_emailaddressError = 'emailaddress of parcel sender is required'; }
+    if ((req.body.from_phonenumber) != undefined) { if (!(Number.isInteger(parseInt(req.body.from_phonenumber))===true)) {wrong.phonenumberError = 'Phone number of parcel sender is not Valid';}} 
+    if (!(req.body.from_phonenumber)) { wrong.from_phonenumberError = 'Phone Number of parcel sender is Required'; }
+    if (!(req.body.to_name)) { wrong.to_nameError = 'name of recipient is required'; }
+    if (!(req.body.to_address)) { wrong.to_addressError = 'address of recipient is required'; }
+    if (!(req.body.to_emailaddress)) { wrong.to_emailaddressError = 'emailaddress of recipient is required'; }
+    if ((req.body.to_phonenumber) != undefined) { if (!(Number.isInteger(parseInt(req.body.to_phonenumber))===true)) {wrong.toPhonenumber = 'Phone number of recipient is not Valid';}} 
+    if (!(req.body.to_phonenumber)) { wrong.to_phonenumberError = 'Phone number of recipient is required'; }
     if (!(req.body.type)) { wrong.typeError = 'type of parcel is required'; }
     if ((req.body.weight) != undefined) { if (!(Number.isInteger(parseInt(req.body.weight))===true)) {wrong.weightError = 'weight is not Valid';}}
     if (!(req.body.weight)) { wrong.weightError = 'weight of parcel is required'; }
@@ -25,9 +26,30 @@ function orderValidation(req, res, next) {
     if (!(req.body.width)) { wrong.widthError = 'width of parcel is required'; }
     if ((req.body.height) != undefined) { if (!(Number.isInteger(parseInt(req.body.height))===true)) {wrong.heightError = 'height is not Valid';}}
     if (!(req.body.height)) { wrong.heightError = 'height of parcel is required'; }
+    if ((req.body.price) != undefined) { if (!(Number.isInteger(parseInt(req.body.price))===true)) {wrong.priceError = 'height is not Valid';}}
+    if (!(req.body.price)) { wrong.priceError = 'height of parcel is required'; }
     if ((Object.keys(wrong).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: wrong }); }
     next();
 }
+
+function statusValidation(req, res, next) {
+    let wrong = {};
+    if (!(req.body.order_status)) { wrong.order_statusError = 'order status is required'; }
+    if ((Object.keys(wrong).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: wrong }); }
+    next();
+};
+function locationValidation(req, res, next) {
+    let wrong = {};
+    if (!(req.body.present_location)) { wrong.present_locationError = 'present location of parcel  is required'; }
+    if ((Object.keys(wrong).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: wrong }); }
+    next();
+};
+function addressValidation(req, res, next) {
+    let wrong = {};
+    if (!(req.body.to_address)) { wrong.to_addressError = 'Destination of parcel is required'; }
+    if ((Object.keys(wrong).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: wrong }); }
+    next();
+};
  
 /**
 * Validate post and Put request contains a valid interger ID
@@ -35,21 +57,13 @@ function orderValidation(req, res, next) {
 * @param {*} res - response to the request Validity
 * @param {*} next 
 */
+
 function parcelIdValidation(req, res, next) {
-    const parcelId = req.params.parcelId;
-    if (parcelId === undefined || parcelId === null || parcelId === "") { 
-        console.log("got here")
-        return res.status(400).send({
-            success: 'false',
-            message: 'parcelId is required',
-          }); 
-    }else if (!(Number.isInteger(parseInt(parcelId))===true)){
-            console.log("got here 2") 
-            return res.status(400).send({
-                success: 'false',
-                message: ' parcelId is not Valid',
-              }); 
-          }
+    let wrong = {};
+    const id = req.params.parcelId;
+    if (id === undefined || id === null || id === "") { wrong.parcelId_Error = 'Bad Request, Parcel ID is Required'; }
+    else { if (!(Number.isInteger(parseInt(id))===true)) { wrong.status = 'unsuccessful'; wrong.parcelId_Error = 'Bad Request, Parcel ID is not Valid'; } }
+    if ((Object.keys(wrong).length) > 0) { return res.status(400).send({ status: "unsuccessful", Error_Log: wrong }); }
     next();
 }
 
@@ -61,5 +75,8 @@ function orderPostIdValidation(req, res, next) {
 export default {
     Validation: orderValidation,
     parcelIdValidation: parcelIdValidation,
-    PostIdValidation: orderPostIdValidation
+    PostIdValidation: orderPostIdValidation,
+    statusValidation:statusValidation,
+    locationValidation:locationValidation,
+    addressValidation:addressValidation
 };
