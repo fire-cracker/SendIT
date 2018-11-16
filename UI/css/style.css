@@ -1,13 +1,18 @@
-  /*Styling for the body background*/
+html{
+  height:100%;
+}
+* {
+  box-sizing: border-box;
+}
+/*Styling for the body background*/
 body {
     margin: 0px;
     width: 100%;
     height: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
-    -webkit-background-size: cover;
-   -moz-background-size: cover;
-   -o-background-size: cover;
+    background-size: 100% 100%;
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('img/background4.jpg');
+
   }
 
   h3{
@@ -39,7 +44,7 @@ button {
     width: 100%;
   }
 footer {
-    background-color: bisque;
+    background-color:rgb(76, 70, 118);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -68,111 +73,34 @@ footer {
   }
   
   #license {
-    background-color: burlywood;
+    background-color: rgb(76, 70, 118);
     width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
     text-align: center;
+    color: white;
     align-content: center;
     bottom: 0;
   }
 
-  /*Styling for newsletter and login div*/
-  #flex {
-    display: flex;
-    margin-bottom: 0px;
-    justify-content: space-between;
-    height:80%;
-    width:100%;
-    border-color: blue;
-    border:2px solid;
-  }  
-  
-  /*  Styling for the Mail Subscription Section of the Home Page*/
-#newsLetter {
-    float:left;
-    left: 0px;
-    position:fixed;
-    margin:140px 10px 60px 10px;
-    background-color: rgb(148, 84, 84);
-    opacity: 0.8;  
-    width: 25%;
-    height: 50%;
-    text-align: center;
-  }
-
-  #newsletterTag {
-    font-family: sofia;
-    font-size: 18px;
-    width:25%;
-    opacity: 11; 
-  }
-
-  .newsLetterBody{
-    display: block;
-  text-align: left;
-  padding: 8px 8px 0px 0px;
-  }
-  
-  .newsLetterBtn{
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    cursor: pointer;
-    width: 80px;
-  }
-  
-  #newsLetterPreference {
-    width: 150px;
-    height: 30px;
-    border-radius: 5px;
-  }
-  
-  #newsLetterEmail{
-    width: 200px;
-    height: 20px;
-    text-align: left;
-    border-radius: 5px;
-  }
-
-  .newsletterLabel{
-    display: block;
-    text-align: left;
-    width: 70%;
-    margin: 10px 0px 0px 20px;
-  }
-  .newsLetterInput{
-    display: block;
-    text-align: left;
-    margin-left: 30px;
-    width:25%;
-    padding: 8px 0px 8px 50px;
-  }
-  .newsletterLabel > div{
-    padding: 8px 8px 8px 0px;
-  }
-
+ 
    /* Styling the login/Signin container background */
    form div{
-    padding: 8px 8px 8px 0px;
+    padding: 0px;
 }
 #register, 
 #login{
        float:left;
        right: 0px;
-       margin:34px 10px 0px 10px;
+       margin: 29% 15% 0% 5%;
        overflow: auto;
        position: fixed;
        top: 0px;
-       width: 25%;	
-       height:79%;
-       padding: 18px 6% 20px 6%;
-       border: 1px solid #888;
-       box-shadow:	
-           0pt 2px 5px rgba(105, 108, 109,  0.7),	
-           0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-       border-radius: 30px 30px  30px 30px;	
-       background-color: rgba(222, 184, 135, 0.671);
+       width: 68%;	
+       height:60%;
+       padding: 1% 1% 1% 1%;
+       border: 2px solid grey;
+       border-radius:10px;
    }
 
 
@@ -189,7 +117,7 @@ input {
 }
 
 .to_register {
-    color:rgba(49, 15, 15, 0.466);
+    color:whitesmoke;
 }
 
 #loginBtn,
@@ -197,31 +125,39 @@ input {
   border-radius: 10px;
   text-align: center;
 }
+
 /* Styling for the username and password input fields */
 #username,
 .password,
 #confirmPassword,
 #email {
   width: 100%;
-  padding: 12px 20px;
+  padding: 5px 20px;
   margin: 8px 0;
+  height: 40px;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
   border-radius: 5px;
 }
-#confirmPassword2{
+/* #confirmPassword2{
   margin: 90px 0px 0px 0px;
-}
+} */
 
   /*Styling for the Password Validation Message which pops out when writting password*/
 #message {
-    float:left;
-    right: 0px;
-    display: none;
+    display:none;
     background: #f1f1f1;
     color: #000;
     opacity: 0.7;
+    float:left;
+    left: 54%;
+    width: 17%;
+    margin: 11% 40% 0% 5%;
+    overflow: auto;
+    position: fixed;
+    top: 0px;
+    padding: 1% 1% 1% 1%;
   }
   
   #message h3 {
@@ -235,14 +171,14 @@ input {
   }
   .container {
     text-align: center;
-    padding: 10px;
-    background-color: #f1f1f1;
+    padding: 1%;
+    color:white;
   }
 
-  #message,
-  #validation{
-    overflow: auto;
-    position: fixed;
+  .validation{
+    display:flex;
+    flex-direction: row;
+   
   }
   
 
@@ -282,8 +218,16 @@ input {
 .img_login {
     text-align: center;
     position: relative;
-    padding: 5px;
-    margin: 5px 0 0px 0;
+    padding: 0px;
+    margin: 0px 0px;
+    height:30px;
+  }
+  h1{
+    margin: 0px;
+    color:#f1f1f1;
+  }
+  label{
+    color:#f1f1f1;
   }
   
   /*Styling the Fast Food Fast Logo in the login view*/
@@ -297,6 +241,25 @@ input {
     text-align: left;
   }
   
+   /* For desktop: */
+  @media only screen and (min-width: 768px) {
+    #register, 
+    #login{
+          
+           margin: 9% 35% 0% 5%;
+           width: 30%;	
+           height:65%;
+       }
+       
+  }
  
- 
-  
+ /* For tablets:
+  @media only screen and (min-width: 600px) {
+    #register, 
+    #login{
+          
+      margin: 5% 20% 0% 5%;
+      width: 60%;
+      height: 100%;
+       }
+  } */

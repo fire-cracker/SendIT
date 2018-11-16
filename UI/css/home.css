@@ -1,66 +1,50 @@
  /*Styling for the body background*/
-body {
+ body {
     margin: 0px;
     width: 100%;
     height: 100%;
     padding: 0px;
-    background-color: #c79c9c;
+  
 }
 
  /* Styling the create Shipment Section */
  h1{
     margin: 0% 0% 0% 0%;
     text-align: center;
+    margin: 10% 15% 0% 15%;
 }
 
  #createAshipment{
-    margin: 5% 0% 0% 0%;
-    position:auto;
-    display:block;
+    margin: 5% 5% 0% 5%;
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
- .createShipment{
-    display:flex;
-    margin: 5px 0px 0px 12%;
-}
-
-#toform{
-       margin:10px 30px 0px 0px;
-       overflow: auto;
-       top: 0px;
-       width: 30%;	
-       height:79%;
-       padding: 18px 4% 20px 4%;
-       border: 1px solid #888;
-       box-shadow:	
-           0pt 2px 5px rgba(105, 108, 109,  0.7),	
-           0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-       border-radius: 30px 30px  30px 0px;	
-       background-color: rgba(222, 184, 135, 0.671);
-}
 #fromform{
-    margin:10px 0px 0px 50px;
+    margin: 10px 90% 30px 0%;
     overflow: auto;
     top: 0px;
-    width: 30%;	
+    width: 90%;
     height:79%;
     padding: 18px 4% 20px 4%;
     border: 1px solid #888;
     box-shadow:	
         0pt 2px 5px rgba(105, 108, 109,  0.7),	
         0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
-    border-radius: 30px 30px  0px 30px;	
-    background-color: rgba(222, 184, 135, 0.671);
+    border-radius: 5px;	
+   
 }
 
 #loginParticulars{
     padding: 10px;
     text-align: left;
+    font-size: 80%;
   }
 
 #loginParticulars>input{
     width: 100%;
-  padding: 12px 20px;
+    padding: 5px 20px;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
@@ -71,20 +55,6 @@ body {
   }
 
  /* Styling the Parcel Details Section */
- #parcelDetails{
-    overflow: auto;
-    top: 0px;
-    width: 100%;	
-    height:79%;
-    padding: 18px 0% 20px 0%;
-    text-align: center;
-    border: 1px 0px solid #888;
-    box-shadow:	
-        0pt 2px 5px rgba(105, 108, 109,  0.7),	
-        0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;	
-    background-color: rgba(222, 184, 135, 0.671);
-}
-
 .label{
     padding: 2% 0px 0% 0%;
 }
@@ -94,7 +64,7 @@ body {
 }
  #dimension{
     display:flex;
-    margin: 0% 0px 1% 40%;
+   
   }
   #dimension>input{
     width: 10%;
@@ -110,7 +80,6 @@ body {
 
 #parcelPreference {
     margin: 1% 0px 0% 0%;
-    width: 15%;
     height: 35px;
     padding: 0% 1%;
     border-radius: 5px;
@@ -150,10 +119,10 @@ input[type=number]::-webkit-outer-spin-button {
     background-color: rgba(0, 0, 0, 0.705);
     color: white;
     padding: 14px 20px;
-    margin: 0% 0% 1% 87%;
+    margin: 0% 0% 1% 65%;
     border: none;
     cursor: pointer;
-    width: 10%;
+    width: 35%;
     border-radius: 10px;
     text-align: center;
     font-size: 120%;
@@ -227,4 +196,29 @@ p{
   }
 
  
-  
+   /* For desktop: */
+   @media only screen and (min-width: 768px) {
+    h1{
+        margin: 0% 0% 0% 0%;
+        text-align: center;
+        margin: 5% 30% 0% 5%;
+    }
+    #fromform{
+        margin:1% 10% 0px 0%;
+        width: 70%;	
+        height:79%;
+    }
+    #createAshipment{
+        margin: 2% 0% 0% 15%;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #previewButton {
+        padding: 14px 20px;
+        margin: 0% 0% 1% 80%;
+        width: 15%;
+        border-radius: 10px;
+        font-size: 120%;
+      }
+  }
