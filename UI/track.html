@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Andela Developer Challenge, SendIT">
+    <meta name="keywords" content="HTML,CSS,JavaScript,SendIT,Andela,Developer Challenge">
+    <meta name="author" content="Oyedeji Peace">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Tracking</title>
+    <!-- Favicon -->
+    <link rel="icon" href="css/img/logo.jpg" sizes="16x16" />
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/tracking.css" />
+    <link rel="stylesheet" type="text/css" href="css/nav.css" />
+    <!-- font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
+</head>
+
+<!-- Body Section -->
+
+<body>
+    <!-- header with Navigation bar -->
+    <header id="navBar">
+        <div id="headerContent">
+
+            <div class="navigation" id="navigation">
+                <a id="login-nav" href="index.html">Logout</a>
+                <a id="home" href="profile.html">Profile</a>
+                <a id="contact" href="home.html">Home</a>
+                <a id="menu" href="track.html" class="active">Track</a>
+                <a href="javascript:void(0);" class="icon" id="icon">
+                    <i class="fa fa-bars"></i>
+                  </a>
+            </div>
+        </div>
+
+        <!-- Blinking text on Navigation bar -->
+        <div id="blink_caption" href="home.html">
+            <label id="blin" class="blink">Just SendIT!!!</label>
+        </div>
+    </header>
+
+    <!--  Parcel delivery Orders Section -->
+    <div id="informationFields"></div>
+    <div id="preview">
+            <h1> Parcel delivery Orders </h1>
+            <div id="information">
+                 
+                            <div id="shipmentOrderPreview" class = 'new'>
+                                    <div id="createShipmentPreview" class="createShipmentPreview">
+                                     <form class="fromPreview" id="fromPreview">
+                                         <div class="img_login">
+                                                 <h2> From </h2> 
+                                         </div>
+                                     <div id="particulars">
+                                        <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                                       <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                                       <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                                    </div>
+                                     </form>
+                         <section class="particulars"></section>
+                                     <form class="toPreview" id="toPreview">
+                                             <div class="img_login">
+                                                     <h2> To </h2> 
+                                             </div>
+                             
+                                                 <div id="particulars">
+                                                <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                                                <b>Address :</b> <br>
+                                                <div id="changeAddress">
+                                                <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p>
+                                                <input type="text" id="address" class="address" name="address">
+                                                <!-- <button id="editButton" class="editButton" type="submit">Edit</button> -->
+                                             </div> 
+                                               <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                                            </div>
+                                            </form>
+                                            <section class="particulars"></section>
+                         <!-- Parcel Details Section -->
+                                            <div id="parcel">
+                                                    <h2> Parcel Details </h2> 
+                                                    <div>
+                                                    <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                                    <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                                    <p> kg </p>
+                                                    <br>
+                                                    <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                                    <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                                                </div> 
+                                       </div>
+                                            </div>
+                        
+                                            <div id="buttons">
+                                                    <!-- Parcel order status section -->
+                                                <div>
+                                                    </b> <p id="pending">New</p>
+                                                </div>
+                                                <div id="presentLocation">
+                                                    <b>Present Location :</b> <p id="location" class="presentLocation">University of Abuja,Gwagwalada, FCT</p>
+                                                </div>
+                                                    <div>
+                                                    <button id="cancelButton" class="cancelButton" type="submit">Cancel</button>
+                                                    <button id="cancelled" class="cancelled" type="submit">Cancelled</button>
+                                                </div>
+                                            </div>
+                             
+                           
+                        </div>
+                          
+                        <div id="shipmentOrderPreview" class = 'new'>
+                                <div id="createShipmentPreview" class="createShipmentPreview">
+                                 <form class="fromPreview" id="fromPreview">
+                                     <div class="img_login">
+                                             <h2> From </h2> 
+                                     </div>
+                                 <div id="particulars">
+                                    <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                                   <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                                   <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                                </div>
+                                 </form>
+                     <section class="particulars"></section>
+                                 <form class="toPreview" id="toPreview">
+                                         <div class="img_login">
+                                                 <h2> To </h2> 
+                                         </div>
+                         
+                                             <div id="particulars">
+                                            <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                                            <div id="changeAddress">
+                                            <b>Address :</b> <br>
+                                                <div id ="destination" class ="destination"> 
+                                            <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p>
+                                            <!-- <button id="editButton" class="editButton" type="submit">Edit</button> -->
+                                        </div> 
+                                            <div id ="newDestination" class ="newDestination"> 
+                                            <input type="text" id="address" class="address" name="address">
+                                            <button id="editButtonbtn" class="editButton" type="submit">Submit</button>
+                                        </div>
+                                    </div> 
+                                           <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                                        </div>
+                                        </form>
+                                        <section class="particulars"></section>
+                     <!-- Parcel Details Section -->
+                                        <div id="parcel">
+                                                <h2> Parcel Details </h2> 
+                                                <div>
+                                                <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                                <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                                <p> kg </p>
+                                                <br>
+                                                <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                                <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                                            </div> 
+                                   </div>
+                                        </div>
+                    
+                                        <div id="buttons">
+                                                <!-- Parcel order status section -->
+                                            <div>
+                                                </b> <p id="pending">New</p>
+                                            </div>
+                                            <div id="presentLocation">
+                                                <b>Present Location :</b> <p id="location" class="presentLocation">University of Abuja,Gwagwalada, FCT</p>
+                                            </div>
+                                                <div>
+                                                <button id="cancelButton2" class="cancelButton" type="submit">Cancel</button>
+                                                <button id="cancelled2" class="cancelled" type="submit">Cancelled</button>
+                                            </div>
+                                        </div>
+                         
+                       
+                    </div>
+                   
+              
+            <div id="shipmentOrderPreview" class = 'pending'>
+                    <div id="createShipmentPreview" class="createShipmentPreview">
+                            <form class="fromPreview" id="fromPreview">
+                                <div class="img_login">
+                                        <h2> From </h2> 
+                                </div>
+                            <div id="particulars">
+                               <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                              <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                              <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                           </div>
+                            </form>
+                <section class="particulars"></section>
+                            <form class="toPreview" id="toPreview">
+                                    <div class="img_login">
+                                            <h2> To </h2> 
+                                    </div>
+                    
+                                        <div id="particulars">
+                                       <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                                       <div id="changeAddress">
+                                            <b>Address :</b> <br>
+                                                <div id ="destination2" class ="destination"> 
+                                            <p id="previewAddressTo2" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p>
+                                            <!-- <button id="editButton2" class="editButton" type="submit">Edit</button> -->
+                                        </div> 
+                                            <div id ="newDestination2" class ="newDestination"> 
+                                            <input type="text" id="address2" class="address" name="address">
+                                            <button id="editButton2" class="editButton" type="submit">Edit</button>
+                                        </div>
+                                    </div> 
+                                      <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                                   </div>
+                                   </form>
+                                   <section class="particulars"></section>
+                <!-- Parcel Details Section -->
+                                   <div id="parcel">
+                                           <h2> Parcel Details </h2> 
+                                           <div>
+                                           <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                           <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                           <p> kg </p>
+                                           <br>
+                                           <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                           <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                                       </div> 
+                              </div>
+                                   </div>
+            <div id="buttons">
+                    <!-- Parcel order status section -->
+                <div>
+                    </b> <p id="pending">Pending</p>
+                </div>
+                <div id="presentLocation">
+                    <b>Present Location :</b> <p id="location" class="presentLocation">University of Abuja,Gwagwalada, FCT</p>
+                </div>
+                    <div>
+                    <button id="cancelButton3" class="cancelButton" type="submit">Cancel</button>
+                    <button id="cancelled3" class="cancelled" type="submit">Cancelled</button>
+                </div>
+            </div>
+         </div>
+         <div id="shipmentOrderPreview" class = 'pending'>
+                <div id="createShipmentPreview" class="createShipmentPreview">
+                        <form class="fromPreview" id="fromPreview">
+                            <div class="img_login">
+                                    <h2> From </h2> 
+                            </div>
+                        <div id="particulars">
+                           <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                          <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                          <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                       </div>
+                        </form>
+            <section class="particulars"></section>
+                        <form class="toPreview" id="toPreview">
+                                <div class="img_login">
+                                        <h2> To </h2> 
+                                </div>
+                
+                                    <div id="particulars">
+                                   <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                                   <div id="changeAddress">
+                                        <b>Address :</b> <br>
+                                            <div id ="destination3" class ="destination"> 
+                                        <p id="previewAddressTo3" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p>
+                                        <!-- <button id="editButton3" class="editButton" type="submit">Edit</button> -->
+                                    </div> 
+                                        <div id ="newDestination3" class ="newDestination"> 
+                                        <input type="text" id="address3" class="address" name="address">
+                                        <!-- <button id="editButton3" class="editButton" type="submit">Edit</button> -->
+                                    </div>
+                                </div> 
+                                  <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                               </div>
+                               </form>
+                               <section class="particulars"></section>
+            <!-- Parcel Details Section -->
+                               <div id="parcel">
+                                       <h2> Parcel Details </h2> 
+                                       <div>
+                                       <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                       <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                       <p> kg </p>
+                                       <br>
+                                       <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                       <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                                   </div> 
+                          </div>
+                               </div>
+        <div id="buttons">
+                <!-- Parcel order status section -->
+            <div>
+                </b> <p id="pending">Pending</p>
+            </div>
+            <div id="presentLocation">
+                <b>Present Location :</b> <p id="location" class="presentLocation">University of Abuja,Gwagwalada, FCT</p>
+            </div>
+                <div>
+                <button id="cancelButton4" class="cancelButton" type="submit">Cancel</button>
+                <button id="cancelled4" class="cancelled" type="submit">Cancelled</button>
+            </div>
+        </div>
+     </div>
+   
+   
+     <div id="shipmentOrderPreview" class = 'delivered'>
+            <div id="createShipmentPreview" class="createShipmentPreview">
+                    <form class="fromPreview" id="fromPreview">
+                        <div class="img_login">
+                                <h2> From </h2> 
+                        </div>
+                    <div id="particulars">
+                       <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                      <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                      <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                   </div>
+                    </form>
+        <section class="particulars"></section>
+                    <form class="toPreview" id="toPreview">
+                            <div class="img_login">
+                                    <h2> To </h2> 
+                            </div>
+            
+                                <div id="particulars">
+                               <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                               
+                                    <b>Address :</b>
+                                    <p id="previewAddressTo4" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p>
+                         <br>
+                              <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                           </div>
+                           </form>
+                           <section class="particulars"></section>
+        <!-- Parcel Details Section -->
+                           <div id="parcel">
+                                   <h2> Parcel Details </h2> 
+                                   <div>
+                                   <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                   <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                   <p> kg </p>
+                                   <br>
+                                   <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                   <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                               </div> 
+                      </div>
+                           </div>
+    <div id="buttons">
+            <!-- Parcel order status section -->
+        <div>
+            </b> <p id="pending">Delivered</p>
+        </div>
+    </div>
+ </div>       
+ <div id="shipmentOrderPreview" class = 'delivered'>
+        <div id="createShipmentPreview" class="createShipmentPreview">
+                <form class="fromPreview" id="fromPreview">
+                    <div class="img_login">
+                            <h2> From </h2> 
+                    </div>
+                <div id="particulars">
+                   <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                  <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                  <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+               </div>
+                </form>
+    <section class="particulars"></section>
+                <form class="toPreview" id="toPreview">
+                        <div class="img_login">
+                                <h2> To </h2> 
+                        </div>
+        
+                            <div id="particulars">
+                           <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                           <b>Address :</b> <br>
+                           <div id="changeAddress">
+                           <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p>
+                        </div> 
+                          <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                       </div>
+                       </form>
+                       <section class="particulars"></section>
+    <!-- Parcel Details Section -->
+                       <div id="parcel">
+                               <h2> Parcel Details </h2> 
+                               <div>
+                               <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                               <b>weight(kg):</b> <p id="weightPreview">20</p>
+                               <p> kg </p>
+                               <br>
+                               <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                               <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                           </div> 
+                  </div>
+                       </div>
+<div id="buttons">
+        <!-- Parcel order status section -->
+    <div>
+        </b> <p id="pending">Delivered</p>
+    </div>
+</div>
+</div> 
+</div>
+         </div> 
+        </div> 
+
+
+    <!-- JavaScript -->
+    <script type="text/JavaScript" src="js/tracking.js"></script>
+    <script type="text/JavaScript" src="js/nav.js"></script>
+</body>
+
+</html>

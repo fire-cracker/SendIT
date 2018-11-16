@@ -1,0 +1,284 @@
+/* Styling the body background */
+body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+ 
+}
+h1{
+    text-align: center;
+    margin: auto;
+    width: 95%;
+    height: max-content;
+    color: black;
+    font-size: 100%;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h2{
+    margin: 0% 0% 0% 0%;
+    padding: 3% 0% 5% 0%;
+    color: black;
+}
+/* Styling the Text */
+b, p{
+    color: black;
+    font-family: 'sans serif';
+}
+p{
+    display: inline-block;
+    margin: 1px;
+}
+/* Styling the Top background Section */
+#section3 {
+    height: 170px;
+    width: 100%;
+    background-image: url("img/background3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ 
+ /* Styling the Parcel delivery Orders Section background */
+#information{
+    color: #e9e9e9;
+    font-size: 18px;
+    border-radius: 5px;
+    height: max-content;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+  }
+
+ /* Styling the Parcel delivery Orders Section */
+#informationFields{
+  margin-top: 20px;
+  height: max-content;
+  text-align: left;
+}
+#preview{
+    margin: 10% 10% 0% 5%;
+    height: 90%;
+    width: 90%;
+    background-color: rgba(51, 51, 51, 0);
+    text-align: left;
+    
+}
+p{
+    display: inline-block;
+    margin: 1px;
+    font-family: 'sans serif';
+}
+
+#shipmentOrderPreview{
+ margin: 2% 0% 0% 1%;
+ overflow: auto;
+ top: 0px;
+ width: 90%;	
+ height: 240px;
+ padding: 0px 4% 0px 4%;
+ border-bottom: 1px solid black;
+ border-left: 1px solid black;
+ border-right: 1px solid black;	
+}
+
+/* .new{
+    box-shadow:	5px 5px rgba(140, 110, 224, 0.4);
+}
+.pending{
+    box-shadow:	5px 5px rgba(241, 220, 101, 0.7);
+}
+
+.delivered{
+    box-shadow:	5px 5px	rgba(94, 224, 82, 0.4);
+} */
+
+#createShipmentPreview{
+    display:flex;
+    justify-content: space-between;
+}
+
+#fromPreview,
+#toPreview,
+#parcel{
+    padding: 0px 10px 10px 10px;
+    margin: 0px 0px 0px 0px;
+    font-size: 100%;
+    display: inline-block;
+  }
+
+/* .particulars{
+    height:200px;
+    border-right:1px solid black;
+  } */
+#particulars{
+    padding: 0px 2%
+  }
+
+/* Styling the buttons */
+#cancelled,#cancelButton{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: black;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+  }
+  #cancelled{
+    background-color: green;
+    display:none;
+     outline:none;
+  }
+  #cancelButton:hover{
+    background-color: rgb(245, 155, 155);
+     outline:none;
+  }
+  #cancelButton{
+    background-color: red;
+    display:block;
+  }
+  #cancelled2,#cancelButton2{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: black;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+  }
+  #cancelled2{
+    background-color: green;
+    display:none;
+     outline:none;
+  }
+  #cancelButton2:hover{
+    background-color: rgb(245, 155, 155);
+     outline:none;
+  }
+  #cancelButton2{
+    background-color: red;
+    display:block;
+  }
+  #cancelled3,#cancelButton3{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: black;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+  }
+  #cancelled3{
+    background-color: green;
+    display:none;
+     outline:none;
+  }
+  #cancelButton3:hover{
+    background-color: rgb(245, 155, 155);
+     outline:none;
+  }
+  #cancelButton3{
+    background-color: red;
+    display:block;
+  }
+  #cancelled4,#cancelButton4{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: black;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+  }
+  #cancelled4{
+    background-color: green;
+    display:none;
+     outline:none;
+  }
+  #cancelButton4:hover{
+    background-color: rgb(245, 155, 155);
+     outline:none;
+  }
+  #cancelButton4{
+    background-color: red;
+    display:block;
+  }
+#buttons{
+  display:flex;
+  justify-content: space-between;
+}
+
+#editButton{
+    display:block;
+    height:10%;
+  }
+#changeAddress{
+    display: flex;
+}
+.destination{
+    display:block;
+}
+.newDestination{
+    display:none;
+}
+#previewAddressTo{
+    display:block;
+  }
+#address{
+    display:none;
+  }
+
+/* Styling the Parcel order status section */
+#presentLocation {
+    display: block;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 100%;
+    padding: 3px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#pending {
+    float:left;
+  display: block;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: white;
+  font-size: 70%;
+  padding: 2% 8%;
+  border-radius: 50px;
+  text-align: center;
+  width:120px;
+}
+.new #pending{
+    background-color: rgb(50, 42, 127);
+   
+}
+.pending #pending{
+    background-color:  grey;
+}
+.delivered #pending{
+    background-color: rgb(127, 225, 14);
+}
+
+  /* For desktop: */
+  @media only screen and (min-width: 768px) {
+    #preview{
+        margin: 5% 10% 0% 5%;
+    }
+  }
+
+  h1{
+    font-size: 200%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+#pending {
+    font-size: 70%;
+    padding: 2% 8%;
+  }

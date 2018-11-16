@@ -105,12 +105,21 @@ function validate(attribute, check, count){
 /* checks if the text entered in the "password section"
 and "confirm password" section are the same
 */
-confirmPassword.onkeyup = function () {
-    if (confirmPassword.value == password.value) {
-        comparePassword.style.color = 'green';
-        comparePassword.innerHTML = 'Password matching';
+// confirmPassword.onkeyup = function () {
+//     if (confirmPassword.value == password.value) {
+//         comparePassword.style.color = 'green';
+//         comparePassword.innerHTML = 'Password matching';
+//     } else {
+//         comparePassword.style.color = 'red';
+//         comparePassword.innerHTML = 'Password not matching';
+//     }
+// }
+
+window.onresize =evt => {
+    console.log(window.innerWidth);
+    if (innerWidth > 768) {
+        document.getElementById("heroWhite").style.display = 'block';
     } else {
-        comparePassword.style.color = 'red';
-        comparePassword.innerHTML = 'Password not matching';
+        document.getElementById("heroWhite").style.display = 'none';
     }
 }

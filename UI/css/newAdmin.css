@@ -1,0 +1,161 @@
+h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: .5rem;
+    line-height: 1;
+    word-break: break-word;
+    word-wrap: break-word;
+}
+h4 {
+    display: block;
+    margin-block-start: 1.33em;
+    margin-block-end: 1.33em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.tabsSectionAttribs {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    background-color: #f9f9f9;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    word-wrap: break-word;
+    display: block;
+    box-sizing: border-box;
+}
+.container, .containerFluid {
+    position: relative;
+    word-wrap: break-word;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.displayTwo {
+    font-family: 'Rubik', sans-serif;
+    font-size: 3rem;
+    font-style: normal;
+    line-height: 1.2;
+    text-align: center;
+    word-break: break-word;
+    padding-bottom: 1rem!important;
+    font-weight: 300;
+}
+
+.tabsSectionAttribs .tabContent {
+    margin-top: 3rem;
+    width: 100%;
+    justify-content: center;
+}
+.row {
+    display: -webkit-flex;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-left: .25rem!important;
+}
+.tabsSectionAttribs .navTabs {
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    border-bottom: none;
+}
+.navTabs {
+    display: -webkit-flex;
+    -webkit-flex-wrap: wrap;
+    border-bottom: 1px solid #dee2e6;
+    margin-top: 3rem!important;
+    padding-top: 1rem!important;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.tabsSectionAttribs .navTabs .navLink {
+    box-sizing: border-box;
+    color: #767676;
+    font-style: normal;
+    font-weight: 500;
+    border-radius: 3px;
+    padding: 1rem 3rem;
+    margin: 0.4rem .8rem !important;
+    transition: color .3s;
+    border: 2px solid #767676;
+}
+.navTabs .navLink {
+    border-radius: 100px !important;
+}
+.navTabs .navItem {
+    margin-bottom: -1px;
+}
+.navLink {
+    display: block;
+    padding: .5rem 1rem;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1rem;
+}
+a, a:hover {
+    text-decoration: none;
+}
+a {
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+section, .container, .containerFluid {
+    position: relative;
+    word-wrap: break-word;
+}
+/* .tabContent>.tabPane {
+    display: none;
+} */
+.tabsSectionAttribs .tabContentRow {
+    -webkit-justify-content: center;
+    justify-content: center;
+}
+.tabContent>.active {
+    display: block;
+}
+.colMediumSix {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.displayFive {
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: .5rem!important;
+}
+@media (min-width: 768px){
+.container {
+    max-width: 720px;
+}
+.colMediumSix {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+}
+@media (min-width: 576px){
+.container {
+    max-width: 540px;
+}
+}
