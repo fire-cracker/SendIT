@@ -12,7 +12,7 @@ if (process.env.NODE_ENV === 'test') {
 if (process.env.NODE_ENV === 'production') {
   connection = process.env.HEROKU_POSTGRESQL_RED_URL;
 }
-const pool = new Pool({ connectionString: connection || process.env.DATABASE_TEST });
+const pool = new Pool({ connectionString: connection || process.env.DATABASE_TEST || process.env.DATABASE_DEV });
 
 
 export default {

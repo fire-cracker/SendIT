@@ -1,16 +1,19 @@
 language: node_js
 node_js:
   - "10.9.0"
+services: 
+- postgres
 
 script:
   - npm run build
   - npm run coverage
 
 before_install:
-  - npm i -g babel-preset-env mocha supertest node-dev babel-cli rimraf coveralls istanbul
+  - npm i -g babel-preset-env mocha supertest node-dev babel-cli rimraf coveralls istanbul pg
 
 before_script:
-  - psql -c 'create database SendIT_db;' -U postgres
+  - psql -c 'create database sendit_db;' -U postgres
+
 
 after_script:
   - ./node_modules/coveralls/bin/coveralls.js < ./coverage/lcov.info  && npm run clear

@@ -12,19 +12,20 @@ export const userToken = {
   valid_inexistingUser: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo2LCJ1c2VyX3Bhc3N3b3JkIjoiJDJhJDEwJEhaR0xWM2dOT0FoWkQ5a3J4cWJjak9mbXhNYnJuWjdUZlVtWkdBVTZ4RDM1R2pUVlpHN2FTIiwidXNlcl9yb2xlIjoiVXNlciIsInVzZXJfZW1haWwiOiJ1bmV4aXN0aW5ndXNlckB1c2VyYWRkcmVzcy5jb20iLCJ1c2VyX25hbWUiOiJ1bmV4aXN0aW5ndXNlciIsImlhdCI6MTU0MDAwMjA2NywiZXhwIjo0MDAxNTQwMDAyMDY3fQ.jAb0Wngs_eeeL9j5QMqQk9_aCCbbSACPZztL9qHwCfA',
 };
 
-// Model data for a complete user data
-export const fullUser = {
-  userName: 'testUser',
-  userEmail: 'testUser1@address.com',
+//Login  Model
+export const wrongData2 = {
+  userEmail: '',
   userPassword: 'P@ssword',
 };
-
+export const wrongData3 = {
+  userEmail: 'testEmail@address.com',
+  userPassword: '',
+};
 // Model data for a  user that no longer exist
 export const fullUser3 = {
   userEmail: 'testUser1234@gmail.com',
   userPassword: 'P@ssword',
 };
-
 // Model data for login purpose
 export const loginUser = {
   userEmail: 'backendtester1@address.com',
@@ -34,6 +35,32 @@ export const loginUser = {
 export const fullUser2 = {
   userEmail: 'backendtester1@address.com',
   userPassword: 'backendtester',
+};
+
+// Model data for wrongData
+export const wrongData = {
+  userName: '',
+  userEmail: 'testEmailaddress.com',
+  userPassword: 'P@ssword',
+};
+
+// Model data for min length test
+export const wrongMinLength = {
+  userName: 'Op',
+  userEmail: 't@gmail.com',
+  userPassword: 'P@ss',
+};
+// Model data for max length test
+export const wrongMaxLength = {
+  userName: 'Opeoluwa Ayodela Abioye Abiola Opeoluwa Ayodela Abioye Abiola',
+  userEmail: 't@gmail.com',
+  userPassword: 'P@ss',
+};
+// Model data for a complete user data
+export const fullUser = {
+  "userName": "oyedejipeace",
+  "userEmail": "testpeace@address.com",
+  "userPassword": "P@ssword123"
 };
 
 // Instance of the database content

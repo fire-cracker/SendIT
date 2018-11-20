@@ -1,5 +1,4 @@
 // Import statments
-import model from '../seed/seeder';
 import database from '../db/config';
 
 
@@ -61,13 +60,19 @@ class Controller {
     *  @param {*} res - response to the sucess of the event
 */
   async createOrder(req, res) {
-    const newOrder = model.seeder(req);
-    console.log(model.seeder(req));
+    const {
+      toName, toAddress, toEmail, fromName, fromAddress, fromEmail, type, weight, price,
+    } = req.body;
+    const newOrder = [req.body.userId = req.body.userId, fromName, fromAddress, fromEmail,
+      toName, toAddress, toEmail, type, weight, price];
+    console.log(newOrder);
     const command = `INSERT INTO
     orders("userId","fromName", "fromAddress", "fromEmail", "toName", "toAddress", "toEmail", type, weight, price)
       VALUES($1, $2, $3, $4, $5,$6, $7, $8, $9, $10)
       returning *`;
     const { rows } = await database.query(command, newOrder);
+    const result = { rows };
+    // console.log(result);
     return res.status(201).send({
       order_sent: rows[0],
       status: 'Order Sent Successfully',
@@ -76,7 +81,8 @@ class Controller {
 
 
   async updateDestination(req, res) {
-    const order = model.destination(req);
+    const { toAddress } = req.body;
+    const order = [toAddress];
     const date = new Date();
     order.push(date);
     order.push(req.params.parcelId);
@@ -99,7 +105,8 @@ class Controller {
   }
 
   async updateLocation(req, res) {
-    const order = model.location(req);
+    const { presentLocation } = req.body;
+    const order = [presentLocation];
     const date = new Date();
     order.push(date);
     order.push(req.params.parcelId);
@@ -122,9 +129,9 @@ class Controller {
   }
 
   async updateStatus(req, res) {
-    const order = model.status(req);
+    const { orderStatus } = req.body;
+    const order = [orderStatus];
     const date = new Date();
-    console.log(model.status(req));
     order.push(date);
     order.push(req.params.parcelId);
     const findQuery = 'SELECT * FROM orders WHERE "parcelId"=$1';
@@ -146,12 +153,13 @@ class Controller {
   }
 
   /**
-* Delete an order in the database
-*  @param {*} req - incomming request data
-* @param {*} res - response to the validity of the data
-*/
-  async deleteOrder(req, res) {
-    const deleteQuery = 'DELETE FROM orders WHERE "parcelId"=$1 returning *';
+   /**
+ * Delete an order in the database
+ *  @param {*} req - incomming request data
+ * @param {*} res - response to the validity of the data
+ */
+  async cancelOrder(req, res) {
+    const deleteQuery = 'DELETE FROM orders WHERE parcel_id=$1 returning *';
     const { rows } = await database.query(deleteQuery, [req.params.parcelId]);
     if (!rows[0]) {
       return res.status(404).send({
@@ -161,27 +169,7 @@ class Controller {
     }
     return res.status(200).send({
       success: 'true',
-      status: 'Order Deleted Successfuly',
-    });
-  }
-
-  /**
-* Delete orders of a particular user in the database
-*  @param {*} req - incomming request data
-* @param {*} res - response to the validity of the data
-*/
-  async deleteUserOrder(req, res) {
-    const deleteQuery = 'DELETE FROM orders WHERE "userId"=$1 returning *';
-    const { rows } = await database.query(deleteQuery, [req.params.userId]);
-    if (!rows[0]) {
-      return res.status(404).send({
-        success: 'false',
-        status: 'Order Not Found in the Database',
-      });
-    }
-    return res.status(200).send({
-      success: 'true',
-      status: 'Order Deleted Successfuly',
+      status: 'Cancelled',
     });
   }
 }

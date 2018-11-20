@@ -13,32 +13,32 @@ export const OrderValidation = (req, res, next) => {
   } = req.body;
 
   const wrong = {};
-
-  if (typeof toName !== 'string' || Validator.isEmpty(toName.trim()) === '') {
+  if (!toName || Validator.isEmpty(toName.trim()) || !Validator.isAlpha(toName.replace(/ +/g, ""))) {
+    console.log(toName);
     wrong.toName = 'Name of sender is required';
   }
-  if (!toAddress || Validator.isEmpty(toAddress.trim()) === '') {
+  if (!toAddress || Validator.isEmpty(toAddress.trim()) || !Validator.isAlphanumeric(toAddress.replace(/ +/g, ""))) {
     wrong.toAddress = 'Address of parcel sender is required';
   }
-  if (!toEmail || Validator.isEmpty(toEmail.trim()) === '') {
+  if (!toEmail || Validator.isEmpty(toEmail.trim())) {
     wrong.toEmail = 'Email of parcel sender is required';
   }
-  if (!fromName || Validator.isEmpty(fromName.trim()) === '') {
+  if (!fromName || Validator.isEmpty(fromName.trim()) || !Validator.isAlpha(fromName.replace(/ +/g, ""))) {
     wrong.fromName = 'Name of recipient is required';
   }
-  if (!fromAddress || Validator.isEmpty(fromAddress.trim()) === '') {
+  if (!fromAddress || Validator.isEmpty(fromAddress.trim()) || !Validator.isAlphanumeric(fromAddress.replace(/ +/g, ""))) {
     wrong.fromAddress = 'Address of parcel sender is required';
   }
-  if (!fromEmail || Validator.isEmpty(fromEmail.trim()) === '') {
+  if (!fromEmail || Validator.isEmpty(fromEmail.trim())) {
     wrong.fromEmail = 'Email of recipient is required';
   }
-  if (!type || Validator.isEmpty(type.trim()) === '' || !Validator.isAlpha(type)) {
+  if (!type || Validator.isEmpty(type.trim()) || !Validator.isAlpha(type.replace(/ +/g, ""))) {
     wrong.type = 'Type of parcel is required';
   }
-  if (!weight || Validator.isEmpty(weight.trim()) === '' || !Validator.isInt(weight)) {
+  if (!weight || Validator.isEmpty(weight.trim()) || !Validator.isInt(weight)) {
     wrong.weight = 'Weight of parcel is required';
   }
-  if (!price || Validator.isEmpty(price.trim()) === '' || !Validator.isInt(price)) {
+  if (!price || Validator.isEmpty(price.trim()) || !Validator.isInt(price)) {
     wrong.price = 'Price of parcel is required';
   }
   if ((Object.keys(wrong).length) > 0) return res.status(400).json({ status: 'Bad Request', success: 'false', Error_Log: wrong });

@@ -112,13 +112,14 @@ describe('Validate GET Route', () => {
 });
 
 // Tests for the POST Route
+
 describe('Validate POST Route', () => {
   // describe('When Correct input data is supplied', () => {
   //   it('should be valid /api/v1/parcels', (end) => {
   //     request(app).post('/api/v1/parcels/')
   //       .set('x-access-token', user.userToken.validUser)
   //       .type('JSON')
-  //       .send(test.firstOrder)
+  //       .send(test.firstOrder2)
   //       .expect('Content-Type', /json/)
   //       .expect((res) => {
   //         res.body.Status = 'order Sent Successfully';
@@ -150,11 +151,89 @@ describe('Validate POST Route', () => {
         })
         .expect(400, end);
     });
-    it('should return Error status code 400 req.body.name has the wrong data type', (end) => {
+    it('should return Error status code 400 if name of parcel sender is empty', (end) => {
       request(app).post('/api/v1/parcels')
         .set('x-access-token', user.userToken.validUser)
         .type('JSON')
-        .send(test.invalidUser)
+        .send(test.noSender)
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.Status = 'Bad Request';
+          res.body.success = 'false';
+          res.body.success.toLowerCase();
+        })
+        .expect(400, end);
+    });
+    it('should return Error status code 400 if address of parcel sender is empty', (end) => {
+      request(app).post('/api/v1/parcels')
+        .set('x-access-token', user.userToken.validUser)
+        .type('JSON')
+        .send(test.noSenderAddress)
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.Status = 'Bad Request';
+          res.body.success = 'false';
+          res.body.success.toLowerCase();
+        })
+        .expect(400, end);
+    });
+    it('should not add name of parcel sender with numeric characters', (end) => {
+      request(app).post('/api/v1/parcels')
+        .set('x-access-token', user.userToken.validUser)
+        .type('JSON')
+        .send(test.badName3)
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.Status = 'Bad Request';
+          res.body.success = 'false';
+          res.body.success.toLowerCase();
+        })
+        .expect(400, end);
+    });
+    it('should not add name of parcel sender with more than 30 characters', (end) => {
+      request(app).post('/api/v1/parcels')
+        .set('x-access-token', user.userToken.validUser)
+        .type('JSON')
+        .send(test.badName2)
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.Status = 'Bad Request';
+          res.body.success = 'false';
+          res.body.success.toLowerCase();
+        })
+        .expect(400, end);
+    });
+    it('should not add name of parcel sender with less than 3 characters', (end) => {
+      request(app).post('/api/v1/parcels')
+        .set('x-access-token', user.userToken.validUser)
+        .type('JSON')
+        .send(test.badName)
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.Status = 'Bad Request';
+          res.body.success = 'false';
+          res.body.success.toLowerCase();
+        })
+        .expect(400, end);
+    });
+    it('should not add address of parcel sender with more than 150 characters', (end) => {
+      request(app).post('/api/v1/parcels')
+        .set('x-access-token', user.userToken.validUser)
+        .type('JSON')
+        .send(test.badAddress)
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.Status = 'Bad Request';
+          res.body.success = 'false';
+          res.body.success.toLowerCase();
+        })
+        .expect(400, end);
+    });
+    it('should not add address of parcel sender with less than 10 characters', (end) => {
+      request(app).post('/api/v1/parcels')
+        .set('x-access-token', user.userToken.validUser)
+        .type('JSON')
+        .send(test.badAddress2)
         .expect('Content-Type', /json/)
         .expect((res) => {
           res.body.Status = 'Bad Request';
@@ -227,54 +306,6 @@ describe('Validate PUT Route', () => {
           res.body.status = 'Order Not Found in the Database';
         })
         .expect(404, end);
-    });
-  });
-});
-
-// Tests for the DELETE Route
-describe('Validate Delete Route', () => {
-  describe('When parcelId is correctly supplied to delete all orders of a particular user', () => {
-    it('should return StatusCode 200(Order successfully deleted)', (end) => {
-      request(app).delete('/api/v1/users/1/parcels/')
-        .set('x-access-token', user.adminToken.validAdmin)
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.success = 'true';
-          res.body.Status = 'Order Deleted Successfuly';
-        })
-        .expect(200, end);
-    });
-  });
-  describe('When item can not be found in the database', () => {
-    it('should return statusCode of 404(Order not found)', (end) => {
-      request(app).delete('/api/v1/parcels/300')
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.success = 'false';
-          res.body.Status = 'Order Not Found in the Database';
-        })
-        .expect(404, end);
-    });
-  });
-  describe('When non integer parcelId is sent', () => {
-    it('should return statusCode of 400(Bad Request)', (end) => {
-      request(app).delete('/api/v1/users/A/parcels')
-        .set('x-access-token', user.adminToken.validAdmin)
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.status = 'unsuccessful';
-        })
-        .expect(400, end);
-    });
-  });
-  describe('When Order Id is not sent', () => {
-    it('should return statusCode of 400(Bad Request)', (end) => {
-      request(app).delete('/api/v1/parcels')
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.status = 'unsuccessful';
-        })
-        .expect(400, end);
     });
   });
 });

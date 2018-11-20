@@ -120,25 +120,38 @@ export const firstOrder = {
 
 };
 
-// Model data for an order void of req.body.customer_id
-export const invalidUser = [
+export const firstOrder2 = [
   {
-    parcel_id: 'A',
-    from_name: 'Oyedeji Peace',
-    from_address: 'University of Ibadan',
-    from_emailaddress: 'oyedejipeace@gmail.com',
-    from_phonenumber: '08162514166',
-    to_name: 'Anabelle Oliver',
-    to_address: 'University of Ilorin',
-    to_emailaddress: 'anabelleoliver@gmail.com',
-    to_phonenumber: '08162789045',
-    type: 'Packages',
-    weight: '5',
-    length: '20',
-    width: '10',
-    height: '30',
-    price: '2000',
-    user_id: 'A',
+  parcelId: 5,
+  fromName: 'Abisola Omobayo',
+  fromAddress: 'University of Unilag',
+  fromEmail: 'abisolaomobayo@gmail.com',
+  toName: 'Abisola Omobayo',
+  toAddress: 'University of Ibadan',
+  toEmail: 'oyedejipeace@yahoo.com',
+  type: 'Packages',
+  weight: '20',
+  price: '3000',
+}
+]
+// Model data for an order void of req.body.customer_id
+export const noSender = [
+  {
+    parcelId: 1,
+    fromName: ' ',
+    fromAddress: 'Andela EPIC Tower, Lagos',
+    fromEmail: 'oyedejipeace@gmail.com',
+    toName: 'Akin Omobayo',
+    toAddress: 'University of Ibadan',
+    toEmail: 'akinomo@gmail.com',
+    type: 'Documents',
+    weight: 3,
+    price: 2000,
+    userId: 1,
+    createdAt: '2018-11-19T15:48:55.633Z',
+    modifiedDate: null,
+    orderStatus: 'New',
+    presentLocation: 'Orogun Ibadan',
   },
 ];
 
@@ -161,5 +174,120 @@ export const invalidParcelId = [
     height: '30',
     price: '2000',
 
+  },
+];
+
+export const noSenderAddress = [
+  {
+    parcelId: 1,
+    fromName: 'Andela EPIC',
+    fromAddress: '    ',
+    fromEmail: 'oyedejipeace@gmail.com',
+    toName: 'Akin Omobayo',
+    toAddress: 'University of Ibadan',
+    toEmail: 'akinomo@gmail.com',
+    type: 'Documents',
+    weight: 3,
+    price: 2000,
+    userId: 1,
+    createdAt: '2018-11-19T15:48:55.633Z',
+    modifiedDate: null,
+    orderStatus: 'New',
+    presentLocation: 'Orogun Ibadan',
+  },
+];
+export const badName = [
+  {
+    parcelId: 1,
+    fromName: 'De',
+    fromAddress: 'Andela EPIC Tower, Lagos',
+    fromEmail: 'oyedejipeace@gmail.com',
+    toName: 'Akin Omobayo',
+    toAddress: 'University of Ibadan',
+    toEmail: 'akinomo@gmail.com',
+    type: 'Documents',
+    weight: 3,
+    price: 2000,
+    userId: 1,
+    createdAt: '2018-11-19T15:48:55.633Z',
+    modifiedDate: null,
+    orderStatus: 'New',
+    presentLocation: 'Orogun Ibadan',
+  },
+];
+export const badName2 = [
+  {
+    parcelId: 1,
+    fromName: 'Detiny Agbola Kabiru Omolola Alabi Devine, Dominion',
+    fromAddress: 'Andela EPIC Tower, Lagos',
+    fromEmail: 'oyedejipeace@gmail.com',
+    toName: 'Akin Omobayo',
+    toAddress: 'University of Ibadan',
+    toEmail: 'akinomo@gmail.com',
+    type: 'Documents',
+    weight: 3,
+    price: 2000,
+    userId: 1,
+    createdAt: '2018-11-19T15:48:55.633Z',
+    modifiedDate: null,
+    orderStatus: 'New',
+    presentLocation: 'Orogun Ibadan',
+  },
+];
+export const badName3 = [
+  {
+    parcelId: 1,
+    fromName: '123456789012345',
+    fromAddress: 'Andela EPIC Tower, Lagos',
+    fromEmail: 'oyedejipeace@gmail.com',
+    toName: '123456789012345',
+    toAddress: 'University of Ibadan',
+    toEmail: 'akinomo@gmail.com',
+    type: 'Documents',
+    weight: 3,
+    price: 2000,
+    userId: 1,
+    createdAt: '2018-11-19T15:48:55.633Z',
+    modifiedDate: null,
+    orderStatus: 'New',
+    presentLocation: 'Orogun Ibadan',
+  },
+];
+export const badAddress = [
+  {
+    parcelId: 1,
+    fromName: '123456789012345',
+    fromAddress: 'Andela EPIC Tower, Lagos University of Ibadan University of Ibadan University of Ibadan University of Ibadan University of IbadanUniversity of IbadanUniversity of IbadanUniversity of IbadanUniversity of IbadanUniversity of Ibadan',
+    fromEmail: 'oyedejipeace@gmail.com',
+    toName: '123456789012345',
+    toAddress: 'University of Ibadan',
+    toEmail: 'akinomo@gmail.com',
+    type: 'Documents',
+    weight: 3,
+    price: 2000,
+    userId: 1,
+    createdAt: '2018-11-19T15:48:55.633Z',
+    modifiedDate: null,
+    orderStatus: 'New',
+    presentLocation: 'Orogun Ibadan',
+  },
+];
+export const badAddress2 = [
+  {
+    parcelId: 1,
+    fromName: '123456789012345',
+    fromAddress: ' Andela ',
+    fromEmail: 'oyedejipeace@gmail.com',
+    toName: '123456789012345',
+    toAddress: 'University of Ibadan',
+    toEmail: 'akinomo@gmail.com',
+    type: 'Documents',
+    weight: 3,
+    price: 2000,
+    userId: 1,
+    createdAt: '2018-11-19T15:48:55.633Z',
+    modifiedDate: null,
+    orderStatus: 'New',
+    presentLocation: 'Orogun Ibadan',
   },
 ];

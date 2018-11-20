@@ -35,92 +35,143 @@ describe('Validate GET Route', () => {
       })
       .expect(404, end);
   });
-  it('should be valid route /api/v1/users/1 returns 200 (users retrieved successfully)', (end) => {
-    request(app).get('/api/v1/users/1')
-      .set('x-access-token', test.userToken.validUser)
-      .expect('Content-type', /json/)
-      .expect((res) => {
-        res.body.success = 'true';
-        res.body.Status = 'User retrieved successfully';
-        res.body.users = test.firstUser;
-      })
-      .expect(200, end);
-  });
-  it('should return error 404(User not found in the database) if database does not have data at that location', (end) => {
-    request(app).get('/api/v1/users/2000000')
-      .set('x-access-token', test.userToken.validUser)
-      .expect('Content-Type', /json/)
-      .expect((res) => {
-        res.body.success = 'false';
-        res.body.status = 'User Not Found in the Database';
-      })
-      .expect(404, end);
-  });
-  describe('When non interger UserId is sent', () => {
-    it('should return statusCode of 400(Bad Request)', (end) => {
-      request(app).get('/api/v1/users/A')
-        .set('x-access-token', test.userToken.validUser)
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.status = 'unsuccessful';
-        })
-        .expect(400, end);
-    });
-  });
 });
 
 
 // Tests for the POST Route
 describe('Validate POST Route', () => {
-  describe('When a user Attempts to register with correct data', () => {
-    it('should save the data successfully', (end) => {
-      request(app).post('/api/v1/auth/signup')
-        .send(test.fullUser)
-        .type('JSON')
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.status = 'User Sent Successfully';
-        })
-        .expect(201, end);
+  describe('User signup', () => {
+    describe('When a user Attempts to register with correct data', () => {
+      it('should save the data successfully', (end) => {
+        request(app).post('/api/v1/auth/signup')
+          .send(test.fullUser)
+          .type('JSON')
+          .expect('Content-Type', /json/)
+          .expect((res) => {
+            res.body.status = 'User Sent Successfully';
+          })
+          .expect(201, end);
+      });
     });
-  });
-  describe('When a user attempts to login with wrong password', () => {
-    it('should return error 401', (end) => {
-      request(app).post('/api/v1/auth/login')
-        .set('x-access-token', test.userToken.validUser)
-        .send(test.fullUser2)
+    it('should not register a new user with an already existing email', (end) => {
+      request(app).post('/api/v1/auth/signup')
+        .send(test.firstUser)
         .type('JSON')
         .expect('Content-Type', /json/)
         .expect((res) => {
           res.body.auth = 'false';
         })
-        .expect(401, end);
+        .expect(400, end);
     });
-  });
-  describe('When a user attempts to login with correct details', () => {
-    it('should login successfully', (end) => {
-      request(app).post('/api/v1/auth/login')
-        .set('x-access-token', test.userToken.validUser)
-        .send(test.loginUser)
+    it('should not register user with a wrong email format', (end) => {
+      request(app).post('/api/v1/auth/signup')
+        .send(test.wrongData)
         .type('JSON')
         .expect('Content-Type', /json/)
         .expect((res) => {
-          res.body.auth = 'true';
+          res.body.auth = 'false';
         })
-        .expect(200, end);
+        .expect(400, end);
     });
-  });
-  describe('When a user attempts to login with correct details, but data does not exist in the database', () => {
-    it('should not login successfully', (end) => {
-      request(app).post('/api/v1/auth/login')
-        .set('x-access-token', test.userToken.valid_inexistingUser)
-        .send(test.fullUser3)
+    it('should not register user with an empty username field ', (end) => {
+      request(app).post('/api/v1/auth/signup')
+        .send(test.wrongData)
         .type('JSON')
         .expect('Content-Type', /json/)
         .expect((res) => {
-          res.body.status = 'User Not Found in the Database';
+          res.body.auth = 'false';
         })
-        .expect(404, end);
+        .expect(400, end);
+    });
+    it('should not register name with less than 3 characters', (end) => {
+      request(app).post('/api/v1/auth/signup')
+        .send(test.wrongMinLength)
+        .type('JSON')
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.auth = 'false';
+        })
+        .expect(400, end);
+    });
+    it('should not register name with more than 30 characters', (end) => {
+      request(app).post('/api/v1/auth/signup')
+        .send(test.wrongMaxLength)
+        .type('JSON')
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.auth = 'false';
+        })
+        .expect(400, end);
+    });
+  });
+  describe('User login', () => {
+    it('should not login user with a wrong email format', (end) => {
+      request(app).post('/api/v1/auth/login')
+        .send(test.wrongData)
+        .type('JSON')
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.auth = 'false';
+        })
+        .expect(400, end);
+    });
+    it('should not register user with an empty email field ', (end) => {
+      request(app).post('/api/v1/auth/login')
+        .send(test.wrongData2)
+        .type('JSON')
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.auth = 'false';
+        })
+        .expect(400, end);
+    });
+    it('should not register user with an empty password field ', (end) => {
+      request(app).post('/api/v1/auth/login')
+        .send(test.wrongData3)
+        .type('JSON')
+        .expect('Content-Type', /json/)
+        .expect((res) => {
+          res.body.auth = 'false';
+        })
+        .expect(400, end);
+    });
+    describe('When a user attempts to login with wrong password', () => {
+      it('should return error 401', (end) => {
+        request(app).post('/api/v1/auth/login')
+          .send(test.fullUser2)
+          .type('JSON')
+          .expect('Content-Type', /json/)
+          .expect((res) => {
+            res.body.auth = 'false';
+          })
+          .expect(401, end);
+      });
+    });
+    describe('When a user attempts to login with correct details', () => {
+      it('should login successfully', (end) => {
+        request(app).post('/api/v1/auth/login')
+          .set('x-access-token', test.userToken.validUser)
+          .send(test.loginUser)
+          .type('JSON')
+          .expect('Content-Type', /json/)
+          .expect((res) => {
+            res.body.auth = 'true';
+          })
+          .expect(200, end);
+      });
+    });
+    describe('When a user attempts to login with correct details, but data does not exist in the database', () => {
+      it('should not login successfully', (end) => {
+        request(app).post('/api/v1/auth/login')
+          .set('x-access-token', test.userToken.valid_inexistingUser)
+          .send(test.fullUser3)
+          .type('JSON')
+          .expect('Content-Type', /json/)
+          .expect((res) => {
+            res.body.status = 'User Not Found in the Database';
+          })
+          .expect(404, end);
+      });
     });
   });
   describe('When a userId is sent to a post route', () => {
@@ -132,56 +183,6 @@ describe('Validate POST Route', () => {
         .expect((res) => {
           res.body.status = 'unsuccessful';
           res.body.status.toLowerCase();
-        })
-        .expect(400, end);
-    });
-  });
-});
-
-// Tests for the DELETE Route
-describe('Validate Delete Route', () => {
-  describe('When UserId is correctly supplied', () => {
-    it('should return StatusCode 200(User successfully deleted)', (end) => {
-      request(app).delete('/api/v1/users/1')
-        .set('x-access-token', test.userToken.validUser)
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.success = 'true';
-          res.body.Status = 'User deleted successfuly';
-        })
-        .expect(200, end);
-    });
-  });
-  describe('When item can not be found in the database', () => {
-    it('should return statusCode of 404(User not found)', (end) => {
-      request(app).delete('/api/v1/users/300')
-        .set('x-access-token', test.userToken.validUser)
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.success = 'false';
-          res.body.Status = 'User Not Found in the Database';
-        })
-        .expect(404, end);
-    });
-  });
-  describe('When non interger UserId is sent', () => {
-    it('should return statusCode of 400(Bad Request)', (end) => {
-      request(app).delete('/api/v1/users/A')
-        .set('x-access-token', test.userToken.validUser)
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.status = 'unsuccessful';
-        })
-        .expect(400, end);
-    });
-  });
-  describe('When User Id is not sent', () => {
-    it('should return statusCode of 400(Bad Request)', (end) => {
-      request(app).delete('/api/v1/users')
-        .set('x-access-token', test.userToken.validUser)
-        .expect('Content-Type', /json/)
-        .expect((res) => {
-          res.body.status = 'unsuccessful';
         })
         .expect(400, end);
     });
