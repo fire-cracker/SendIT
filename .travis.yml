@@ -7,7 +7,7 @@ script:
   - npm run coverage
 
 before_install:
-  - npm i -g babel-preset-env mocha supertest node-dev babel-cli rimraf coveralls istanbul
+  - npm i -g babel-preset-env mocha supertest node-dev babel-cli babel-node rimraf coveralls istanbul
 
 before_script:
   - psql -c 'create database SendIT_db;' -U postgres

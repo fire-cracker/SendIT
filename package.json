@@ -13,7 +13,7 @@
     "clear": "rimraf dist coverage",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit",
     "coverage": "npm run create && npm run cover",
-    "create": "babel-node ./API/db/db.js",
+    "create": "babel-node ./Api/db/db.js",
     "heroku-postbuild": "npm run create"
   },
   "repository": {
