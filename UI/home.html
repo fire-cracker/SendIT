@@ -45,12 +45,16 @@
         </div>
     </header>
 
+     <!-- Top background Section -->
+     <section id="section3">
+    </section>
+
    <!-- Create Shipment Section -->
    <div id="createAshipment">
    <h1> Create Shipment </h1>
-   <div id="shipmentOrder" action="mysuperscript.php" autocomplete="on" required>
+   <form id="shipmentOrder" action="/action_page.php" autocomplete="on" required>
     <div id="createShipment" class="createShipment">
-            <form class="fromform" id="fromform" action="mysuperscript.php" autocomplete="on">
+            <div class="fromform" id="fromform" action="mysuperscript.php" autocomplete="on">
                 <div class="img_login">
                         <h2> From </h2> 
                 </div>
@@ -67,9 +71,9 @@
                     <label id="phoneNumberLabel"><b>Phone Number</b></label>
                     <input type="number" id="phoneNumber" name="phoneNumber" required>  
             </div>
-            </form>
+        </div>
 
-            <form class="toform" id="toform" action="mysuperscript.php" autocomplete="on">
+            <div class="toform" id="toform" action="mysuperscript.php" autocomplete="on">
                     <div class="img_login">
                             <h2> To </h2> 
                     </div>
@@ -86,13 +90,13 @@
                         <label id="phoneNumberLabel"><b>Phone Number</b></label>
                         <input type="number" id="phoneNumberTo" name="phoneNumber" required>   
                     </div>
-                </form>
+                </div>
     </div>
 
      <!-- Parcel Details Section -->
     <div id="parcelDetails" action="mysuperscript.php" autocomplete="on" required>
             <h2> Parcel Details </h2> 
-        <form class="Particulars" action="mysuperscript.php" autocomplete="on">
+        <div class="Particulars" action="mysuperscript.php" autocomplete="on">
             <div id="label">
             <label id="typeLabel"><b>Type </b></label>
                 <div >
@@ -114,12 +118,12 @@
                 <input type="number" id="height" placeholder="Height" name="height" required>  
             </div>
         </div>
-    </form> 
+    </div> 
         
-        <button type="submit" id="previewButton" class="submitBtn" type="submit">Preview</button>
+        <button type="submit" id="previewButton" class="submitBtn" type="submit" disabled>Preview</button>
     </div>
 
-</div>
+</form>
 </div>
 
 <div id="preview">

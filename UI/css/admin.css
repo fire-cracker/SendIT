@@ -67,7 +67,7 @@ p{
     margin: 1px;
 }
 
-#shipmentOrderPreview{
+.shipmentOrderPreview{
  margin: 2% 0% 0% 1%;
  overflow: auto;
  top: 0px;
