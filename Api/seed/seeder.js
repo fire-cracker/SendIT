@@ -1,44 +1,50 @@
 /**
- * Stage an instance of required data to be pushed to database 
+ * Stage an instance of required data to be pushed to database
  * @param {*} req - incomming json request with data
 */
 export default {
-    seeder(req, hashedPassword) {
-        if (req.body.user_password) {
-            let newUser = [req.body.user_name, req.body.user_email, hashedPassword];
-            return newUser;
-        } else if (req.body.from_name) {
-            let newOrder = [req.body.from_name, req.body.from_address, req.body.from_emailaddress, req.body.from_phonenumber, req.body.to_name, req.body.to_address, req.body.to_emailaddress, req.body.to_phonenumber, req.body.type, req.body.weight, req.body.width, req.body.length, req.body.height, req.body.price];
-            return newOrder;
-        }
-    },
-    seed(req) {
-        if (req.body.order_status) {
-            let updateOrder = [req.body.from_name, req.body.from_address, req.body.from_emailaddress, req.body.from_phonenumber, req.body.to_name, req.body.to_address, req.body.to_emailaddress, req.body.to_phonenumber, req.body.type, req.body.weight, req.body.width, req.body.length, req.body.height, req.body.price, req.body.order_status,];
-            return updateOrder;
-        }
-    },
-    destination(req) {
-        if (req.body.to_address) {
-            let updateOrder = [req.body.to_address];
-            return updateOrder;
-        }
-    },
-    location(req) {
-        if (req.body.present_location) {
-            let updateLocation = [ req.body.present_location];
-            return updateLocation ;
-        }
-    },
-    status(req) {
-        if (req.body.order_status) {
-            let updateStatus = [req.body.order_status];
-            return updateStatus;
-        }
+  seeder(req, hashedPassword, next) {
+    if (req.body.userPassword) {
+      const newUser = [req.body.userName, req.body.userEmail, hashedPassword];
+      return newUser;
+    } if (req.body.fromName) {
+      const newOrder = [req.body.userId = req.body.userId, req.body.fromName,
+        req.body.fromAddress, req.body.fromEmail,
+        req.body.toName, req.body.toAddress, req.body.toEmail, req.body.type,
+        req.body.weight, req.body.price];
+      return newOrder;
     }
+    return next();
+  },
+  // seed(req) {
+  //   if (req.body.orderStatus) {
+  //     const updateOrder = [req.body.fromName, req.body.fromAddress, req.body.fromEmail,
+  //       req.body.toName, req.body.toAddress, req.body.toEmail, req.body.type,
+  //       req.body.weight, req.body.price, req.body.orderstatus];
+  //     return updateOrder;
+  //   }
+  // },
+  destination(req, next) {
+    if (req.body.toAddress) {
+      const updateOrder = [req.body.toAddress];
+      return updateOrder;
+    }
+    return next();
+  },
+  location(req, next) {
+    if (req.body.presentLocation) {
+      const updateLocation = [req.body.presentLocation];
+      return updateLocation;
+    }
+    return next();
+  },
+  status(req, next) {
+    if (req.body.orderStatus) {
+      const updateStatus = [req.body.orderStatus];
+      return updateStatus;
+    }
+    return next();
+  },
 
 
-}
-
-
-
+};
