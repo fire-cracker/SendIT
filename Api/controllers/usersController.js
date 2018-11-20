@@ -1,169 +1,139 @@
-//Import statments
-import model from '../seed/seeder';
-import database from '../db/config';
+// Import statments
 import dotenv from 'dotenv';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import database from '../db/config';
+import model from '../seed/seeder';
+
 dotenv.config();
 
 // create a token
 async function createToken(data) {
-    const token = await jwt.sign({
-        user_id: data.user_id,
-        user_name: data.user_name,
-        user_email: data.user_email,
-        user_password: data.user_password,
-        user_role: data.user_role
-    }, process.env.User_Secret, {
-            expiresIn: 60 * 60 // expires in 1 hour
-        });
-    return token;
+  const token = await jwt.sign({
+    userId: data.userId,
+    userName: data.userName,
+    userEmail: data.userEmail,
+    userRole: data.userRole,
+  }, process.env.User_Secret, {
+    expiresIn: 60 * 60, // expires in 1 hour
+  });
+  return token;
 }
 
-class controller {
-    async signup(req, res) {
-        const hashedPassword = await bcrypt.hashSync(req.body.user_password, 10);
-        const newUser = await model.seeder(req, hashedPassword);
-        // Save User Data
-        const command = `INSERT INTO
-        user_accounts(user_name,user_email,user_password)
-          VALUES($1,$2,$3) returning *`;
-        const { rows } = await database.query(command, newUser);
-        const token = await createToken(rows[0]);
-        return res.status(201).send({
-            status: 'User Sent Successfully',
-            auth: "true",
-            token: token,
-            User_sent: rows[0]
-        });
-    };
-
-    async login(req, res) {
-        const command = 'SELECT * FROM user_accounts WHERE user_email=$1';
-        const { rows } = await database.query(command, [req.body.user_email]);
-        if (!rows[0]) {
-            return res.status(404).send({
-                success: 'false',
-                status: 'User Not Found in the Database'
-            });
-        }
-        const passwordIsValid = await bcrypt.compareSync(req.body.user_password, rows[0].user_password);
-        if (!passwordIsValid) return res.status(401).send({ auth: "false", token: null });
-        const token = await createToken(req.body);
-        res.status(200).send({ auth: "true", token: token, message: "Login Successful", user: rows[0] });
+class Controller {
+  async signup(req, res) {
+    const stmt = 'SELECT "userId" FROM user_accounts WHERE "userEmail"=$1';
+    const result = await database.query(stmt, [req.body.userEmail]);
+    // console.log(result);
+    const email = result.rowCount;
+    if (email > 0) {
+      return res.status(406).send({
+        success: 'true',
+        status: 'Email Already Exist',
+        auth: 'false',
+      });
     }
+    const stmt2 = 'SELECT "userId" FROM user_accounts WHERE "userName" = $1';
+    const result2 = await database.query(stmt2, [req.body.userName]);
+    console.log(result2);
+    const name = result2.rowCount;
+    if (name > 0) {
+      return res.status(406).send({
+        success: 'true',
+        status: 'P8arcel Already Exist',
+        auth: 'false',
+      });
+    }
+    // Save User Data
+    const hashedPassword = await bcrypt.hashSync(req.body.userPassword, 10);
+    const newUser = await model.seeder(req, hashedPassword);
+    const command = `INSERT INTO
+      user_accounts("userName","userEmail","userPassword") VALUES($1,$2,$3) returning *`;
+    const { rows } = await database.query(command, newUser);
+    const token = await createToken(rows[0]);
+    return res.status(201).send({
+      success: 'true',
+      status: 'User sent succesfully',
+      auth: 'true',
+      user: rows[0],
+      token,
+    });
+  }
 
-    /**
+  async login(req, res) {
+    const command = 'SELECT * FROM user_accounts WHERE "userEmail"=$1';
+    const { rows } = await database.query(command, [req.body.userEmail]);
+    if (!rows[0]) {
+      return res.status(404).send({
+        success: 'false',
+        status: 'User Not Found in the Database, provide correct email and password',
+      });
+    }
+    const passwordIsValid = await bcrypt.compareSync(req.body.userPassword, rows[0].userPassword);
+    if (!passwordIsValid) return res.status(401).send({ auth: 'false', token: null });
+    const newUser = rows[0];
+    const token = await createToken(newUser);
+    return res.status(200).send({
+      auth: 'true', token, message: 'Login Successful', user: newUser,
+    });
+  }
+
+  /**
         * Gets All user_accounts in the database and sends as response
         * @param {*} req - incomming request data
-        * @param {*} res - response to the validity of the data 
+        * @param {*} res - response to the validity of the data
     */
-    async getAllUsers(req, res) {
-        const command = 'SELECT * FROM user_accounts';
-        const { rows, rowCount } = await database.query(command);
-        return res.status(200).send({
-            success: 'true',
-            status: 'Users Data retrieved successfully',
-            user_accounts: rows,
-            total_user_accounts: rowCount
-        });
-    }
+  async getAllUsers(req, res) {
+    const command = 'SELECT * FROM user_accounts';
+    const { rows, rowCount } = await database.query(command);
+    return res.status(200).send({
+      success: 'true',
+      status: 'Users Data retrieved successfully',
+      user_accounts: rows,
+      total_user_accounts: rowCount,
+    });
+  }
 
-    /**
+  /**
          * Gets a particular User in the database and send as response
          * @param {*} req - incomming Request data
          * @param {*} res - response to the validity of the data
     */
-    async getUser(req, res) {
-        const command = 'SELECT * FROM user_accounts WHERE user_id=$1';
-        const { rows } = await database.query(command, [req.params.userId]);
-        if (!rows[0]) {
-            return res.status(404).send({
-                success: 'false',
-                status: 'User Not Found in the Database'
-            });
-        } else return res.status(200).send({
-            success: 'true',
-            status: 'User retrieved successfully',
-            User: rows[0]
-        });
-    }
+  async getUser(req, res) {
+    const command = 'SELECT * FROM user_accounts WHERE "userId"=$1';
+    const { rows } = await database.query(command, [req.params.userId]);
+    if (!rows[0]) {
+      return res.status(404).send({
+        success: 'false',
+        status: 'User Not Found in the Database',
+      });
+    } return res.status(200).send({
+      success: 'true',
+      status: 'User retrieved successfully',
+      User: rows[0],
+    });
+  }
 
-    /**
-        * Add a User to existing user_accounts in the database
-        *  @param {*} req - incomming json data
-        *  @param {*} res - response to the sucess of the event
-    */
-    async createUser(req, res) {
-        const hashedPassword = req.body.user_password;
-        let newUser = model.seeder(req, hashedPassword);
-        const command = `INSERT INTO
-    user_accounts(user_name,user_email,user_password)
-      VALUES($1, $2, $3) returning *`;
-        const { rows } = await database.query(command, newUser);
-        return res.status(201).send({
-            User_sent: rows[0],
-            status: 'User Sent Successfully'
-        });
-    }
-
-    /**
-     * Update an User in the database
-     *  @param {*} req - incomming json data
-     * @param {*} res - response to the success of the event 
-     */
-    async updateUser(req, res) {
-        const hashedPassword = req.body.user_password;
-        let user = model.seeder(req,hashedPassword );
-        let date = new Date();
-        user.push(date);
-        user.push(req.params.userId);
-        const findQuery = `SELECT * FROM user_accounts WHERE user_id=$1`;
-        const updateQuery = `UPDATE user_accounts SET user_name=$1,user_email=$2,user_password=$3, modified_date=$4 WHERE user_id=$5 returning *`;
-        try {
-            const { rows } = await database.query(findQuery, [req.params.userId]);
-            if (!rows[0]) {
-                return res.status(410).send({
-                    success: 'false',
-                    status: 'Requested resourse is no longer available'
-                });
-            }
-            const response = await database.query(updateQuery, user);
-            return res.status(200).send({
-                userId: req.params.userId,
-                old_user: rows[0],
-                update: response.rows[0],
-                status: "Update successful"
-            });
-        } catch (error) {
-            console.log(error);
-            return res.status(400).send({
-                success: 'false',
-                status: 'Bad Request',
-                message: 'User Not Found'
-            });
-        }
-    }
-    /**
+  /**
     * Delete an User in the database
     *  @param {*} req - incomming request data
     * @param {*} res - response to the validity of the data
     */
-    async deleteUser(req, res) {
-        const deleteQuery = 'DELETE FROM user_accounts WHERE user_id=$1 returning *';
-        const { rows } = await database.query(deleteQuery, [req.params.userId]);
-        if (!rows[0]) {
-            return res.status(404).send({
-                success: 'false',
-                status: 'User Not Found in the Database'
-            });
-        }
-        return res.status(200).send({
-            success: 'true',
-            status: 'User deleted successfuly'
-        });
+  async deleteUser(req, res) {
+    const deleteQuery = 'DELETE FROM user_accounts WHERE "userId"=$1 returning *';
+    const { rows } = await database.query(deleteQuery, [req.params.userId]);
+    if (!rows[0]) {
+      return res.status(404).send({
+        success: 'false',
+        status: 'User Not Found in the Database',
+      });
     }
+    return res.status(200).send({
+      success: 'true',
+      status: 'User deleted successfuly',
+    });
+  }
 }
 
-const Controller = new controller();
-export default Controller;
+const controller = new Controller();
+export default controller;
