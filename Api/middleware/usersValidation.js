@@ -9,16 +9,14 @@ export const userValidation = (req, res, next) => {
     userName, userEmail, userPassword,
   } = req.body;
   const error = {};
-  if (Validator.isEmpty(userName.trim()) === '') {
+
+  if (!userName || Validator.isEmpty(userName.trim()) || !Validator.isAlphanumeric(userName.replace(/ +/g, ""))) {
     error.userName = 'userName is Required';
   }
-  if (!Validator.isAlphanumeric(userName)) {
-    error.userName = 'Only alphabets and numbers are allowed.';
-  }
-  if (typeof userEmail !== 'string' || Validator.isEmpty(userEmail.trim()) === '') {
+  if (!userEmail || Validator.isEmpty(userEmail.trim())) {
     error.userEmail = 'Email is Required';
   }
-  if (!userPassword) {
+  if (!userPassword || Validator.isEmpty(userPassword.trim()) || !Validator.isAlphanumeric(userPassword)) {
     error.userPassword = 'Password is Required';
   }
   if ((Object.keys(error).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: error }); }
@@ -30,10 +28,10 @@ export const userLogin = (req, res, next) => {
     userEmail, userPassword,
   } = req.body;
   const error = {};
-  if (typeof userEmail !== 'string' || Validator.isEmpty(userEmail.trim()) === '') {
+  if (!userEmail || Validator.isEmpty(userEmail.trim())) {
     error.userEmail = 'Email is Required';
   }
-  if (!userPassword) {
+  if (!userPassword || Validator.isEmpty(userPassword.trim()) || !Validator.isAlphanumeric(userPassword)) {
     error.userPassword = 'Password is Required';
   }
   if ((Object.keys(error).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: error }); }
