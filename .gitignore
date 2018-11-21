@@ -9,3 +9,5 @@ dist/
 
 # Coverage directory used by istanbul
 coverage/
+
+.vscode

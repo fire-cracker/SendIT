@@ -30,6 +30,7 @@
 - The admin can mark orders as pending (in transit) or delivered.
 
 ## Demo
+
 Visit [User Dashboard](https://oyedejipeace.github.io/SendIT/UI)
 
 Visit [Admin Dashboard](https://oyedejipeace.github.io/SendIT/UI/admin.html)
@@ -79,5 +80,5 @@ Once the server starts-up, you can query the api at `http://localhost:5000/api/v
 ## License
 ![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
-- **[MIT license](https://shegsteham.github.io/SendIT/UI/LICENSE.md)**
+- **[MIT license](https://oyedejipeace.github.io/SendIT/UI/LICENSE.md)**
 - Copyright 2018 © <a href="https://oyedejipeace.github.io/SendIT/UI" target="_blank">SendIT</a>
