@@ -37,7 +37,7 @@ class Controller {
     if (name > 0) {
       return res.status(406).send({
         success: 'true',
-        status: 'P8arcel Already Exist',
+        status: 'Username Already Exist',
         auth: 'false',
       });
     }
@@ -55,7 +55,11 @@ class Controller {
       success: 'true',
       status: 'User sent succesfully',
       auth: 'true',
-      user: rows[0],
+      user: {
+        userName: rows[0].userName,
+        userEmail: rows[0].userEmail,
+        userId: rows[0].userId,
+      },
       token,
     });
   }
@@ -74,7 +78,14 @@ class Controller {
     const newUser = rows[0];
     const token = await createToken(newUser);
     return res.status(200).send({
-      auth: 'true', token, message: 'Login Successful', user: newUser,
+      auth: 'true',
+      token,
+      message: 'Login Successful',
+      user: {
+        userName: newUser.userName,
+        userEmail: newUser.userEmail,
+        userId: newUser.userId,
+      },
     });
   }
 

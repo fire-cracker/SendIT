@@ -11,6 +11,7 @@ class Controller {
   async getAllOrders(req, res) {
     const command = 'SELECT * FROM orders';
     const { rows, rowCount } = await database.query(command);
+    console.log(req.body.email);
     return res.status(200).send({
       success: 'true',
       status: 'Orders Retrieved Successfully',
@@ -63,6 +64,7 @@ class Controller {
     const {
       toName, toAddress, toEmail, fromName, fromAddress, fromEmail, type, weight, price,
     } = req.body;
+    const user = req.body.userName;
     const newOrder = [req.body.userId = req.body.userId, fromName, fromAddress, fromEmail,
       toName, toAddress, toEmail, type, weight, price];
     console.log(newOrder);
@@ -70,10 +72,9 @@ class Controller {
     orders("userId","fromName", "fromAddress", "fromEmail", "toName", "toAddress", "toEmail", type, weight, price)
       VALUES($1, $2, $3, $4, $5,$6, $7, $8, $9, $10)
       returning *`;
-    const { rows } = await database.query(command, newOrder);
-    const result = { rows };
-    // console.log(result);
+    const { rows } = await database.query(command, newOrder, user);
     return res.status(201).send({
+      user,
       order_sent: rows[0],
       status: 'Order Sent Successfully',
     });
@@ -81,6 +82,7 @@ class Controller {
 
 
   async updateDestination(req, res) {
+    const user = req.body.userName;
     const { toAddress } = req.body;
     const order = [toAddress];
     const date = new Date();
@@ -95,8 +97,9 @@ class Controller {
         status: 'Order Not Found in the Database',
       });
     }
-    const response = await database.query(updateQuery, order);
+    const response = await database.query(updateQuery, order, user);
     return res.status(200).send({
+      user,
       parcelId: req.params.parcelId,
       old_Order: rows[0],
       update: response.rows[0],
@@ -105,6 +108,7 @@ class Controller {
   }
 
   async updateLocation(req, res) {
+    const user = req.body.userName;
     const { presentLocation } = req.body;
     const order = [presentLocation];
     const date = new Date();
@@ -119,8 +123,9 @@ class Controller {
         status: 'Order Not Found in the Database',
       });
     }
-    const response = await database.query(updateQuery, order);
+    const response = await database.query(updateQuery, order, user);
     return res.status(200).send({
+      user,
       parcelId: req.params.parcelId,
       old_Order: rows[0],
       update: response.rows[0],
@@ -129,6 +134,7 @@ class Controller {
   }
 
   async updateStatus(req, res) {
+    const user = req.body.userName;
     const { orderStatus } = req.body;
     const order = [orderStatus];
     const date = new Date();
@@ -143,12 +149,39 @@ class Controller {
         status: 'Order Not Found in the Database',
       });
     }
-    const response = await database.query(updateQuery, order);
+    const response = await database.query(updateQuery, order, user);
     return res.status(200).send({
+      user,
       parcelId: req.params.parcelId,
       old_Order: rows[0],
       update: response.rows[0],
       status: 'Update successful',
+    });
+  }
+
+  async cancelOrder(req, res) {
+    const user = req.body.userName;
+    const { orderStatus } = req.body;
+    const order = [orderStatus];
+    const date = new Date();
+    order.push(date);
+    order.push(req.params.parcelId);
+    const findQuery = 'SELECT * FROM orders WHERE "parcelId"=$1';
+    const updateQuery = 'UPDATE orders SET "orderStatus"=$1,"modifiedDate"=$2 WHERE "parcelId"=$3 returning *';
+    const { rows } = await database.query(findQuery, [req.params.parcelId]);
+    if (!rows[0]) {
+      return res.status(410).send({
+        success: 'false',
+        status: 'Order Not Found in the Database',
+      });
+    }
+    const response = await database.query(updateQuery, order, user);
+    return res.status(200).send({
+      user,
+      parcelId: req.params.parcelId,
+      old_Order: rows[0],
+      update: response.rows[0],
+      status: 'Order Cancelled successful',
     });
   }
 
@@ -158,8 +191,8 @@ class Controller {
  *  @param {*} req - incomming request data
  * @param {*} res - response to the validity of the data
  */
-  async cancelOrder(req, res) {
-    const deleteQuery = 'DELETE FROM orders WHERE parcel_id=$1 returning *';
+  async deleteOrder(req, res) {
+    const deleteQuery = 'DELETE FROM orders WHERE "parcelId"=$1 returning *';
     const { rows } = await database.query(deleteQuery, [req.params.parcelId]);
     if (!rows[0]) {
       return res.status(404).send({
@@ -169,7 +202,7 @@ class Controller {
     }
     return res.status(200).send({
       success: 'true',
-      status: 'Cancelled',
+      status: 'Order deleted successfully',
     });
   }
 }

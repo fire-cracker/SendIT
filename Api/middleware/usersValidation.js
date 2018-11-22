@@ -10,13 +10,13 @@ export const userValidation = (req, res, next) => {
   } = req.body;
   const error = {};
 
-  if (!userName || Validator.isEmpty(userName.trim()) || !Validator.isAlphanumeric(userName.replace(/ +/g, ""))) {
+  if (!userName || Validator.isEmpty(userName.trim())) {
     error.userName = 'userName is Required';
   }
   if (!userEmail || Validator.isEmpty(userEmail.trim())) {
     error.userEmail = 'Email is Required';
   }
-  if (!userPassword || Validator.isEmpty(userPassword.trim()) || !Validator.isAlphanumeric(userPassword)) {
+  if (!userPassword || Validator.isEmpty(userPassword.trim())) {
     error.userPassword = 'Password is Required';
   }
   if ((Object.keys(error).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: error }); }
@@ -31,7 +31,7 @@ export const userLogin = (req, res, next) => {
   if (!userEmail || Validator.isEmpty(userEmail.trim())) {
     error.userEmail = 'Email is Required';
   }
-  if (!userPassword || Validator.isEmpty(userPassword.trim()) || !Validator.isAlphanumeric(userPassword)) {
+  if (!userPassword || Validator.isEmpty(userPassword.trim())) {
     error.userPassword = 'Password is Required';
   }
   if ((Object.keys(error).length) > 0) { return res.status(400).send({ status: 'Bad Request', success: 'false', Error_Log: error }); }

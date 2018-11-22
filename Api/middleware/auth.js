@@ -18,7 +18,7 @@ export async function verifyUserToken(req, res, next) {
 }
 
 export function verifyAdmin(req, res, next) {
-  if (req.body.userRole === 'User') {
+  if (req.body.userRole !== 'Admin') {
     return res.status(401).send({ success: 'false', Message: 'Forbidden Route, User not Authorised' });
   }
   return next();
