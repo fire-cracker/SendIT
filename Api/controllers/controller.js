@@ -11,6 +11,7 @@ class Controller {
   async getAllOrders(req, res) {
     const command = 'SELECT * FROM orders';
     const { rows, rowCount } = await database.query(command);
+    console.log(req.body.email);
     return res.status(200).send({
       success: 'true',
       status: 'Orders Retrieved Successfully',
@@ -159,7 +160,7 @@ class Controller {
  * @param {*} res - response to the validity of the data
  */
   async cancelOrder(req, res) {
-    const deleteQuery = 'DELETE FROM orders WHERE parcel_id=$1 returning *';
+    const deleteQuery = 'DELETE FROM orders WHERE "parcelId"=$1 returning *';
     const { rows } = await database.query(deleteQuery, [req.params.parcelId]);
     if (!rows[0]) {
       return res.status(404).send({

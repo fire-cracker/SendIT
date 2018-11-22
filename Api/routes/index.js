@@ -12,7 +12,7 @@ const router = express.Router();
 
 // Routes
 router.get('/parcels', verifyUserToken, verifyAdmin, controller.getAllOrders);
-router.get('/parcels/:parcelId', verifyUserToken, verifyAdmin, parcelIdValidation, controller.getOrder);
+router.get('/parcels/:parcelId', verifyUserToken, parcelIdValidation, controller.getOrder);
 router.get('/users/:userId/parcels', verifyUserToken, userIdValidation, controller.userOrderHistory);
 router.post('/parcels', verifyUserToken, OrderValidation, emailValidation, orderLength, controller.createOrder);
 router.post('/parcels/:parcelId', postIdValidation);

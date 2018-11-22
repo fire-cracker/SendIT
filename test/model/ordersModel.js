@@ -120,20 +120,17 @@ export const firstOrder = {
 
 };
 
-export const firstOrder2 = [
-  {
-  parcelId: 5,
-  fromName: 'Abisola Omobayo',
-  fromAddress: 'University of Unilag',
-  fromEmail: 'abisolaomobayo@gmail.com',
+export const firstOrder2 = {
   toName: 'Abisola Omobayo',
   toAddress: 'University of Ibadan',
   toEmail: 'oyedejipeace@yahoo.com',
+  fromName: 'Abisola Omobayo',
+  fromAddress: 'University of Unilag',
+  fromEmail: 'abisolaomobayo@gmail.com',
   type: 'Packages',
   weight: '20',
   price: '3000',
-}
-]
+};
 // Model data for an order void of req.body.customer_id
 export const noSender = [
   {
