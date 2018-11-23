@@ -39,12 +39,15 @@ async function createTables() {
 
   const userData = `INSERT INTO user_accounts ("userName", "userEmail","userPassword","userRole")
       VALUES ('testName', 'testEmail@address.com', '${bcrypt.hashSync('P@ssword', 10)}','User'),
-      ('tester', 'tester@owner.com', '${bcrypt.hashSync('P@$$word123', 10)}','Admin'),
-      ('backEndTester', 'backendtester1@address.com', '${bcrypt.hashSync('backendtester123', 10)}','User');`;
+      ('Oyedeji Peace', 'oyedejipeace@gmail.com', '${bcrypt.hashSync('oyedejipeace', 10)}','Admin'),
+      ('Afolabi Abimbola', 'afolabiabimbola@address.com', '${bcrypt.hashSync('afolabiabimbola', 10)}','Admin');`;
 
 
-  const orderData = `INSERT INTO orders ("fromName", "fromAddress", "fromEmail", "toName", "toAddress", "toEmail", type, weight, price,"userId", "orderStatus","presentLocation")
-      VALUES ('Oyedeji Peace', 'Andela EPIC Tower, Lagos', 'oyedejipeace@gmail.com', 'Akin Omobayo', 'University of Ibadan', 'akinomo@gmail.com','Documents','3', '2000','1','New','Orogun Ibadan'),('Angelina Jolie', 'Andela EPIC Tower, Lagos', 'angelina@gmail.com', 'Jamal Smollet', 'University of Abuja', 'jsmollet@gmail.com','Packages','3','5000','2','Delivered','University of Ibadan')`;
+  const orderData = `
+    INSERT INTO orders ("fromName","fromAddress", "fromEmail", "toName", "toAddress", "toEmail",type, weight, price,"userId", "orderStatus", "presentLocation")
+      VALUES ('Oyedeji Peace', 'Andela EPIC Tower, Lagos', 'oyedejipeace@gmail.com', 'Akin Omobayo', 'University of Ibadan', 'akinomo@gmail.com','Documents','3', '2000',1,'New','Orogun Ibadan'),
+      ('Angelina Jolie', 'Andela EPIC Tower, Lagos', 'angelina@gmail.com', 'Jamal Smollet', 'University of Abuja', 'jsmollet@gmail.com','Packages','3','5000',2,'Delivered','University of Ibadan'),
+      ('Angelina Jolie', 'Andela EPIC Tower, Lagos', 'angelina@gmail.com', 'Jamal Smollet', 'University of Abuja', 'jsmollet@gmail.com','Packages','3','5000', 3,'Delivered','University of Ibadan');`;
 
 
   const input = dropTables + enumAccount + enumRole + userAccounts + orders;

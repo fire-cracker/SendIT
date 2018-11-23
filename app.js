@@ -8,7 +8,7 @@ import usersRoutes from './Api/routes/usersRoute';
 dotenv.config();
 
 // port declaration
-const PORT = process.env.SV_PORT;
+const PORT = process.env.PORT || process.env.SV_PORT;
 
 // Set up the express app
 const app = express();
