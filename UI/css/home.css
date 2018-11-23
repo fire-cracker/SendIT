@@ -15,7 +15,7 @@
 }
 
  #createAshipment{
-    margin: 5% 5% 0% 5%;
+    margin: 5% 5% 2% 5%;
     display: flex;
   justify-content: center;
   align-items: center;
@@ -209,16 +209,16 @@ p{
         height:79%;
     }
     #createAshipment{
-        margin: 2% 0% 0% 15%;
+        margin: 3% 0% 2% 15%;
         display: flex;
       justify-content: center;
       align-items: center;
     }
     #previewButton {
-        padding: 14px 20px;
-        margin: 0% 0% 1% 80%;
-        width: 15%;
-        border-radius: 10px;
-        font-size: 120%;
-      }
+    padding: 1% 3%;
+    margin: 0% 0% 1% 80%;
+    width: 17%;
+    border-radius: 10px;
+    font-size: 120%;
+    }
   }

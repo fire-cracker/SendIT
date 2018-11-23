@@ -28,10 +28,10 @@
         <div id="headerContent">
 
             <div class="navigation" id="navigation">
-                <a id="login-nav" href="index.html">Logout</a>
-                <a id="home" href="profile.html" class="active">Profile</a>
-                <a id="contact" href="home.html">Home</a>
-                <a id="menu" href="track.html">Track</a>
+                <a id="logout" href="index.html">Logout</a>
+                <a id="active" href="profile.html">Profile</a>
+                <a id="home" href="home.html">Home</a>
+                <a id="track" href="track.html">Track</a>
                 <a href="javascript:void(0);" class="icon" id="icon">
                     <i class="fa fa-bars"></i>
                   </a>
@@ -86,7 +86,15 @@
  <!--  parcel delivery orders Section -->
      <div id="preview">
              <h1> Parcel Delivery Orders </h1>
+
+        <div class="navTabs" id ='navTabs'>
+                    <a class="navLink active" href="javascript:showHide('content1');">NEW ORDERS</a>
+                    <a class="navLink" href="javascript:showHide('content2');">PENDING ORDERS</a>
+                 <a class="navLink" href="javascript:showHide('content3');">DELIVERED ORDERS&nbsp;</a>
+        </div>
+
              <div id="information">
+                <div id="content1">
                     <div id="shipmentOrderPreview" class = 'new'>
                             <div id="createShipmentPreview" class="createShipmentPreview">
                              <form class="fromPreview" id="fromPreview">
@@ -126,12 +134,13 @@
                                         </div> 
                                </div>
                                     </div>
-                
-                                            <!-- Parcel order status section -->
-                                            </b> <p id="pending">New</p>
                                           
                    
                 </div>
+            </div>
+
+
+            <div id="content2">
                 <div id="shipmentOrderPreview" class = 'pending'>
                         <div id="createShipmentPreview" class="createShipmentPreview">
                          <form class="fromPreview" id="fromPreview">
@@ -139,7 +148,7 @@
                                      <h2> From </h2> 
                              </div>
                          <div id="particulars">
-                            <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                            <b>Name :</b> <p id="previewName" class="previewName">Olubukola Oyedeji</p><br>
                            <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
                            <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
                         </div>
@@ -151,7 +160,7 @@
                                  </div>
                  
                                      <div id="particulars">
-                                    <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                                    <b>Name :</b> <p id="previewNameTo" class="previewName">Daniel Daniella</p><br>
                                     <b>Address :</b> <br>
                                     <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p><br>
                                    <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
@@ -171,11 +180,11 @@
                                     </div> 
                            </div>
                                 </div>
-                                        <!-- Parcel order status section -->
 
-                                        </b> <p id="pending">Pending</p>
             </div>
+        </div>
 
+        <div id="content3">
             <div id="shipmentOrderPreview" class = 'delivered'>
                     <div id="createShipmentPreview" class="createShipmentPreview">
                      <form class="fromPreview" id="fromPreview">
@@ -183,7 +192,7 @@
                                  <h2> From </h2> 
                          </div>
                      <div id="particulars">
-                        <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                        <b>Name :</b> <p id="previewName" class="previewName">Uche Chinedu</p><br>
                        <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
                        <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
                     </div>
@@ -195,7 +204,7 @@
                              </div>
              
                                  <div id="particulars">
-                                <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                                <b>Name :</b> <p id="previewNameTo" class="previewName">Seun Amanodia</p><br>
                                 <b>Address :</b> <br>
                                 <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p><br>
                                <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
@@ -215,12 +224,12 @@
                                 </div> 
                        </div>
                             </div>
-                                    <!-- Parcel order status section -->
-                                    </b> <p id="pending">Delivered</p>
              
            
         </div>      
- 
+    </div>
+
+
  </div>
           </div> 
     <!-- JavaScript -->

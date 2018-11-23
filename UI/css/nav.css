@@ -77,7 +77,7 @@ border-width: 1px;
 border-radius: 10px;
 margin: 3% 0% 0% 0%;
 } */
-#login-nav {
+#logout {
   color:red;
 }
 .navigation a:hover {
@@ -85,39 +85,38 @@ margin: 3% 0% 0% 0%;
   cursor: pointer;
 }
 
-.navigation a.active {
-  background-color: #ddd;
-  color: black;
+#active {
+  text-decoration: underline solid white;
 }
 
 p.blink {
   color: red;
 }
 .navigation a {display: none;}
-  .navigation a.icon {
+.navigation a.icon {
     float: right;
     display: block;
-  }
-  .navigation.responsive {position: relative;}
-  .navigation.responsive .icon {
+}
+.navigation.responsive {position: relative;}
+.navigation.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
-  }
-  .navigation.responsive a {
+}
+.navigation.responsive a {
     float: none;
     display: block;
     text-align: left;
-  }
+}
 /* For desktop: */
 @media only screen and (min-width: 768px) {
-  #contact,
-  #menu,
-  #signOut,
+  #admin,
+  #track,
+  #active,
   #home,
-  #cart,
+  #profile,
   #signOut,
-  #login-nav {
+  #logout {
     border-width: 1px;
     border-radius: 10px;
     margin: 0.5% 0% 1% 0%;
