@@ -1,5 +1,5 @@
 # SendIT
- [![Build Status](https://travis-ci.org/oyedejipeace/SendIT.svg?branch=develop)](https://travis-ci.org/oyedejipeace/SendIT)[![Coverage Status](https://coveralls.io/repos/github/oyedejipeace/SendIT/badge.svg?branch=develop)](https://coveralls.io/github/oyedejipeace/SendIT?branch=develop)[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/oyedejipeace/SendIT)![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+ [![Build Status](https://travis-ci.org/oyedejipeace/SendIT.svg?branch=develop)](https://travis-ci.org/oyedejipeace/SendIT)[![Coverage Status](https://coveralls.io/repos/github/oyedejipeace/SendIT/badge.svg?branch=develop&service=github)](https://coveralls.io/github/oyedejipeace/SendIT?branch=develop&service=github)[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/oyedejipeace/SendIT)![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
 
 
 ## Table of Contents
