@@ -50,7 +50,7 @@ p{
     font-size: 18px;
     border-radius: 5px;
     height: max-content;
-    text-align: left;
+    text-align: center;
     height: 100%;
     width: 100%;
   }
@@ -82,11 +82,12 @@ p{
  width: 90%;	
  height: 240px;
  padding: 0px 4% 0px 4%;
- border-radius: 30px 30px 30px 30px;	
- border: 2px solid;	
+ border-bottom: 1px solid black;
+ border-left: 1px solid black;
+ border-right: 1px solid black;	
 }
 
-.new{
+/* .new{
     box-shadow:	5px 5px rgba(140, 110, 224, 0.4);
 }
 .pending{
@@ -95,7 +96,7 @@ p{
 
 .delivered{
     box-shadow:	5px 5px	rgba(94, 224, 82, 0.4);
-}
+} */
 
 #createShipmentPreview{
     display:flex;
@@ -111,10 +112,10 @@ p{
     display: inline-block;
   }
 
-.particulars{
+/* .particulars{
     height:200px;
     border-right:1px solid black;
-  }
+  } */
 #particulars{
     padding: 0px 2%
   }
@@ -141,7 +142,7 @@ p{
     background-color: rgba(0, 0, 0, 0.705);
   }
   #cancelButton{
-    background-color: rgb(241, 177, 177);
+    background-color: red;
   }
 #buttons{
   display:flex;
@@ -184,24 +185,22 @@ p{
     float:left;
   display: block;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
-  font-size: 120%;
+  color: white;
+  font-size: 70%;
   padding: 2% 8%;
-  border-radius: 10px;
+  border-radius: 50px;
   text-align: center;
-  border-radius: 10px;
-  box-shadow:	3px 3px rgba(31, 26, 46, 0.4);
   width:120px;
 }
 .new #pending{
-    background-color: rgba(140, 110, 224, 0.4);
+    background-color: rgb(50, 42, 127);
    
 }
 .pending #pending{
-    background-color:  rgba(245, 216, 52, 0.4);
+    background-color:  grey;
 }
 .delivered #pending{
-    background-color: rgba(94, 224, 82, 0.4);
+    background-color: rgb(127, 225, 14);
 }
 
   /* For desktop: */
@@ -217,6 +216,6 @@ p{
 }
 
 #pending {
-    font-size: 120%;
+    font-size: 70%;
     padding: 2% 8%;
   }

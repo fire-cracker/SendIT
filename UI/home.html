@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/home.css" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
     <!-- font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
 </head>
@@ -27,11 +28,14 @@
     <header id="navBar">
         <div id="headerContent">
 
-            <div class="navigation">
+            <div class="navigation" id="navigation">
                 <a id="login-nav" href="index.html">Logout</a>
                 <a id="home" href="profile.html">Profile</a>
                 <a id="contact" href="home.html"class="active">Home</a>
                 <a id="menu" href="track.html">Track</a>
+                <a href="javascript:void(0);" class="icon" id="icon">
+                    <i class="fa fa-bars"></i>
+                  </a>
             </div>
         </div>
 
@@ -52,39 +56,39 @@
                         <h2> From </h2> 
                 </div>
 
-            <div id="loginParticulars" class="required">
+            <div id="loginParticulars" class="">
                     <label ><b>Name</b></label>
-                    <input type="text" id="username" name="name" required>
+                    <input type="text" id="username" name="name" >
                     <label id="addressLabel"><b>Address</b></label>
-                    <input type="text" id="address" name="address" required>
+                    <input type="text" id="address" name="address" >
                     <label id="emailLabel"><b>Email Address</b></label>
-                    <input type="email" id="email" name="Email" required>
+                    <input type="email" id="email" name="Email" >
             </div>
             <div class="img_login">
                 <h2> To </h2> 
         </div>
 
-        <div id="loginParticulars" class="required" >
+        <div id="loginParticulars" class="" >
             <label><b>Name</b></label>
-            <input type="text" id="nameTo" name="username" required>
+            <input type="text" id="nameTo" name="username" >
             <label id="addressLabel"><b>Address</b></label>
-            <input type="text" id="addressTo" name="address" required>
+            <input type="text" id="addressTo" name="address" >
             <label id="emailLabel"><b>Email Address</b></label>
-            <input type="email" id="emailTo" name="Email" required>  
+            <input type="email" id="emailTo" name="Email" >  
         </div>
 
         <label id="typeLabel"><b>Type </b></label>
-                <select id="parcelPreference" required>
+                <select id="parcelPreference" >
                         <option>Documents</option>
                         <option>Packages</option>
                 </select>
 
         <div class="label" id="label">
             <label id="weightLabel"><b>weight(kg) </b></label>
-            <input type="number" id="weight" name="weight" required> 
+            <input type="number" id="weight" name="weight" > 
         </div>
         <div class="label" id="label">
-            <button type="submit" id="previewButton" class="submitBtn" type="submit">Preview</button>
+            <button type="submit" id="previewButton" formaction="track.html" class="submitBtn" type="submit">submit</button>
             </form>
 
          
@@ -96,7 +100,7 @@
 
 <div id="preview">
         <h1> Preview </h1>
-        <div id="shipmentOrderPreview" required>
+        <div id="shipmentOrderPreview" >
          <div id="createShipmentPreview" class="createShipmentPreview">
 
                  <form class="fromPreview" id="fromPreview">
@@ -148,8 +152,9 @@
      </div>
 
     
-    <!-- JavaScript -->
-    <script type="text/JavaScript" src="js/home.js"></script>
+    <!-- JavaScript
+    <script type="text/JavaScript" src="js/home.js"></script> -->
+    <script type="text/JavaScript" src="js/nav.js"></script>
 </body>
 
 </html>

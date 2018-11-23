@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/admin.css" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
     <!-- font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
 </head>
@@ -27,12 +28,15 @@
     <header id="navBar">
         <div id="headerContent">
 
-            <div class="navigation">
+            <div class="navigation" id="navigation" >
                 <a id="login-nav" href="index.html">Logout</a>
                 <a id="home" href="profile.html">Profile</a>
                 <a id="contact" href="home.html">Home</a>
                 <a id="menu" href="track.html">Track</a>
                 <a id="menu" href="admin.html" class="active">Admin</a>
+                <a href="javascript:void(0);" class="icon" id="icon">
+                    <i class="fa fa-bars"></i>
+                  </a>
             </div>
         </div>
 
@@ -48,7 +52,7 @@
 
     <!--  Parcel delivery Orders Section -->
     <div id="preview">
-        <h1> Parcel Delivery Orders </h1>
+        <h1>  Hi Admin! Parcel Delivery Orders </h1>
         <div id="information">
             <div id="shipmentOrderPreview" class = 'new'>
                 <div id="createShipmentPreview" class="createShipmentPreview">
@@ -224,16 +228,6 @@
                             </b> <p class="status">Delivered</p>
                                 
                             </div>
-                            <div id="presentLocation">
-                                    <div class="presentLocation">
-                                    <b>Present Location :</b> <p id="location" >University of Abuja,Gwagwalada, FCT</p>
-                                    <button id="editButton" class="editButton" type="submit">Edit</button>
-                                </div>
-                                <div class="newLocation">
-                                   <b>Present Location :</b> <input type="text" id="address" class="address" name="address">
-                                    <button id="editButton2" class="editButton2" type="submit">Edit</button>
-                                </div>
-                                </div>
                                 <div>
                                 <button id="submitButton" class="submitButton" type="submit">Submit</button>
                             </div>
@@ -249,6 +243,7 @@
 
     <!-- JavaScript -->
     <script type="text/JavaScript" src="js/admin.js"></script>
+    <script type="text/JavaScript" src="js/nav.js"></script>
 </body>
 
 </html>

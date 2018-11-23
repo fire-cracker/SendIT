@@ -6,7 +6,7 @@
   margin: 0px;
   top: 0;
   left: 0;
-  background-color:  rgb(182, 178, 207);
+  background-color: rgb(76, 70, 118);
   position: fixed;
   width: 100%;
   overflow: hidden;
@@ -24,7 +24,7 @@
   text-align: center;
   padding: 8px;
   text-decoration: none;
-  background-color: #333;
+  /* background-color: #333; */
   font-size: 14px;
   height: 18px;
 }
@@ -51,9 +51,10 @@
 }
 
 #blink_caption {
-  color: black;
+  color: white;
   font-size: 24px;
   float: left;
+  margin-top: 5px;
 }
 #text {
   opacity: 0.6;
@@ -61,7 +62,7 @@
   font-size: 18px;
 }
 
-#contact,
+/* #contact,
 #menu,
 #signOut,
 #home,
@@ -75,11 +76,12 @@ border-right-color: bisque;
 border-width: 1px;
 border-radius: 10px;
 margin: 3% 0% 0% 0%;
+} */
+#login-nav {
+  color:red;
 }
-
 .navigation a:hover {
-  background: #ddd;
-  color: black;
+ text-decoration: underline solid white;
   cursor: pointer;
 }
 
@@ -91,7 +93,22 @@ margin: 3% 0% 0% 0%;
 p.blink {
   color: red;
 }
-
+.navigation a {display: none;}
+  .navigation a.icon {
+    float: right;
+    display: block;
+  }
+  .navigation.responsive {position: relative;}
+  .navigation.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .navigation.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 /* For desktop: */
 @media only screen and (min-width: 768px) {
   #contact,
@@ -106,5 +123,12 @@ p.blink {
     margin: 0.5% 0% 1% 0%;
     font-size: 100%;
   }
+  #navBar {
+    height: 50px;
+  }
+  .navigation a.icon {
+    display: none;
+  }
+  .navigation a:not(:last-child) {display: block;}
 }
 

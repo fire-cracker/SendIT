@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" href="css/tracking.css" />
     <link rel="stylesheet" type="text/css" href="css/nav.css" />
     <!-- font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
 </head>
@@ -27,11 +28,14 @@
     <header id="navBar">
         <div id="headerContent">
 
-            <div class="navigation">
+            <div class="navigation" id="navigation">
                 <a id="login-nav" href="index.html">Logout</a>
                 <a id="home" href="profile.html">Profile</a>
                 <a id="contact" href="home.html">Home</a>
                 <a id="menu" href="track.html" class="active">Track</a>
+                <a href="javascript:void(0);" class="icon" id="icon">
+                    <i class="fa fa-bars"></i>
+                  </a>
             </div>
         </div>
 
@@ -393,6 +397,7 @@
 
     <!-- JavaScript -->
     <script type="text/JavaScript" src="js/tracking.js"></script>
+    <script type="text/JavaScript" src="js/nav.js"></script>
 </body>
 
 </html>

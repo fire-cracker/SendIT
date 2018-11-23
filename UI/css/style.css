@@ -44,7 +44,7 @@ button {
     width: 100%;
   }
 footer {
-    background-color: bisque;
+    background-color:rgb(76, 70, 118);
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -73,11 +73,12 @@ footer {
   }
   
   #license {
-    background-color: burlywood;
+    background-color: rgb(76, 70, 118);
     width: 100%;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 15px;
     text-align: center;
+    color: white;
     align-content: center;
     bottom: 0;
   }
@@ -91,13 +92,15 @@ footer {
 #login{
        float:left;
        right: 0px;
-       margin: 5% 15% 0% 5%;
+       margin: 29% 15% 0% 5%;
        overflow: auto;
        position: fixed;
        top: 0px;
-       width: 60%;	
+       width: 68%;	
        height:60%;
        padding: 1% 1% 1% 1%;
+       border: 2px solid grey;
+       border-radius:10px;
    }
 
 
@@ -131,6 +134,7 @@ input {
   width: 100%;
   padding: 5px 20px;
   margin: 8px 0;
+  height: 40px;
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
@@ -242,10 +246,11 @@ input {
     #register, 
     #login{
           
-           margin: 5% 35% 0% 5%;
+           margin: 9% 35% 0% 5%;
            width: 30%;	
-           height:60%;
+           height:65%;
        }
+       
   }
  
  /* For tablets:

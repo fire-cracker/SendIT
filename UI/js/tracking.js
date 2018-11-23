@@ -1,6 +1,6 @@
 // var address = document.getElementById('address');
 // var previewAddressTo = document.getElementById('previewAddressTo');
-// var editButton = document.getElementById('editButton');
+var editButton = document.getElementsByClassName('editButton');
 // var cancelButton = document.getElementById('cancelButton');
 // var submitButton = document.getElementById('submitButton');
 
@@ -21,3 +21,17 @@ document.getElementById('editButton').addEventListener('click', function() {
     //     previewAddressTo.style.display = "block";
     //     cancelButton.style.display = "block";
     // });
+    var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+     editButton[i].addEventListener("click", function() {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+            panel.style.display = "none";
+        } else {
+            panel.style.display = "block";
+        }
+    });
+}
