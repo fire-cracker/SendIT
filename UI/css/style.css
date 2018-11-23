@@ -4,6 +4,12 @@ html{
 * {
   box-sizing: border-box;
 }
+.whole{
+  display: block;
+}
+.heroWhite{
+display:none;
+}
 /*Styling for the body background*/
 body {
     margin: 0px;
@@ -92,7 +98,7 @@ footer {
 #login{
        float:left;
        right: 0px;
-       margin: 29% 15% 0% 5%;
+       margin: 50% 15% 0% 5%;
        overflow: auto;
        position: fixed;
        top: 0px;
@@ -246,13 +252,27 @@ input {
     #register, 
     #login{
           
-           margin: 9% 35% 0% 5%;
+      margin: 9% 15% 0% 5%;
            width: 30%;	
            height:65%;
        }
        
   }
- 
+  .whole{
+    display: flex;
+  }
+  .heroWhite{
+    display:block;
+    }
+  .heroWhite {
+    color: white;
+    float: right;
+    width: 50%;
+    margin-top: 20%;
+    margin-left:1%;
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.5rem;
+}
  /* For tablets:
   @media only screen and (min-width: 600px) {
     #register, 

@@ -19,6 +19,4 @@ window.onresize =evt => {
         x.className = "navigation";
         document.getElementById("navBar").style.height = '50px';
     }
-
-
 }

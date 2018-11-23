@@ -130,31 +130,89 @@ p{
      cursor: pointer;
      outline:none;
   }
-  #cancelled:hover{
-    background-color: rgba(0, 0, 0, 0.705);
+  #cancelled{
+    background-color: green;
+    display:none;
      outline:none;
   }
   #cancelButton:hover{
     background-color: rgb(245, 155, 155);
      outline:none;
   }
-  #cancelled{
-    background-color: rgba(0, 0, 0, 0.705);
-  }
   #cancelButton{
     background-color: red;
+    display:block;
+  }
+  #cancelled2,#cancelButton2{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: black;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+  }
+  #cancelled2{
+    background-color: green;
+    display:none;
+     outline:none;
+  }
+  #cancelButton2:hover{
+    background-color: rgb(245, 155, 155);
+     outline:none;
+  }
+  #cancelButton2{
+    background-color: red;
+    display:block;
+  }
+  #cancelled3,#cancelButton3{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: black;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+  }
+  #cancelled3{
+    background-color: green;
+    display:none;
+     outline:none;
+  }
+  #cancelButton3:hover{
+    background-color: rgb(245, 155, 155);
+     outline:none;
+  }
+  #cancelButton3{
+    background-color: red;
+    display:block;
+  }
+  #cancelled4,#cancelButton4{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: black;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+  }
+  #cancelled4{
+    background-color: green;
+    display:none;
+     outline:none;
+  }
+  #cancelButton4:hover{
+    background-color: rgb(245, 155, 155);
+     outline:none;
+  }
+  #cancelButton4{
+    background-color: red;
+    display:block;
   }
 #buttons{
   display:flex;
   justify-content: space-between;
 }
-#cancelButton{
-    display:block;
-  }
-
-#cancelled{
-    display:none;
-  }
 
 #editButton{
     display:block;
@@ -163,7 +221,12 @@ p{
 #changeAddress{
     display: flex;
 }
-
+.destination{
+    display:block;
+}
+.newDestination{
+    display:none;
+}
 #previewAddressTo{
     display:block;
   }

@@ -1,18 +1,28 @@
-// var address = document.getElementById('address');
-// var previewAddressTo = document.getElementById('previewAddressTo');
+var address = document.getElementById('address');
+var previewAddressTo = document.getElementById('previewAddressTo');
 var editButton = document.getElementsByClassName('editButton');
-// var cancelButton = document.getElementById('cancelButton');
-// var submitButton = document.getElementById('submitButton');
+var editButtonbtn = document.getElementsByClassName('editButtonbtn');
+var destination = document.getElementById('destination');
+var newDestination = document.getElementById('newDestination');
+var cancelButton = document.getElementById('cancelButton');
+var cancelled = document.getElementById('cancelled');
+var cancelButton2 = document.getElementById('cancelButton2');
+var cancelled2= document.getElementById('cancelled2');
+var cancelButton3 = document.getElementById('cancelButton3');
+var cancelled3 = document.getElementById('cancelled3');
+var cancelButton4 = document.getElementById('cancelButton4');
+var cancelled4 = document.getElementById('cancelled4');
+var submitButton = document.getElementById('submitButton');
 
-// When the user clicks outside of the password field, hide the message box
-document.getElementById('editButton').addEventListener('click', function() {
-    //     address.style.display = "block";
-    //     previewAddressTo.style.display = "none";
-    //     submitButton.style.display = "block";
-    //     cancelButton.style.display = "none";
-         document.getElementById('editButton').style.display = "none"
-              break
-    });
+// // When the user clicks outside of the password field, hide the message box
+// document.getElementById('editButton').addEventListener('click', function() {
+//     //     address.style.display = "block";
+//     //     previewAddressTo.style.display = "none";
+//     //     submitButton.style.display = "block";
+//     //     cancelButton.style.display = "none";
+//          document.getElementById('editButton').style.display = "none"
+//               break
+//     });
     
     
     // submitButton.addEventListener('click', function() {
@@ -21,17 +31,40 @@ document.getElementById('editButton').addEventListener('click', function() {
     //     previewAddressTo.style.display = "block";
     //     cancelButton.style.display = "block";
     // });
-    var acc = document.getElementsByClassName("accordion");
-var i;
+//     var acc = document.getElementsByClassName("accordion");
+// var i;
 
-for (i = 0; i < acc.length; i++) {
-     editButton[i].addEventListener("click", function() {
-        this.classList.toggle("active");
-        var panel = this.nextElementSibling;
-        if (panel.style.display === "block") {
-            panel.style.display = "none";
-        } else {
-            panel.style.display = "block";
-        }
+// for (i = 0; i < acc.length; i++) {
+//      editButton[i].addEventListener("click", function() {
+//         this.classList.toggle("active");
+//         var panel = this.nextElementSibling;
+//         if (panel.style.display === "block") {
+//             panel.style.display = "none";
+//         } else {
+//             panel.style.display = "block";
+//         }
+//     });
+// }
+
+document.getElementById('cancelButton').addEventListener('click', function() {
+    cancelButton.style.display = 'none'
+    cancelled.style.display = 'block'
+       });
+document.getElementById('cancelButton2').addEventListener('click', function() {
+    cancelButton2.style.display = 'none'
+    cancelled2.style.display = 'block'
+           });
+document.getElementById('cancelButton3').addEventListener('click', function() {
+    cancelButton3.style.display = 'none'
+    cancelled3.style.display = 'block'
+               });
+document.getElementById('cancelButton4').addEventListener('click', function() {
+    cancelButton4.style.display = 'none'
+    cancelled4.style.display = 'block'
     });
-}
+
+document.getElementById('editButton').addEventListener('click', function() {
+    destination.style.display = 'none'
+    newDestination.style.display = 'block'
+    });
+                   
