@@ -45,11 +45,19 @@ Visit [Admin Dashboard](https://oyedejipeace.github.io/SendIT/UI/admin.html)
 - `morgan`
 
 ## API End Points
-- `GET /api/v1/parcels`                -   Fetches all Available Orders in the Database
-- `GET /api/v1/parcels/<parcelId>`     -   Fetches a particular order in the database
-- `POST /api/v1/parcels/`              -   Saves an Order in the database
-- `PUT /api/v1/parcels/<parcelId >`    -   Updates the status of an order in the database
-- `DELETE /api/v1/parcels/<parcelId >` -   Deletes an order in the database
+- `GET /api/v1/users`                             -   Fetches all users in the Database
+- `GET /api/v1/parcels`                           -   Fetches all Available Orders in the Database
+- `GET /api/v1/parcels/<parcelId>`                -   Fetches a particular order in the database
+- `GET /api/v1/users/<usersId>/parcels/`      -   Fetches the orders of a particualar user in the database
+- `POST /api/v1/parcels/`                         -   Saves an Order in the database
+- `POST /api/v1/auth/signup`                      -   Signs up a user
+- `POST /api/v1/auth/login`                       -   User can login
+- `PUT /api/v1/parcels/<parcelId>/presentLocation`-   Updates the location of an order in the database
+- `PUT /api/v1/parcels/<parcelId>/status`         -   Updates the status of an order in the database
+- `PUT /api/v1/parcels/<parcelId>/destination`    -   Updates the destination of an order in the database
+- `PUT /api/v1/parcels/<parcelId>/cancel     `    -   Cancels an order in the database
+- `DELETE /api/v1/parcels/<parcelId >`            -   Deletes an order in the database
+- `
  
  ## Known issues
 Everything works as expected; However:
