@@ -2,11 +2,14 @@ import logger from 'morgan';
 import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
+import swagger from 'swagger-ui-express';
+import YAML from 'yamljs';
 import ordersRoutes from './Api/routes/index';
 import usersRoutes from './Api/routes/usersRoute';
 
 dotenv.config();
 
+const apiDocs = YAML.load('./apiDocs.yaml');
 // port declaration
 const PORT = process.env.PORT || process.env.SV_PORT;
 
@@ -19,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Parse incoming requests data
+app.use('/api/v1/docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/api/v1', ordersRoutes);
 app.use('/api/v1', usersRoutes);
 
