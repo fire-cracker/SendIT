@@ -7,6 +7,16 @@
   
 }
 
+/* Styling the Top background Section */
+#section3 {
+    height: 170px;
+    width: 100%;
+    background-image: url("img/background3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ 
  /* Styling the create Shipment Section */
  h1{
     margin: 0% 0% 0% 0%;

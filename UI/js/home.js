@@ -41,6 +41,13 @@ var heightPreview = document.getElementById('heightPreview');
 //     cancelButton.style.display = "block";
 // });
 // When the user clicks on the password field, show the message box
+if (document.getElementsByTagName('input').value == ''){
+    previewButton.disabled = false; 
+}
+else{
+    previewButton.disabled = true; 
+}
+
 previewButton.addEventListener('click', function() {
     createAshipment.style.display = "none";
     preview.style.display = "block";

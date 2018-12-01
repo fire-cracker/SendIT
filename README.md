@@ -1,5 +1,9 @@
 # SendIT
 
+ [![Build Status](https://travis-ci.org/oyedejipeace/SendIT.svg?branch=develop)](https://travis-ci.org/oyedejipeace/SendIT)[![Coverage Status](https://coveralls.io/repos/github/oyedejipeace/SendIT/badge.svg?branch=develop&service=github)](https://coveralls.io/github/oyedejipeace/SendIT?branch=develop&service=github)[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/oyedejipeace/SendIT)![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg)
+
+
+
 ## Table of Contents
 
 * [Project Overview](#Project-Overview)
@@ -57,7 +61,7 @@ Visit [Admin Dashboard](https://oyedejipeace.github.io/SendIT/UI/admin.html)
 - `PUT /api/v1/parcels/<parcelId>/destination`    -   Updates the destination of an order in the database
 - `PUT /api/v1/parcels/<parcelId>/cancel     `    -   Cancels an order in the database
 - `DELETE /api/v1/parcels/<parcelId >`            -   Deletes an order in the database
-- `
+
  
  ## Known issues
 Everything works as expected; However:
@@ -88,3 +92,4 @@ Once the server starts-up, you can query the api at `http://localhost:5000/api/v
 
 - **[MIT license](https://oyedejipeace.github.io/SendIT/UI/LICENSE.md)**
 - Copyright 2018 © <a href="https://oyedejipeace.github.io/SendIT/UI" target="_blank">SendIT</a>
+
