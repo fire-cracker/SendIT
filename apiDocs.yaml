@@ -1,0 +1,562 @@
+swagger: "2.0"
+info:
+  description: "SendIT is a courier service that helps users deliver parcels to different destinations. SendIT  provides courier quotes based on weight categories. it was built from scratch using `Html` , `Css` , `JavaScript` and `Node.js`"
+  version: "1.0.0"
+  title: "SendIT App Documentation"
+  termsOfService: "https://oyedejipeace.github.io/SendIT/UI/LICENSE.md"
+  contact:
+    email: "oyedejipeace@gmail.com"
+  license:
+    name: "Licence: MIT"
+    url: "https://oyedejipeace.github.io/SendIT/UI/LICENSE.md"
+host: "sendit-courier.herokuapp.com"
+basePath: "/api/v1"
+tags:
+- name: "Order"
+  description: "Fetch, Create and Update Order"
+  externalDocs:
+      description: "Visit Git Repository"
+      url: "https://github.com/oyedejipeace/SendIT"
+- name: "User"
+  description: "Signup, Login and Fetch User "
+  externalDocs:
+      description: "Visit Git Repository"
+      url: "https://github.com/oyedejipeace/SendIT"
+schemes:
+- "https"
+- "http"
+
+paths:
+  /parcels:
+    get:
+      tags:
+      - "Order"
+      summary: "Find all available Order"
+      description: "Find all available Order in the database"
+      operationId: "getAllOrders"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: 'Orders Retrieved Successfully'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+      security:
+      - api_key: []
+
+    post:
+      tags:
+      - "Order"
+      summary: "Add a new Order"
+      description: "Add a new Order to the database"
+      operationId: "createOrder"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Details of new Order to be added"
+        required: true
+        schema:
+          $ref: "#/definitions/newOrder"
+      responses:
+        200:
+          description: 'Order Sent Successfully'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+
+  /parcels/{parcelId}:
+    get:
+      tags:
+      - "Order"
+      summary: "Find a particular Order"
+      description: "Find a particular Order in the database"
+      operationId: "getOrder"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "parcelId"
+        in: "path"
+        description: "ID of the Order to be retrieved"
+        required: true
+        type: "integer"
+      responses:
+        200:
+          description: 'Order Retrieved Successfully'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+        404:
+          description: 'Order Not Found in the Database'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+      security:
+      - api_key: []
+
+  /parcels/{parcelId}/presentLocation:
+    put:
+      tags:
+      - "Order"
+      summary: "Update present location of an existing Order"
+      description: "Update present location of an existing Order in the database"
+      operationId: "updateLocation"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "parcelId"
+        in: "path"
+        description: "ID of the Order to be Edited"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "presentLocation"
+        description: "Present Location of Order"
+        required: true
+        schema:
+          $ref: "#/definitions/presentLocation"
+      responses:
+        200:
+          description: "Update successful"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+        410:
+          description: 'Order Not Found in the Database'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+      security:
+      - api_key: []
+
+  /parcels/{parcelId}/status:
+    put:
+      tags:
+      - "Order"
+      summary: "Update status of an existing Order"
+      description: "Update status of an existing Order in the database"
+      operationId: "updateStatus"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "parcelId"
+        in: "path"
+        description: "ID of the Order to be Edited"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "orderStatus"
+        description: "Order status of parcel Order"
+        required: true
+        schema:
+          $ref: "#/definitions/status"
+      responses:
+        200:
+          description: "Update successful"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+        410:
+          description: 'Order Not Found in the Database'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+      security:
+      - api_key: []
+
+  /parcels/{parcelId}/destination:
+    put:
+      tags:
+      - "Order"
+      summary: "Update destination of an existing Order"
+      description: "Update destination of an existing Order in the database"
+      operationId: "updateDestination"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "parcelId"
+        in: "path"
+        description: "ID of the Order to be Edited"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "toAddress"
+        description: "Destination of Order"
+        required: true
+        schema:
+          $ref: "#/definitions/destination"
+      responses:
+        200:
+          description: "Update successful"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+        410:
+          description: 'Order Not Found in the Database'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+      security:
+      - api_key: []
+
+  /parcels/{parcelId}/cancel:
+    put:
+      tags:
+      - "Order"
+      summary: "Cancel an existing Order"
+      description: "Cancel an existing Order in the database"
+      operationId: "cancelOrder"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - name: "parcelId"
+        in: "path"
+        description: "ID of the Order to be Edited"
+        required: true
+        type: "integer"
+      - in: "body"
+        name: "orderStatus"
+        description: "Order status of parcel Order"
+        required: true
+        schema:
+          $ref: "#/definitions/cancel"
+      responses:
+        200:
+          description: "Update successful"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+        410:
+          description: 'Order Not Found in the Database'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+      security:
+      - api_key: []
+
+
+
+
+
+
+
+  /auth/login:
+    post:
+      tags:
+      - "User"
+      summary: Login a user
+      description: Log in a user to the application
+      operationId: "login"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Details of user logging in"
+          required: true
+          schema:
+            $ref: "#/definitions/login"
+      responses:
+        200:
+          description: "Login Successful"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+        404:
+          description: 'User Not Found in the Database'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+      security:
+      - api_key: []
+
+  /auth/signup:
+    post:
+      tags:
+      - "User"
+      summary: "signup a new user"
+      description: Signup user into the application
+      operationId: "signup"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Details of new User to be added"
+          required: true
+          schema:
+            $ref: "#/definitions/signup"
+      responses:
+        200:
+          description: 'User Sent Successfully'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+
+  /users:
+    get:
+      tags:
+      - "User"
+      summary: "Find all available User Data"
+      description: Find all available User Data in the database
+      operationId: "getAllUsers"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: 'Users Data retrieved successfully'
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponse"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/ApiResponseErr"
+      security:
+      - api_key: []
+
+
+
+securityDefinitions:
+  apiKey:
+    type: "apiKey"
+    name: "x-access-token"
+    in: "header"
+
+
+definitions:
+
+  newOrder:
+    type: "object"
+    properties:
+      fromName:
+        type: string
+        description: Name of Parcel Sender
+        example: Oyedeji Peace
+      fromAddress:
+        type: "string"
+        description: Address of Parcel Sender
+        example: "Andela EPIC Tower Lagos"
+      fromEmail:
+        type: "string"
+        description: Email of Parcel Sender
+        example: "oyedejipeace@gmail.com"
+      toName:
+        type: string
+        description: Name of Parcel recipient
+        example: Abimbola Afolabi
+      toAddress:
+        type: "string"
+        description: Address of Parcel recipient
+        example: "Andela EPIC Tower Lagos"
+      toEmail: 
+        type: "string"
+        description: Email of Parcel recipient
+        example: abimbolaafolabi@gmail.com
+      type:  
+        type: "string"
+        description: Type of parcel
+        enum:
+          - Packages
+          - Documents
+      weight:
+        type: "integer"
+        format: "int32"
+        description: Weight of Parcel
+        example: "20"
+      price:
+        type: "integer"
+        format: "int32"
+        description: Price of Order
+        example: "3000"
+    xml:
+      name: "Order"
+   
+  presentLocation:
+    type: "object"
+    properties:
+      presentLocation:
+        type: "string"
+        description: Present Location of Parcel order
+        example: University of Ibadan
+        default: Null
+    xml:
+      name: "Order"
+   
+  status:
+    type: "object"
+    properties:
+      orderStatus:
+        type: "string"
+        description: Status of Parcel order
+        example: Pending
+        enum:
+          - "New"
+          - "Pending"
+          - "Delivered"
+          - "Cancelled"
+        default: New
+    xml:
+      name: "Order"
+   
+  destination:
+    type: "object"
+    properties:
+      toAddress:
+        type: "string"
+        description: Address of Parcel recipient
+        example: "Andela EPIC Tower Lagos"
+    xml:
+      name: "Order"
+   
+  cancel:
+    type: "object"
+    properties:
+      orderStatus:
+        type: "string"
+        description: Status of Parcel order
+        example: Cancelled
+    xml:
+      name: "Order"
+   
+
+  signup:
+    type: "object"
+    properties:
+      userName:
+        type: "string"
+        description: Name of User
+        example: "SwaggerUser"
+      userEmail:
+        type: "string"
+        description: Email of User
+        example: "email@example.com"
+      userPassword:
+        type: "string"
+        description: Password of User
+        example: 'swagger123swagger'
+    xml:
+      name: "User"
+
+  login:
+    type: "object"
+    properties:
+      userEmail:
+        type: "string"
+        description: Email of User
+        example: "email@example.com"
+      userPassword:
+        type: "string"
+        description: Password of User
+        example: 'swagger123swagger'
+    xml:
+      name: "User"
+
+
+  ApiResponse:
+    type: "object"
+    properties:
+      status:
+        type: "string"
+      message:
+        type: "string"
+      data:
+        type: "object"
+
+  ApiResponseErr:
+    type: "object"
+    properties:
+      success:
+        type: "boolean"
+        example: "false"
+      message:
+        type: "string"
+
+
+externalDocs:
+  description: "Visit Git Repository"
+  url: "https://github.com/oyedejipeace/SendIT"

@@ -6,11 +6,13 @@ module.exports = {
         "no-console": 0
     },
     "env":{
-        "mocha" : true,
-        "node" : true,
-        "es6" : true,
-        "browser" : true
+        "mocha": true,
+        "node": true,
+        "es6": true,
+        "browser": true
 
     }
-};
+
+    
+}
 
