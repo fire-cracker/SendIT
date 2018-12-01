@@ -13,85 +13,58 @@
     <!-- Favicon -->
     <link rel="icon" href="img/logo.jpg" sizes="16x16" />
     <!-- css -->
-    <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/nav.css"/>
     <!-- font -->
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
 </head>
 
 <!-- Body Section -->
 
-<body background= "css/img/background4.jpg">
-    <!-- header with Navigation bar -->
-    <header id="navBar">
-        <div id="headerContent">
-            <aside>
-                <a href="index.html">
-                    <img src="css/img/logo.jpg" id="headerLogo" />
-                </a>
-            </aside>
+<body>
+ <!-- header with Navigation bar -->
+ <header id="navBar">
+    <div id="headerContent">
 
-            <div class="navigation">
-               
-            </div>
-        </div>
+    </div>
 
-        <!-- Blinking text on Navigation bar -->
-        <div id="blink_caption">
-            <label id="blin" class="blink">Just SendIT!!!</label>
-        </div>
-    </header>
-
+    <!-- Blinking text on Navigation bar -->
+    <div id="blink_caption" href="home.html">
+        <label id="blin" class="blink">Just SendIT!!!</label>
+    </div>
+</header>
     <div>
-        <div id="newsLetter">
-            <h3>Sign up for our Emails</h3>
-            <form>
-                <div class="newsLetterBody">
-                    <div class="newsletterLabel">
-                        <div>
-                            <label id="newsletterTag"> E-mail Address: </label>
-                        </div>
-                        <div class="newsLetterInput">
-                                <input type="text" id="newsLetterEmail" placeholder="Enter Email Address" name="Email" required><br />
-                            </div>
-                        <div>
-                            <label id="newsletterTag"> Preference: </label>
-                        </div>
-                    <div class="newsLetterInput">
-                        <select id="newsLetterPreference">
-                            <option>daily</option>
-                            <option>weekly</option>
-                            <option>monthly</option>
-                        </select>
-                    </div>
-                </div>
-                </div>
-                <button type="submit" class="newsLetterBtn">Sign-up</button>
-            </form>
+        <div class ="whole">
+            <div class="heroWhite" id="heroWhite">
+                    <h1 class="hero"> A NEW WAY TO SEND</h1>
+                    <p class="heroText">We make millions of deliveries every day. But we deliver more than just packages. We deliver trust and peace of mind. You can SendIt and count on us!</p>
         </div>
-        
- <!-- User Login/SignUp Section -->
+                    <!-- User Login/SignUp Section -->
         <div id="container_demo">
             <a class="hiddenanchor" id="toregister"></a>
             <a class="hiddenanchor" id="tologin"></a>
+            <div class='validation'>
             <div id="wrapper">
 
 
                 <div id="login" class="animate form">
                     <form class="login zoom" id="LoginForm" action="mysuperscript.php" autocomplete="on">
                         <div class="img_login">
-                                <h1>Log in</h1> 
+                            <h1>Log in</h1>
                         </div>
 
                         <div class="loginParticulars">
                             <label><b>Username</b></label>
-                            <input type="text" id="username" placeholder="Enter Username" name="username" required>
+                            <input type="text" id="username" placeholder="Enter Username" name="username">
                             <label><b>Password</b></label>
-                            <input type="password"  class="password" id="loginPassword" placeholder="Enter Password" name="password" required>
+                            <input type="password" class="password" id="loginPassword" placeholder="Enter Password"
+                                name="password">
                             <label>
-                                <input type="checkbox"  class="showPassword" id="loginShowPassword" name="remember"> Show Password
+                                <input type="checkbox" class="showPassword" id="loginShowPassword" name="remember">
+                                Show Password
                             </label>
-                            <button id="loginBtn" type="submit" formaction="home.html" href="home.html">Login</button>
+                            <button id="loginBtn" type="submit" formaction="home.html">Login</button>
                             <div class="container">
                                 <div class="change_link">
                                     Not a member yet ?
@@ -102,105 +75,63 @@
                     </form>
                 </div>
 
-
-
+                
+               
                 <div id="register" class="animate form">
+                
+                       
                     <form class="login zoom" id="LoginForm" action="mysuperscript.php" autocomplete="on">
                         <div class="img_login">
-                                <h1> Sign up </h1> 
+                            <h1> Sign up </h1>
                         </div>
 
                         <div class="loginParticulars">
                             <label><b>Username</b></label>
-                            <input type="text" id="username" placeholder="Enter Username" name="username" required>
+                            <input type="text" id="username" placeholder="Enter Username" name="username">
                             <label id="emailLabel"><b>Email Address</b></label>
-                            <input type="text" id="email" placeholder="Enter Email Address" name="Email" required>
-                           <div id="validation">
-                            <label><b>Password</b></label>
-                            <input type="password" class="password" id="password" placeholder="Enter Password" name="password" required>
+                            <input type="text" id="email" placeholder="Enter Email Address" name="Email">
+                                <label><b>Password</b></label>
+                                <input type="password" class="password" id="password" placeholder="Enter Password" name="password">
                         </div>
-                        <div id="message" class="container">
-                                <span class="notMember">Password must contain :</span>
-                                <h3 id="letter" class="invalid">A <b>Lowercase</b> letter</h3>
-                                <h3 id="capital" class="invalid">A <b>Capital (uppercase)</b> letter</h3>
-                                <h3 id="number" class="invalid">A <b>Number</b></h3>
-                                <h3 id="length" class="invalid">At least
-                                    <b>8 characters</b>
-                                </h3>
-                            </div>
-                            <div id="confirmPassword2">
-                            <label id="confirmPasswordLabel"><b>Confirm Password</b></label>
-                            <input type="password" id="confirmPassword" placeholder="Confirm Password" name="confirmPassword"
-                                required>
-                            <label>
-                                </div>
-                                   
-                                <input type="checkbox" class="showPassword" id="showPassword" name="remember"> Show Password
+<label>
+                            <input type="checkbox" class="showPassword" id="showPassword" name="remember"> Show
+                            Password
                             </label>
-                            <article id="comparePassword"></article>
-                            <button id="submitBtn" type="submit" formaction="home.html" href="home.html">Sign up</button>
+                            
+                            <button id="submitBtn" type="submit" formaction="home.html">Sign up</button>
                             <div class="container">
-                                
+
                                 <label class="change_link">
                                     Already a member ?
-                                    <a href="#tologin" class="to_register" id= "to_login"> Go and log in </a>
+                                    <a href="#tologin" class="to_register" id="to_login"> Go and log in </a>
                                 </label>
                             </div>
-                        </div>
                     </form>
-
+                    
                 </div>
+               
+              
             </div>
+            </div>
+            </div>
+           
         </div>
-    </div>
-
-     <!-- Footer Section -->
-     <div id="bottom">
+          <!-- Footer Section -->
+    <div id="bottom">
             <footer>
-                <div id="footer">
-                    <div id="footerContent">
-                        <div id="termsWithIcons">
-    
-                            <!-- Terms and Conditions -->
-                            <a href="LICENSE.md">
-                                <div id="terms">
-                                    <h4>TERMS AND CONDITIONS</h4>
-                                </div>
-                            </a>
-    
-                            <!-- Social Icons -->
-                            <div id="socialIcons">
-                                <a id="facebook" href="https://facebook.com" target="_blank">
-                                    <img id="facebook-img" src="css/img/facebook.ico" title="" alt="Facebook">
-                                </a>
-                                <a id="googlePlus" href="https://plus.google.com" target="_blank">
-                                    <img id="twitter-img" src="css/img/twitter.ico" title="" alt="twitter">
-                                </a>
-                                <a id="twitter" href="https://twitter.com" target="_blank">
-                                    <img id="google_plus_img" src="css/img/google_plus.ico" title="" alt="google Plus">
-                                </a>
-                                <a id="youtube" href="https://youtube.com" target="_blank">
-                                    <img id="youtube-img" src="css/img/youtube.ico" title="" alt="Facebook">
-                                </a>
-                                <a id="github" href="https://github.com" target="_blank">
-                                    <img id="github-img" src="css/img/github.ico" title="" alt="github">
-                                </a>
-                                <a id="instagram" href="https://instagram.com" target="_blank">
-                                    <img id="instagram-img" src="css/img/instagram.ico" title="" alt="instagram">
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- Licencse -->
                 <div>
-                        <article id="license">© 2018 SendIT. All Rights Reserved</article>
+                    <article id="license" href="LICENSE.md">© 2018 SendIT. All Rights Reserved</article>
                 </div>
             </footer>
     
         </div>
+    </div>
+
+   
     <!-- JavaScript -->
     <script type="text/JavaScript" src="js/login.js"></script>
+    
 </body>
 
 </html>

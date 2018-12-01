@@ -9,12 +9,12 @@ describe('Validate Users Route', () => {
   let userToken;
   before((done) => {
     request(app).post('/api/v1/auth/login')
-      .send({ userEmail: 'oyedejipeace@gmail.com', userPassword: 'P@$$word123' })
+      .send({ userEmail: 'oyedejipeace@gmail.com', userPassword: 'oyedejipeace' })
       .end((err, res) => {
         adminToken = res.body.token;
       });
     request(app).post('/api/v1/auth/login')
-      .send({ userEmail: 'backendtester1@address.com', userPassword: 'backendtester123' })
+      .send({ userEmail: 'testEmail@address.com', userPassword: 'P@ssword' })
       .end((err, res) => {
         userToken = res.body.token;
         done();
