@@ -10,7 +10,7 @@ export const userValidation = (req, res, next) => {
   } = req.body;
   const error = {};
 
-  if (!userName || Validator.isEmpty(userName.trim()) || !Validator.isAlphanumeric(userName.replace(/ +/g, ""))) {
+  if (!userName || Validator.isEmpty(userName.trim())) {
     error.userName = 'userName is Required';
   }
   if (!userEmail || Validator.isEmpty(userEmail.trim())) {

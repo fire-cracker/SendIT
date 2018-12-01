@@ -9,12 +9,12 @@ describe('Validate orders Route', () => {
   let userToken;
   before((done) => {
     request(app).post('/api/v1/auth/login')
-      .send({ userEmail: 'oyedejipeace@gmail.com', userPassword: 'P@$$word123' })
+      .send({ userEmail: 'oyedejipeace@gmail.com', userPassword: 'oyedejipeace' })
       .end((err, res) => {
         adminToken = res.body.token;
       });
     request(app).post('/api/v1/auth/login')
-      .send({ userEmail: 'backendtester1@address.com', userPassword: 'backendtester123' })
+      .send({ userEmail: 'testEmail@address.com', userPassword: 'P@ssword' })
       .end((err, res) => {
         userToken = res.body.token;
         done();
@@ -203,7 +203,6 @@ describe('Validate orders Route', () => {
             res.body.Status = 'Bad Request';
             res.body.success = 'false';
             res.body.success.toLowerCase();
-            console.log(res);
           })
           .expect(400, end);
       });
@@ -217,7 +216,6 @@ describe('Validate orders Route', () => {
             res.body.Status = 'Bad Request';
             res.body.success = 'false';
             res.body.success.toLowerCase();
-            console.log(res);
           })
           .expect(400, end);
       });
@@ -231,7 +229,6 @@ describe('Validate orders Route', () => {
             res.body.Status = 'Bad Request';
             res.body.success = 'false';
             res.body.success.toLowerCase();
-            console.log(res);
           })
           .expect(400, end);
       });
@@ -290,12 +287,26 @@ describe('Validate orders Route', () => {
           .expect(410, end);
       });
     });
+    it('invalid present Location input returning status code 400(Bad Request)', (end) => {
+      request(app).put('/api/v1/parcels/1/presentLocation')
+        .set('x-access-token', adminToken)
+        .type('JSON')
+        .send({
+          presentLocation: '',
+        })
+        .expect((res) => {
+          res.body.Status = 'wrong input, do you mean Cancelled?';
+        })
+        .expect(400, end);
+    });
     describe('when Correct PUT Query is supplied for statusupdate', () => {
       it('should be valid route /api/v1/parcels/1/status edited successfully returning status code 200(Status Update Successful)', (end) => {
         request(app).put('/api/v1/parcels/1/status')
           .set('x-access-token', adminToken)
           .type('JSON')
-          .send(test.update)
+          .send({
+            orderStatus: 'Pending',
+          })
           .expect((res) => {
             res.body.Status = 'Update successful';
           })
@@ -313,6 +324,30 @@ describe('Validate orders Route', () => {
           })
           .expect(410, end);
       });
+    });
+    it('invalid status returning status code 400(Bad Request)', (end) => {
+      request(app).put('/api/v1/parcels/2/status')
+        .set('x-access-token', adminToken)
+        .type('JSON')
+        .send({
+          orderStatus: 'new',
+        })
+        .expect((res) => {
+          res.body.Status = 'wrong input, do you mean New or Pending or Delivered?';
+        })
+        .expect(400, end);
+    });
+    it('empty status input returning status code 400(Bad Request)', (end) => {
+      request(app).put('/api/v1/parcels/2/status')
+        .set('x-access-token', adminToken)
+        .type('JSON')
+        .send({
+          orderStatus: '',
+        })
+        .expect((res) => {
+          res.body.Status = 'status is required';
+        })
+        .expect(400, end);
     });
     describe('when Correct PUT Query is supplied for destinationupdate', () => {
       it('should be valid route /api/v1/parcels/1/destination edited successfully returning status code 200(Status Update Successful)', (end) => {
@@ -343,19 +378,61 @@ describe('Validate orders Route', () => {
         request(app).put('/api/v1/parcels/2/cancel')
           .set('x-access-token', userToken)
           .type('JSON')
+          .send({
+            orderStatus: 'Cancelled',
+          })
           .expect((res) => {
             res.body.Status = 'Cancel';
           })
           .expect(200, end);
       });
-      it(' destination returning status 410 if order not in database', (end) => {
+      it('invalid status returning status code 400(Bad Request)', (end) => {
+        request(app).put('/api/v1/parcels/2/cancel')
+          .set('x-access-token', userToken)
+          .type('JSON')
+          .send({
+            orderStatus: 'cancelled',
+          })
+          .expect((res) => {
+            res.body.Status = 'wrong input, do you mean Cancelled?';
+          })
+          .expect(400, end);
+      });
+      it('empty status input returning status code 400(Bad Request)', (end) => {
+        request(app).put('/api/v1/parcels/2/cancel')
+          .set('x-access-token', adminToken)
+          .type('JSON')
+          .send({
+            orderStatus: '',
+          })
+          .expect((res) => {
+            res.body.Status = 'status is required';
+          })
+          .expect(400, end);
+      });
+      it('invalid destination input returning status code 400(Bad Request)', (end) => {
+        request(app).put('/api/v1/parcels/1/destination')
+          .set('x-access-token', userToken)
+          .type('JSON')
+          .send({
+            toAddress: '',
+          })
+          .expect((res) => {
+            res.body.Status = 'Bad Request';
+          })
+          .expect(400, end);
+      });
+      it(' returning status 410 if order not in database', (end) => {
         request(app).put('/api/v1/parcels/5/cancel')
           .set('x-access-token', userToken)
           .type('JSON')
+          .send({
+            orderStatus: 'Cancelled',
+          })
           .expect((res) => {
             res.body.Status = 'Order Not Found in the Database';
           })
-          .expect(404, end);
+          .expect(410, end);
       });
     });
     describe('Check PUT input for Error', () => {
@@ -393,6 +470,64 @@ describe('Validate orders Route', () => {
             res.body.status = 'Order Not Found in the Database';
           })
           .expect(404, end);
+      });
+    });
+  });
+  // Tests for the DELETE Route
+  describe('Validate DELETE Route', () => {
+    describe('when Correct DELETE Query is supplied', () => {
+      it('should be valid route /api/v1/parcels/1/ edited successfully returning status code 200(Update Successful)', (end) => {
+        request(app).delete('/api/v1/parcels/1')
+          .set('x-access-token', adminToken)
+          .type('JSON')
+          .expect((res) => {
+            res.body.status = 'Order deleted successful';
+          })
+          .expect(200, end);
+      });
+      it(' status 404 if order not in database', (end) => {
+        request(app).put('/api/v1/parcels/20')
+          .set('x-access-token', adminToken)
+          .type('JSON')
+          .expect((res) => {
+            res.body.status = 'Order Not Found in the Database';
+          })
+          .expect(404, end);
+      });
+      describe('When item can not be found in the database', () => {
+        it('should return statusCode of 404(Order not found)', (end) => {
+          request(app).delete('/api/v1/parcels/300')
+            .set('x-access-token', adminToken)
+            .expect('Content-Type', /json/)
+            .expect((res) => {
+              res.body.success = 'false';
+              res.body.Status = 'Order Not Found in the Database';
+            })
+            .expect(404, end);
+        });
+      });
+    });
+    describe('When non integer parcelId is sent', () => {
+      it('should return statusCode of 400(Bad Request)', (end) => {
+        request(app).delete('/api/v1/parcels/A')
+          .set('x-access-token', adminToken)
+          .expect('Content-Type', /json/)
+          .expect((res) => {
+            res.body.status = 'unsuccessful';
+          })
+          .expect(400, end);
+      });
+    });
+    describe('When parcel Id is not sent', () => {
+      it('should return statusCode of 400(Bad Request)', (end) => {
+        request(app).delete('/api/v1/parcels')
+          .set('x-access-token', adminToken)
+          .expect('Content-Type', /json/)
+          .expect((res) => {
+            console.log(res);
+            res.body.status = 'unsuccessful';
+          })
+          .expect(400, end);
       });
     });
   });

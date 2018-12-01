@@ -28,12 +28,12 @@ export const fullUser3 = {
 };
 // Model data for login purpose
 export const loginUser = {
-  userEmail: 'backendtester1@address.com',
-  userPassword: 'backendtester123',
+  userEmail: 'afolabiabimbola@address.com',
+  userPassword: 'afolabiabimbola',
 };
 // Model data for user with incorrect password
 export const fullUser2 = {
-  userEmail: 'backendtester1@address.com',
+  userEmail: 'afolabiabimbola@address.com',
   userPassword: 'backendtester',
 };
 
@@ -76,9 +76,9 @@ export const databaseUsers = [
   },
   {
     userId: 2,
-    userName: 'tester',
+    userName: 'Oyedeji Peace',
     userRole: 'Admin',
-    userEmail: 'tester@owner.com',
+    userEmail: 'oyedejipeace@owner.com',
     userPassword: '$2a$10$7qdGCg3JmA1uKeSBqD7r2.OikOuJQOEpCVdzz3A33mU/1jRPTCeJy',
     createdDate: '2018-10-18T07:41:21.968Z',
     modifiedDate: null,
