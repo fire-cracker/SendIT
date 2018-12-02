@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Andela Developer Challenge, SendIT">
+    <meta name="keywords" content="HTML,CSS,JavaScript,SendIT,Andela,Developer Challenge">
+    <meta name="author" content="Oyedeji Peace">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>SendIT</title>
+    <!-- Favicon -->
+    <link rel="icon" href="img/logo.jpg" sizes="16x16" />
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/nav.css"/>
+    <!-- font -->
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
+</head>
+
+<!-- Body Section -->
+
+<body>
+ <!-- header with Navigation bar -->
+ <header id="navBar">
+    <div id="headerContent">
+
+    </div>
+
+    <!-- Blinking text on Navigation bar -->
+    <div id="blink_caption" href="home.html">
+        <label id="blin" class="blink">Just SendIT!!!</label>
+    </div>
+</header>
+    <div>
+        <div class ="whole">
+            <div class="heroWhite" id="heroWhite">
+                    <h1 class="hero"> A NEW WAY TO SEND</h1>
+                    <p class="heroText">We make millions of deliveries every day. But we deliver more than just packages. We deliver trust and peace of mind. You can SendIt and count on us!</p>
+        </div>
+                    <!-- User Login/SignUp Section -->
+        <div id="container_demo">
+            <a class="hiddenanchor" id="toregister"></a>
+            <a class="hiddenanchor" id="tologin"></a>
+            <div class='validation'>
+            <div id="wrapper">
+
+
+                <div id="login" class="animate form">
+                    <form class="login zoom" id="LoginForm" action="mysuperscript.php" autocomplete="on">
+                        <div class="img_login">
+                            <h1>Log in</h1>
+                        </div>
+
+                        <div class="loginParticulars">
+                            <label><b>Username</b></label>
+                            <input type="text" id="username" placeholder="Enter Username" name="username">
+                            <label><b>Password</b></label>
+                            <input type="password" class="password" id="loginPassword" placeholder="Enter Password"
+                                name="password">
+                            <label>
+                                <input type="checkbox" class="showPassword" id="loginShowPassword" name="remember">
+                                Show Password
+                            </label>
+                            <button id="loginBtn" type="submit" formaction="home.html">Login</button>
+                            <div class="container">
+                                <div class="change_link">
+                                    Not a member yet ?
+                                    <a href="#toregister" class="to_register" id="to_register">Join us</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                
+               
+                <div id="register" class="animate form">
+                
+                       
+                    <form class="login zoom" id="LoginForm" action="mysuperscript.php" autocomplete="on">
+                        <div class="img_login">
+                            <h1> Sign up </h1>
+                        </div>
+
+                        <div class="loginParticulars">
+                            <label><b>Username</b></label>
+                            <input type="text" id="username" placeholder="Enter Username" name="username">
+                            <label id="emailLabel"><b>Email Address</b></label>
+                            <input type="text" id="email" placeholder="Enter Email Address" name="Email">
+                                <label><b>Password</b></label>
+                                <input type="password" class="password" id="password" placeholder="Enter Password" name="password">
+                        </div>
+<label>
+                            <input type="checkbox" class="showPassword" id="showPassword" name="remember"> Show
+                            Password
+                            </label>
+                            
+                            <button id="submitBtn" type="submit" formaction="home.html">Sign up</button>
+                            <div class="container">
+
+                                <label class="change_link">
+                                    Already a member ?
+                                    <a href="#tologin" class="to_register" id="to_login"> Go and log in </a>
+                                </label>
+                            </div>
+                    </form>
+                    
+                </div>
+               
+              
+            </div>
+            </div>
+            </div>
+           
+        </div>
+          <!-- Footer Section -->
+    <div id="bottom">
+            <footer>
+                <!-- Licencse -->
+                <div>
+                    <article id="license" href="LICENSE.md">© 2018 SendIT. All Rights Reserved</article>
+                </div>
+            </footer>
+    
+        </div>
+    </div>
+
+   
+    <!-- JavaScript -->
+    <script type="text/JavaScript" src="js/login.js"></script>
+    
+</body>
+
+</html>

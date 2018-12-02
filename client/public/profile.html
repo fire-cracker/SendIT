@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Andela Developer Challenge, SendIT">
+    <meta name="keywords" content="HTML,CSS,JavaScript,SendIT,Andela,Developer Challenge">
+    <meta name="author" content="Oyedeji Peace">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Profile</title>
+    <!-- Favicon -->
+    <link rel="icon" href="css/img/logo.jpg" sizes="16x16" />
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/profile.css" />
+    <link rel="stylesheet" type="text/css" href="css/nav.css" />
+    <!-- font -->
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
+</head>
+
+<!-- Body Section -->
+
+<body>
+    <!-- header with Navigation bar -->
+    <header id="navBar">
+        <div id="headerContent">
+
+            <div class="navigation" id="navigation">
+                <a id="logout" href="index.html">Logout</a>
+                <a id="active" href="profile.html">Profile</a>
+                <a id="home" href="home.html">Home</a>
+                <a id="track" href="track.html">Track</a>
+                <a href="javascript:void(0);" class="icon" id="icon">
+                    <i class="fa fa-bars"></i>
+                  </a>
+            </div>
+        </div>
+
+        <!-- Blinking text on Navigation bar -->
+        <div id="blink_caption" href="home.html">
+            <label id="blin" class="blink">Just SendIT!!!</label>
+        </div>
+    </header>
+
+    <!-- My Profile Section -->
+    <div id="createAshipment">
+        <h1> My Profile </h1>
+        <div id="shipmentOrder">
+         <div id="createShipment" class="createShipment">
+
+            <!-- Delivered and Pending Parcel Delivery Order Section -->
+                 <form class="fromform" id="fromform">
+                 <div id="loginParticulars" class="required">
+                    <div class="col">
+                        <div class="row">
+                            <h2 > Delivered parcel delivery order</h2>
+                            <p id="eldtn">23</p>
+                        </div>
+                        <div class='column'>
+                            <h2>Pending parcel delivery order</h2>
+                            <p id="eldtn">23</p>
+                        </div>
+                    </div>
+                 </div>
+                 </form>
+      <!-- User information Section -->
+                 <form class="toform" id="toform">
+                         <div id="loginParticulars" class="required" >
+                            <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                            <b>Country :</b> <p id="previewCountry" class="previewCountry">Nigeria</p><br>
+                           <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                           <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>
+                            <b>Phone Number :</b> <p id="previewPhonenumber" class="previewPhonenumber">07044553267</p>      
+                         </div>
+                     </form>
+         </div>
+     
+         
+     
+     </div>
+     </div>
+
+     <div id="informationFields"></div>
+ <!--  parcel delivery orders Section -->
+     <div id="preview">
+             <h1> Parcel Delivery Orders </h1>
+
+        <div class="navTabs" id ='navTabs'>
+                    <a class="navLink active" href="javascript:showHide('content1');">NEW ORDERS</a>
+                    <a class="navLink" href="javascript:showHide('content2');">PENDING ORDERS</a>
+                 <a class="navLink" href="javascript:showHide('content3');">DELIVERED ORDERS&nbsp;</a>
+        </div>
+
+             <div id="information">
+                <div id="content1">
+                    <div id="shipmentOrderPreview" class = 'new'>
+                            <div id="createShipmentPreview" class="createShipmentPreview">
+                             <form class="fromPreview" id="fromPreview">
+                                 <div class="img_login">
+                                         <h2> From </h2> 
+                                 </div>
+                             <div id="particulars">
+                                <b>Name :</b> <p id="previewName" class="previewName">Jackson Olive</p><br>
+                               <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                               <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                            </div>
+                             </form>
+                 <section class="particulars"></section>
+                             <form class="toPreview" id="toPreview">
+                                     <div class="img_login">
+                                             <h2> To </h2> 
+                                     </div>
+                     
+                                         <div id="particulars">
+                                        <b>Name :</b> <p id="previewNameTo" class="previewName">Anabelle Gorge</p><br>
+                                        <b>Address :</b> <br>
+                                        <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p><br>
+                                       <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                                    </div>
+                                    </form>
+                                    <section class="particulars"></section>
+                 <!-- Parcel Details Section -->
+                                    <div id="parcel">
+                                            <h2> Parcel Details </h2> 
+                                            <div>
+                                            <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                            <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                            <p> kg </p>
+                                            <br>
+                                            <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                            <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                                        </div> 
+                               </div>
+                                    </div>
+                                          
+                   
+                </div>
+            </div>
+
+
+            <div id="content2">
+                <div id="shipmentOrderPreview" class = 'pending'>
+                        <div id="createShipmentPreview" class="createShipmentPreview">
+                         <form class="fromPreview" id="fromPreview">
+                             <div class="img_login">
+                                     <h2> From </h2> 
+                             </div>
+                         <div id="particulars">
+                            <b>Name :</b> <p id="previewName" class="previewName">Olubukola Oyedeji</p><br>
+                           <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                           <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                        </div>
+                         </form>
+             <section class="particulars"></section>
+                         <form class="toPreview" id="toPreview">
+                                 <div class="img_login">
+                                         <h2> To </h2> 
+                                 </div>
+                 
+                                     <div id="particulars">
+                                    <b>Name :</b> <p id="previewNameTo" class="previewName">Daniel Daniella</p><br>
+                                    <b>Address :</b> <br>
+                                    <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p><br>
+                                   <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                                </div>
+                                </form>
+                                <section class="particulars"></section>
+             <!-- Parcel Details Section -->
+                                <div id="parcel">
+                                        <h2> Parcel Details </h2> 
+                                        <div>
+                                        <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                        <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                        <p> kg </p>
+                                        <br>
+                                        <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                        <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                                    </div> 
+                           </div>
+                                </div>
+
+            </div>
+        </div>
+
+        <div id="content3">
+            <div id="shipmentOrderPreview" class = 'delivered'>
+                    <div id="createShipmentPreview" class="createShipmentPreview">
+                     <form class="fromPreview" id="fromPreview">
+                         <div class="img_login">
+                                 <h2> From </h2> 
+                         </div>
+                     <div id="particulars">
+                        <b>Name :</b> <p id="previewName" class="previewName">Uche Chinedu</p><br>
+                       <b>Address :</b> <p id="previewAddress" class="previewAddress">University of Ibadan,ibadan,Oyo State</p><br>
+                       <b>Email Address :</b> <p id="previewEmail" class="previewEmail">jacksonolive@gmail.com</p><br>  
+                    </div>
+                     </form>
+         <section class="particulars"></section>
+                     <form class="toPreview" id="toPreview">
+                             <div class="img_login">
+                                     <h2> To </h2> 
+                             </div>
+             
+                                 <div id="particulars">
+                                <b>Name :</b> <p id="previewNameTo" class="previewName">Seun Amanodia</p><br>
+                                <b>Address :</b> <br>
+                                <p id="previewAddressTo" class="previewAddressTo">University of Abuja,Gwagwalada, FCT</p><br>
+                               <b>Email Address :</b> <p id="previewEmailTo" class="previewEmail">anabellegorge@gmail.com</p><br> 
+                            </div>
+                            </form>
+                            <section class="particulars"></section>
+         <!-- Parcel Details Section -->
+                            <div id="parcel">
+                                    <h2> Parcel Details </h2> 
+                                    <div>
+                                    <b>Type:</b> <p id="parcelPreferencePreview">Packages</p><br>
+                                    <b>weight(kg):</b> <p id="weightPreview">20</p>
+                                    <p> kg </p>
+                                    <br>
+                                    <b>Price :</b><p id="parcelPreferencePreview">&#8358;8,100</p><br>
+                                    <b>Date of Order:</b><p id="parcelPreferencePreview">25th October,2018</p>
+                                </div> 
+                       </div>
+                            </div>
+             
+           
+        </div>      
+    </div>
+
+
+ </div>
+          </div> 
+    <!-- JavaScript -->
+    <script type="text/JavaScript" src="js/profile.js"></script>
+    <script type="text/JavaScript" src="js/nav.js"></script>
+</body>
+
+</html>

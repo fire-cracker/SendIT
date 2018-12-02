@@ -20,8 +20,14 @@ const app = express();
 app.use(logger('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use((_req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 
 // Parse incoming requests data
+app.use(express.static('client/public'));
 app.use('/api/v1/docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/api/v1', ordersRoutes);
 app.use('/api/v1', usersRoutes);

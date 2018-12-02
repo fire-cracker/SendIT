@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="description" content="Andela Developer Challenge, SendIT">
+    <meta name="keywords" content="HTML,CSS,JavaScript,SendIT,Andela,Developer Challenge">
+    <meta name="author" content="Oyedeji Peace">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title -->
+    <title>Create a Shipment</title>
+    <!-- Favicon -->
+    <link rel="icon" href="css/img/logo.jpg" sizes="16x16" />
+    <!-- css -->
+    <link rel="stylesheet" type="text/css" href="css/home.css" />
+    <link rel="stylesheet" type="text/css" href="css/nav.css" />
+    <!-- font -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
+</head>
+
+<!-- Body Section -->
+
+<body>
+    <!-- header with Navigation bar -->
+    <header id="navBar">
+        <div id="headerContent">
+
+            <div class="navigation" id="navigation">
+                <a id="logout" href="index.html">Logout</a>
+                <a id="profile" href="profile.html">Profile</a>
+                <a id="active" href="home.html">Home</a>
+                <a id="track" href="track.html">Track</a>
+                <a href="javascript:void(0);" class="icon" id="icon">
+                    <i class="fa fa-bars"></i>
+                  </a>
+            </div>
+        </div>
+
+        <!-- Blinking text on Navigation bar -->
+        <div id="blink_caption" href="home.html">
+            <label id="blin" class="blink">Just SendIT!!!</label>
+        </div>
+    </header>
+
+   <!-- Create Shipment Section -->
+   <div id="createAshipment">
+  
+   <div id="shipmentOrder" >
+        <h1> Create Shipment </h1>
+    <div id="createShipment" class="createShipment">
+            <form class="fromform" id="fromform" action="mysuperscript.php" autocomplete="on">
+                <div class="img_login">
+                        <h2> From </h2> 
+                </div>
+
+            <div id="loginParticulars" class="">
+                    <label ><b>Name</b></label>
+                    <input type="text" id="username" name="name" >
+                    <label id="addressLabel"><b>Address</b></label>
+                    <input type="text" id="address" name="address" >
+                    <label id="emailLabel"><b>Email Address</b></label>
+                    <input type="email" id="email" name="Email" >
+            </div>
+            <div class="img_login">
+                <h2> To </h2> 
+        </div>
+
+        <div id="loginParticulars" class="" >
+            <label><b>Name</b></label>
+            <input type="text" id="nameTo" name="username" >
+            <label id="addressLabel"><b>Address</b></label>
+            <input type="text" id="addressTo" name="address" >
+            <label id="emailLabel"><b>Email Address</b></label>
+            <input type="email" id="emailTo" name="Email" >  
+        </div>
+
+        <label id="typeLabel"><b>Type </b></label>
+                <select id="parcelPreference" >
+                        <option>Documents</option>
+                        <option>Packages</option>
+                </select>
+
+        <div class="label" id="label">
+            <label id="weightLabel"><b>weight(kg) </b></label>
+            <input type="number" id="weight" name="weight" > 
+        </div>
+        <div class="label" id="label">
+            <button type="submit" id="previewButton" formaction="track.html" class="submitBtn" type="submit">Submit</button>
+            </form>
+
+         
+    </div>
+
+
+</div>
+</div>
+
+    
+    <!-- JavaScript
+    <script type="text/JavaScript" src="js/home.js"></script> -->
+    <script type="text/JavaScript" src="js/nav.js"></script>
+</body>
+
+</html>
