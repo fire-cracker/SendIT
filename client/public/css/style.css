@@ -136,7 +136,7 @@ input {
 #username,
 .password,
 #confirmPassword,
-#email {
+.email {
   width: 100%;
   padding: 5px 20px;
   margin: 8px 0;
@@ -170,7 +170,6 @@ input {
     text-align: left;
     font-size: 18px;
   }
-
   span.notMember {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -180,30 +179,24 @@ input {
     padding: 1%;
     color:white;
   }
-
   .validation{
     display:flex;
     flex-direction: row;
    
-  }
-  
-
-  /* Styling to add a green text color and a tick when the requirements are met */
+  }  
+/* Styling to add a green text color and a tick when the requirements are met */
 .valid {
     color: green;
   }
-  
   .valid:before {
     position: relative;
     left: -15px;
     content: "✔";
   }
-  
   .password {
     content: "✔";
     color: green;
   }
-
   /* Styling to add a green text color and an "✖"  when the requirements are not met */
 .invalid {
     color: red;
@@ -220,7 +213,7 @@ input {
   }
 
   
-/* Center the image and position the close button */
+/* Center the position of the login and signup header */
 .img_login {
     text-align: center;
     position: relative;
@@ -235,13 +228,6 @@ input {
   label{
     color:#f1f1f1;
   }
-  
-  /*Styling the Fast Food Fast Logo in the login view*/
-  .logo {
-    width: 40%;
-    border-radius: 35%;
-  }
-  
   .loginParticulars {
     padding: 10px;
     text-align: left;

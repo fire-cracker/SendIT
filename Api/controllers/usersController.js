@@ -59,6 +59,7 @@ class Controller {
         userName: rows[0].userName,
         userEmail: rows[0].userEmail,
         userId: rows[0].userId,
+        userRole: rows[0].userRole,
       },
       token,
     });
@@ -85,8 +86,10 @@ class Controller {
         userName: newUser.userName,
         userEmail: newUser.userEmail,
         userId: newUser.userId,
+        userRole: newUser.userRole,
       },
     });
+    
   }
 
   /**

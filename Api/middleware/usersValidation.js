@@ -13,6 +13,9 @@ export const userValidation = (req, res, next) => {
   if (!userName || Validator.isEmpty(userName.trim())) {
     error.userName = 'userName is Required';
   }
+  else if (!Validator.isAlphanumeric(userName)) {
+    error.userName = 'userName can only be letters and numbers';
+  }
   if (!userEmail || Validator.isEmpty(userEmail.trim())) {
     error.userEmail = 'Email is Required';
   }
@@ -38,7 +41,7 @@ export const userLogin = (req, res, next) => {
   return next();
 };
 
-// Check for Lenght
+// Check for Length
 export const userLength = (req, res, next) => {
   const {
     userName, userEmail, userPassword,

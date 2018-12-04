@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Lobster|Oxygen|PT+Serif" rel="stylesheet">
+    <script type="text/JavaScript" src="./dist1/polyfills.js"></script>
 </head>
 
 <!-- Body Section -->
@@ -58,11 +59,11 @@
 
             <div id="loginParticulars" class="">
                     <label ><b>Name</b></label>
-                    <input type="text" id="username" name="name" >
+                    <input type="text" id="fromName" name="name" >
                     <label id="addressLabel"><b>Address</b></label>
-                    <input type="text" id="address" name="address" >
+                    <input type="text" id="fromAddress" name="address" >
                     <label id="emailLabel"><b>Email Address</b></label>
-                    <input type="email" id="email" name="Email" >
+                    <input type="email" id="fromEmail" name="Email" >
             </div>
             <div class="img_login">
                 <h2> To </h2> 
@@ -70,15 +71,15 @@
 
         <div id="loginParticulars" class="" >
             <label><b>Name</b></label>
-            <input type="text" id="nameTo" name="username" >
+            <input type="text" id="toName" name="username" >
             <label id="addressLabel"><b>Address</b></label>
-            <input type="text" id="addressTo" name="address" >
+            <input type="text" id="toAddress" name="address" >
             <label id="emailLabel"><b>Email Address</b></label>
-            <input type="email" id="emailTo" name="Email" >  
+            <input type="email" id="toEmail" name="Email" >  
         </div>
 
         <label id="typeLabel"><b>Type </b></label>
-                <select id="parcelPreference" >
+                <select id="type" class="parcelPreference" >
                         <option>Documents</option>
                         <option>Packages</option>
                 </select>
@@ -102,6 +103,8 @@
     <!-- JavaScript
     <script type="text/JavaScript" src="js/home.js"></script> -->
     <script type="text/JavaScript" src="js/nav.js"></script>
+    <script type="text/JavaScript" src="./dist1/home.js"></script>
+    
 </body>
 
 </html>
