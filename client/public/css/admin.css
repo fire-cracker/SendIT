@@ -86,7 +86,7 @@ a{
     background: #149dcc;
     color:white;
 }
-#content2,#content3{
+#pending,#delivered{
     display:none;
  }
 /* Styling the Parcel delivery Orders Section background */
@@ -136,46 +136,51 @@ a{
       font-size: 100%;
       display: inline-block;
 }
-  #particulars{
+#fromParticulars,
+#toParticulars,
+#parcelParticulars{
       padding: 0px 2%;
       margin: 0px;
       list-style: none;
       width: 100%;
-  }
+}
 /* Styling the buttons */
-#submitButton,#cancelButton{
-    background-color: rgba(0, 0, 0, 0.705);
-     color: white;
-     font-size: 120%;
-     border-radius: 10px;
-     text-align: center;
-     cursor: pointer;
-  }
 #buttons{
   display:flex;
   justify-content: space-between;
 }
-#cancelButton{
+.pendingButton,.deliveredButton{
+     color: white;
+     font-size: 70%;
+     width: 250%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+     outline:none;
+}
+.pendingButton:hover{
+    background-color: rgb(245, 155, 155);
+    outline:none;
+}
+#pendingButton{
+    background-color: red;
     display:block;
-  }
-
-#submitButton{
+}
+#deliveredButton{
+    background-color: green;
     display:none;
-  }
-
+    outline:none;
+}
 #changeAddress{
     display: flex;
 }
-
 #previewAddressTo{
     display:block;
-  }
-
+}
 /* Styling the Parcel order status section */
 .presentLocation{
     display:block;
-  }
-
+}
 .newLocation{
     display:none;
 }
@@ -200,12 +205,16 @@ a{
         font-size: 200%;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     }
+    #buttons {
+        /* margin-top: 8%; */
+        width: 90%;
+    }
     .cancelled,.cancelButton{
         font-size: 70%;
         width:250%;
     }
     #shipmentOrderPreview {
-        height: 190px;
+        height: 185px;
     }
     }
     @media only screen and (min-width: 600px) and (max-width: 1199px)  {
@@ -216,6 +225,7 @@ a{
         height: 220px;
     }
     #buttons {
-        margin-top: 10%;
+        margin-top: 8%;
+        width: 90%;
     }
     }

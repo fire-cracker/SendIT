@@ -83,7 +83,7 @@ a{
     background: #149dcc;
     color:white;
 }
-#content2,#content3{
+#pending,#delivered{
     display:none;
 }
  /* Styling the Parcel delivery Orders Section background */
@@ -101,53 +101,31 @@ a{
     margin: 8% 0% 0% 0%;
     position:auto;
     display:block;
+    height: 160px;
 }
- .createShipment{
-    display:block;
-    width: 90%;
-    margin: 1% 1% 0% 6%;
-    display:flex;
-    border-radius: 30px 30px 30px 30px;	
-    box-shadow:	5px 5px rgba(140, 110, 224, 0.4);
-}
-#fromform,
-#toform{
-    top: 0px;
-    width: 90%;	
-}
-#loginParticulars{
-    padding: 10px;
-    text-align: center;
-  }
 /* Styling the Delivered and Pending Parcel Delivery Order Section */
-
 #fromform{
-    margin:0px 30px 0px 0px;
+    text-align: center;
+    margin:0% 10% 0% 0%;
     overflow: auto;
     height:175px;
     top: 0px;
-    padding: 18px 4% 20px 4%;   	
+    padding: 18px 4% 20px 4%; 
+    display:flex;  	
+    justify-content: space-between;
 }
-
 .row{
     border-radius: 30px 30px 30px 30px;	
     box-shadow:	5px 5px rgb(50, 42, 127);
+    height:80px;
+    width:40%;
 }
 .column{
     border-radius: 30px 30px 30px 30px;	
     box-shadow:	5px 5px rgb(50, 42, 127);
-    }
-
-/* Styling the User Information Section */
-
-#toform{
-    margin:0px 30px 0px 0px;
-    overflow: auto;
-    height:175px;
-    top: 0px;
-    padding: 18px 4% 20px 4%;
+    height:80px;
+    width:40%;
 }
-
 /* Styling the Parcel delivery Orders Section */
 #preview{
     margin: 0% 10% 0% 5%;
@@ -167,9 +145,9 @@ a{
 #shipmentOrderPreview{
     margin: 2% 0% 2% 1%;
     overflow: auto;
+    font-size: 90%;
     top: 0px;
     width: 90%;	
-    height: 220px;
     padding: 0px 4% 0px 4%;
     border-radius: 3px;	
     border: 2px solid;
@@ -182,25 +160,23 @@ a{
 }
 
 .particulars{
-    height:175px;
+    height:130px;
     border-right:1px solid black;
   }
-#particulars{
+#fromparticulars,
+#toparticulars,
+#parcelparticulars,{
     padding: 0px 2%
-  }
+}
 
   /* For desktop: */
-  @media only screen and (min-width: 768px) {
+@media only screen and (min-width: 768px) {
     #preview{
         margin: 5% 10% 0% 5%;
     }
-  }
-
-  h1{
+    h1{
     font-size: 200%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+
 }
-#pending {
-    font-size: 70%;
-    padding: 1% 8%;
-  }

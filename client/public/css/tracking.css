@@ -85,7 +85,7 @@ p{
     background: #149dcc;
     color:white;
 }
-#content2,#content3{
+#pending,#delivered{
     display:none;
  }
  /* Styling the Parcel delivery Orders Section background */
@@ -135,7 +135,9 @@ p{
     font-size: 100%;
     display: inline-block;
 }
-#particulars{
+#fromParticulars,
+#toParticulars,
+#parcelParticulars{
     padding: 0px 2%;
     margin: 0px;
     list-style: none;
@@ -200,7 +202,11 @@ p{
 #editButton{
     display:block;
     height:10%;
-  }
+}
+#submitButton{
+    display:block;
+    height:10%;
+}
 .destination{
     display:block;
 }

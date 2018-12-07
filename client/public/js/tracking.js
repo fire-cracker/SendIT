@@ -83,7 +83,7 @@ for (var i = 0; i < btns.length; i++) {
 function showHide(d)
 {
 var onediv = document.getElementById(d);
-var divs=['content1','content2','content3'];
+var divs=['new','pending','delivered'];
 for (var i=0;i<divs.length;i++)
   {
   if (onediv != document.getElementById(divs[i]))
