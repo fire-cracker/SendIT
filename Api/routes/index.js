@@ -1,6 +1,6 @@
 import express from 'express';
 import {
-  OrderValidation, orderLength, emailValidation, parcelIdValidation,
+  OrderValidation, orderLength, parcelIdValidation,
   postIdValidation, statusValidation, locationValidation, addressValidation, cancelValidation,
 } from '../middleware/ordersValidation';
 import { userIdValidation } from '../middleware/usersValidation';
@@ -14,7 +14,7 @@ const router = express.Router();
 router.get('/parcels', verifyUserToken, verifyAdmin, controller.getAllOrders);
 router.get('/parcels/:parcelId', verifyUserToken, parcelIdValidation, controller.getOrder);
 router.get('/users/:userId/parcels', verifyUserToken, userIdValidation, controller.userOrderHistory);
-router.post('/parcels', verifyUserToken, OrderValidation, emailValidation, orderLength, controller.createOrder);
+router.post('/parcels', verifyUserToken, OrderValidation, orderLength, controller.createOrder);
 router.post('/parcels/:parcelId', postIdValidation);
 router.put('/parcels/:parcelId/presentLocation', verifyUserToken, verifyAdmin, parcelIdValidation, locationValidation, controller.updateLocation);
 router.put('/parcels/:parcelId/status', verifyUserToken, verifyAdmin, parcelIdValidation, statusValidation, controller.updateStatus);

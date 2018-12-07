@@ -11,12 +11,11 @@ class Controller {
   async getAllOrders(req, res) {
     const command = 'SELECT * FROM orders';
     const { rows, rowCount } = await database.query(command);
-    console.log(req.body.email);
     return res.status(200).send({
       success: 'true',
       status: 'Orders Retrieved Successfully',
       orders: rows,
-      total_orders: rowCount,
+      totalOrders: rowCount,
     });
   }
 
@@ -41,8 +40,9 @@ class Controller {
   }
 
   async userOrderHistory(req, res) {
+    const user = req.body.userName;
     const command = 'SELECT * FROM orders WHERE "userId"=$1';
-    const { rows } = await database.query(command, [req.params.userId]);
+    const { rows, rowCount } = await database.query(command, [req.params.userId]);
     if (!rows[0]) {
       return res.status(404).send({
         success: 'false',
@@ -51,7 +51,9 @@ class Controller {
     } return res.status(200).json({
       success: 'true',
       status: 'Orders Retrieved Successfully',
+      user,
       order: rows,
+      totalOrders: rowCount,
     });
   }
 
@@ -62,24 +64,22 @@ class Controller {
 */
   async createOrder(req, res) {
     const {
-      toName, toAddress, toEmail, fromName, fromAddress, fromEmail, type, weight, price,
+      fromAddress, toAddress, weight,
     } = req.body;
     const user = req.body.userName;
-    const newOrder = [req.body.userId = req.body.userId, fromName, fromAddress, fromEmail,
-      toName, toAddress, toEmail, type, weight, price];
-    console.log(newOrder);
+    const price = weight * 1000;
+    const newOrder = [req.body.userId = req.body.userId, fromAddress, toAddress, weight, price];
     const command = `INSERT INTO
-    orders("userId","fromName", "fromAddress", "fromEmail", "toName", "toAddress", "toEmail", type, weight, price)
-      VALUES($1, $2, $3, $4, $5,$6, $7, $8, $9, $10)
+    orders("userId", "fromAddress", "toAddress", weight, price)
+      VALUES($1, $2, $3, $4, $5)
       returning *`;
     const { rows } = await database.query(command, newOrder, user);
     return res.status(201).send({
       user,
       order_sent: rows[0],
-      status: 'Order Sent Successfully',
+      status: 'Order created successfully',
     });
   }
-
 
   async updateDestination(req, res) {
     const user = req.body.userName;
@@ -88,7 +88,7 @@ class Controller {
     const date = new Date();
     order.push(date);
     order.push(req.params.parcelId);
-    const findQuery = 'SELECT * FROM orders WHERE "userId"=$1';
+    const findQuery = 'SELECT * FROM orders WHERE "parcelId"=$1';
     const updateQuery = 'UPDATE orders SET "toAddress"=$1,"modifiedDate"=$2 WHERE "parcelId"=$3 returning *';
     const { rows } = await database.query(findQuery, [req.params.parcelId]);
     if (!rows[0]) {
@@ -109,13 +109,13 @@ class Controller {
 
   async updateLocation(req, res) {
     const user = req.body.userName;
-    const { presentLocation } = req.body;
-    const order = [presentLocation];
+    const { presentLocation, orderStatus } = req.body;
+    const order = [presentLocation, orderStatus];
     const date = new Date();
     order.push(date);
     order.push(req.params.parcelId);
     const findQuery = 'SELECT * FROM orders WHERE "parcelId"=$1';
-    const updateQuery = 'UPDATE orders SET "presentLocation"=$1,"modifiedDate"=$2 WHERE "parcelId"=$3 returning *';
+    const updateQuery = 'UPDATE orders SET "presentLocation"=$1,"orderStatus"=$2,"modifiedDate"=$3 WHERE "parcelId"=$4 returning *';
     const { rows } = await database.query(findQuery, [req.params.parcelId]);
     if (!rows[0]) {
       return res.status(410).send({
@@ -179,7 +179,6 @@ class Controller {
     return res.status(200).send({
       user,
       parcelId: req.params.parcelId,
-      old_Order: rows[0],
       update: response.rows[0],
       status: 'Order Cancelled successful',
     });

@@ -73,7 +73,7 @@ describe('Validate orders Route', () => {
             res.body.auth = 'false';
             res.body.message = 'Failed to authenticate token';
           })
-          .expect(500, end);
+          .expect(401, end);
       });
       it('should be return "No token provided" when no token is supplied', (end) => {
         request(app).get('/api/v1/parcels/1')
@@ -299,7 +299,7 @@ describe('Validate orders Route', () => {
         })
         .expect(400, end);
     });
-    describe('when Correct PUT Query is supplied for statusupdate', () => {
+    describe('when Correct PUT Query is supplied for status update', () => {
       it('should be valid route /api/v1/parcels/1/status edited successfully returning status code 200(Status Update Successful)', (end) => {
         request(app).put('/api/v1/parcels/1/status')
           .set('x-access-token', adminToken)
@@ -349,7 +349,8 @@ describe('Validate orders Route', () => {
         })
         .expect(400, end);
     });
-    describe('when Correct PUT Query is supplied for destinationupdate', () => {
+
+    describe('when Correct PUT Query is supplied for destination update', () => {
       it('should be valid route /api/v1/parcels/1/destination edited successfully returning status code 200(Status Update Successful)', (end) => {
         request(app).put('/api/v1/parcels/1/destination')
           .set('x-access-token', userToken)
@@ -361,7 +362,7 @@ describe('Validate orders Route', () => {
           .expect(200, end);
       });
       it(' destination returning status 410 if order not in database', (end) => {
-        request(app).put('/api/v1/parcels/4/destination')
+        request(app).put('/api/v1/parcels/20/destination')
           .set('x-access-token', userToken)
           .type('JSON')
           .send({
@@ -524,7 +525,6 @@ describe('Validate orders Route', () => {
           .set('x-access-token', adminToken)
           .expect('Content-Type', /json/)
           .expect((res) => {
-            console.log(res);
             res.body.status = 'unsuccessful';
           })
           .expect(400, end);

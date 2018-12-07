@@ -29,8 +29,7 @@ submitBtn.addEventListener('click', async (e) => {
       },
       body,
     };
-    const data = await controller.post('/auth/signup', method);
-    console.log(data);
+    await controller.post('/auth/signup', method);
   } catch (err) {
     if (err) {
       alert('Network Error, Please check your network connection and try again');
@@ -55,17 +54,19 @@ loginBtn.addEventListener('click', async (e) => {
       body,
     };
     const data = await controller.post('/auth/login', method);
-    console.log(data);
-    if (data.userEmail === 'true') {
+    if (data.auth === 'false') {
+      return 'Failed';
+    } if (data.auth === 'true') {
       localStorage.setItem('token', data.token);
+      localStorage.setItem('userId', data.user.userId);
     }
     if (data.user.userRole !== 'User') {
-      console.log(data.userRole);
-      window.location.replace('https://sendit-courier.herokuapp.com/home.html');
-    } else window.location.replace('https://sendit-courier.herokuapp.com/admin.html');
+      window.location.replace('https://sendit-courier.herokuapp.com/admin.html');
+    } else window.location.replace('https://sendit-courier.herokuapp.com/home.html');
   } catch (err) {
     if (err) {
-      console.log('Network Error, Please check your network connection and try again');
+      alert('Network Error, Please check your network connection and try again');
+      return 'Failed';
     }
   }
 });

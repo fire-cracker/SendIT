@@ -21,13 +21,8 @@ async function createTables() {
 
   const orders = `CREATE TABLE IF NOT EXISTS orders(
             "parcelId" SERIAL PRIMARY KEY,
-            "fromName" varchar(255) NOT NULL,
             "fromAddress" varchar(255) NOT NULL,
-            "fromEmail" varchar(255) NOT NULL,
-            "toName" varchar(255) NOT NULL,
             "toAddress" varchar(255) NOT NULL,
-            "toEmail" varchar(255) NOT NULL,
-            type varchar(255) NOT NULL,
             weight integer NOT NULL,
             price integer NOT NULL,
             "userId" integer NOT NULL REFERENCES user_accounts("userId") ON DELETE CASCADE ON UPDATE CASCADE,
@@ -44,10 +39,10 @@ async function createTables() {
 
 
   const orderData = `
-    INSERT INTO orders ("fromName","fromAddress", "fromEmail", "toName", "toAddress", "toEmail",type, weight, price,"userId", "orderStatus", "presentLocation")
-      VALUES ('Oyedeji Peace', 'Andela EPIC Tower, Lagos', 'oyedejipeace@gmail.com', 'Akin Omobayo', 'University of Ibadan', 'akinomo@gmail.com','Documents','3', '2000',1,'New','Orogun Ibadan'),
-      ('Angelina Jolie', 'Andela EPIC Tower, Lagos', 'angelina@gmail.com', 'Jamal Smollet', 'University of Abuja', 'jsmollet@gmail.com','Packages','3','5000',2,'Delivered','University of Ibadan'),
-      ('Angelina Jolie', 'Andela EPIC Tower, Lagos', 'angelina@gmail.com', 'Jamal Smollet', 'University of Abuja', 'jsmollet@gmail.com','Packages','3','5000', 3,'Delivered','University of Ibadan');`;
+    INSERT INTO orders ("fromAddress", "toAddress", weight, price,"userId", "orderStatus", "presentLocation")
+      VALUES ('Andela EPIC Tower, Lagos', 'University of Ibadan', '3', '2000',1,'New','Orogun Ibadan'),
+      ('Andela EPIC Tower, Lagos', 'University of Abuja', '3','5000',2,'Delivered','University of Ibadan'),
+      ('Andela EPIC Tower, Lagos', 'University of Abuja', '3','5000', 3,'Delivered','University of Ibadan');`;
 
 
   const input = dropTables + enumAccount + enumRole + userAccounts + orders;
