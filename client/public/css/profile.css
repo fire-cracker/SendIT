@@ -31,12 +31,19 @@ h2{
 }
 /* Styling the Text */
 b, p{
-    color: black;
+    color: #767676;
     font-family: 'sans serif';
 }
 p{
     display: inline-block;
     margin: 1px;
+}
+p#errorMsg{
+    display: inline-block;
+    margin-top: 7%;
+    margin-left: 23%;
+    font-family: 'sans serif';
+    font-size: 200%;
 }
 /* Styling the Top background Section */
 #section3 {
@@ -55,7 +62,6 @@ p{
     flex-wrap: wrap;
     border-bottom: none;
     padding-top: 1rem!important;
-    margin-top: 3rem!important;
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
@@ -177,6 +183,11 @@ a{
     h1{
     font-size: 200%;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+    p#errorMsg{
+        margin-top: 7%;
+        margin-left: 10%;
+        font-size: 200%;
     }
 
 }

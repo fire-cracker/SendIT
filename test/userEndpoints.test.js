@@ -81,16 +81,6 @@ describe('Validate Users Route', () => {
           })
           .expect(406, end);
       });
-      it('should not register a new user with an already existing username', (end) => {
-        request(app).post('/api/v1/auth/signup')
-          .send(test.badNewUser2)
-          .type('JSON')
-          .expect('Content-Type', /json/)
-          .expect((res) => {
-            res.body.auth = 'false';
-          })
-          .expect(406, end);
-      });
       it('should not register user with a wrong email format', (end) => {
         request(app).post('/api/v1/auth/signup')
           .send(test.wrongData)

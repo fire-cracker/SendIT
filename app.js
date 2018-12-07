@@ -1,4 +1,5 @@
 import logger from 'morgan';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -15,16 +16,13 @@ const PORT = process.env.PORT || process.env.SV_PORT;
 
 // Set up the express app
 const app = express();
+app.use(cors());
 
 // instanciate imported middlewares
 app.use(logger('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use((_req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+
 
 // Parse incoming requests data
 app.use(express.static('client/public'));

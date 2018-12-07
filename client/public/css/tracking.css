@@ -40,6 +40,12 @@ p{
     margin: 1px;
     font-family: 'sans serif';
 }
+p#errorMsg{
+    display: inline-block;
+    margin-top: 10%;
+    font-family: 'sans serif';
+    font-size: 200%;
+}
 /* Styling the Top background Section */
 #section3 {
     height: 170px;
@@ -158,39 +164,12 @@ p{
     background-color: rgb(245, 155, 155);
     outline:none;
 }
-#cancelled{
+.cancelled{
     background-color: green;
     display:none;
     outline:none;
 }
-#cancelButton{
-    background-color: red;
-    display:block;
-}
-#cancelled2{
-    background-color: green;
-    display:none;
-    outline:none;
-}
-#cancelButton2{
-    background-color: red;
-    display:block;
-}
-#cancelled3{
-    background-color: green;
-    display:none;
-    outline:none;
-}
-#cancelButton3{
-    background-color: red;
-    display:block;
-}
-#cancelled4{
-    background-color: green;
-    display:none;
-    outline:none;
-}
-#cancelButton4{
+.cancelButton{
     background-color: red;
     display:block;
 }

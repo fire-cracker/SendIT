@@ -13,6 +13,7 @@ async function createToken(data) {
     userName: data.userName,
     userEmail: data.userEmail,
     userRole: data.userRole,
+    userPassword: data.userPassword,
   }, process.env.User_Secret, {
     expiresIn: 60 * 60, // expires in 1 hour
   });
@@ -66,30 +67,50 @@ class Controller {
   }
 
   async login(req, res) {
+    if (req.body.hashedPassword) {
+      const command = 'SELECT * FROM user_accounts WHERE "userEmail"=$1';
+      const { rows } = await database.query(command, [req.body.userEmail]);
+      if (((req.body.hashedPassword) === (rows[0].userPassword))
+       && ((req.body.userEmail) === (rows[0].userEmail))) {
+        req.body.userPassword = req.body.hashedPassword;
+        const token = await createToken(req.body);
+        return res.status(200).send({
+          auth: 'true',
+          token,
+          message: 'Login Successful',
+          user: {
+            userName: rows[0].userName,
+            userEmail: rows[0].userEmail,
+            userId: rows[0].userId,
+            userRole: rows[0].userRole,
+          },
+        });
+      }
+      return res.status(404).send({ auth: 'false', token: null, message: 'user not found' });
+    }
     const command = 'SELECT * FROM user_accounts WHERE "userEmail"=$1';
     const { rows } = await database.query(command, [req.body.userEmail]);
     if (!rows[0]) {
       return res.status(404).send({
         success: 'false',
-        status: 'User Not Found in the Database, provide correct email and password',
+        status: 'User Not Found in the Database'
       });
     }
     const passwordIsValid = await bcrypt.compareSync(req.body.userPassword, rows[0].userPassword);
     if (!passwordIsValid) return res.status(401).send({ auth: 'false', token: null });
-    const newUser = rows[0];
-    const token = await createToken(newUser);
-    return res.status(200).send({
+    req.body.user_id = rows[0].user_id;
+    const token = await createToken(rows[0]);
+    res.status(200).send({
       auth: 'true',
       token,
       message: 'Login Successful',
       user: {
-        userName: newUser.userName,
-        userEmail: newUser.userEmail,
-        userId: newUser.userId,
-        userRole: newUser.userRole,
+        userName: rows[0].userName,
+        userEmail: rows[0].userEmail,
+        userId: rows[0].userId,
+        userRole: rows[0].userRole,
       },
     });
-    
   }
 
   /**
@@ -107,7 +128,28 @@ class Controller {
       total_user_accounts: rowCount,
     });
   }
+
+  /**
+         * Gets a particular User in the database and send as response
+         * @param {*} req - incomming Request data
+         * @param {*} res - response to the validity of the data
+    */
+  async auth(req, res) {
+    const command = 'SELECT * FROM user_accounts WHERE "userId"=$1';
+    const { rows } = await database.query(command, [req.params.userId]);
+    if (!rows[0]) {
+      return res.status(404).send({
+        success: 'false',
+        status: 'User Not Found in the Database',
+      });
+    } return res.status(200).send({
+      success: 'true',
+      status: 'User retrieved successfully',
+      User: rows[0],
+    });
+  }
 }
+
 
 const controller = new Controller();
 export default controller;

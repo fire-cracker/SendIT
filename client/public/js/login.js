@@ -116,7 +116,6 @@ and 'confirm password' section are the same
 // }
 
 window.onresize = (evt) => {
-  console.log(window.innerWidth);
   if (innerWidth > 768) {
     document.getElementById('heroWhite').style.display = 'block';
   } else {

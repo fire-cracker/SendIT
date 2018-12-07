@@ -15,7 +15,7 @@ const weight = document.getElementById('weight');
 const baseUrl = 'https://sendit-courier.herokuapp.com/api/v1';
 
 const controller = new Controller(baseUrl);
-
+const token = localStorage.getItem('token');
 
 // initiate login when the token is invalid or has expired
 window.onload = async () => {
@@ -37,17 +37,18 @@ previewButton.addEventListener('click', async (e) => {
       toEmail: toEmail.value,
       type: type.value,
       weight: weight.value,
+      price: '2000',
     });
     const method = {
       method: 'POST',
       headers: {
         Accept: 'text/plain, application/json, */*',
         'Content-type': 'application/json',
+        'x-access-token': token,
       },
       body,
     };
-    const data = await controller.post('/parcels/', method);
-    console.log(data);
+    await controller.post('/parcels/', method);
   } catch (err) {
     if (err) {
       alert('Network Error, Please check your network connection and try again');
