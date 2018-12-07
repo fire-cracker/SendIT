@@ -56,9 +56,9 @@ loginBtn.addEventListener('click', async (e) => {
     };
     const data = await controller.post('/auth/login', method);
     console.log(data);
-    // if (data.userEmail === 'true') {
-    //   localStorage.setItem('token', data.token);
-    // }
+    if (data.userEmail === 'true') {
+      localStorage.setItem('token', data.token);
+    }
     if (data.user.userRole !== 'User') {
       console.log(data.userRole);
       window.location.replace('https://sendit-courier.herokuapp.com/home.html');

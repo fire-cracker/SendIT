@@ -24,6 +24,7 @@ window.onload = async () => {
     return logout.click();
   }
 };
+
 previewButton.addEventListener('click', async (e) => {
   e.preventDefault();
   try {
