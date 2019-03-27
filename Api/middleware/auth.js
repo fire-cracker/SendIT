@@ -13,6 +13,7 @@ export async function verifyUserToken(req, res, next) {
     req.body.userRole = decoded.userRole;
     req.body.userEmail = decoded.userEmail;
     req.body.userName = decoded.userName;
+    req.body.hashedPassword = decoded.userPassword;
     return next();
   });
 }

@@ -1,4 +1,5 @@
 import logger from 'morgan';
+import cors from 'cors';
 import dotenv from 'dotenv';
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -15,13 +16,16 @@ const PORT = process.env.PORT || process.env.SV_PORT;
 
 // Set up the express app
 const app = express();
+app.use(cors());
 
 // instanciate imported middlewares
 app.use(logger('common'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
 // Parse incoming requests data
+app.use(express.static('client/public'));
 app.use('/api/v1/docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/api/v1', ordersRoutes);
 app.use('/api/v1', usersRoutes);

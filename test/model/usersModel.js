@@ -93,9 +93,8 @@ export const badNewUser = {
 
 };
 export const badNewUser2 = {
-  userName: 'Oyedeji Peace',
+  userName: 'oyedejipeace',
   userEmail: 'testEmail123@address.com',
   userPassword: 'oyedeji1234',
 
 };
-

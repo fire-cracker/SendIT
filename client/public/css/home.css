@@ -1,0 +1,235 @@
+ /*Styling for the body background*/
+ body {
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+  
+}
+
+/* Styling the Top background Section */
+#section3 {
+    height: 170px;
+    width: 100%;
+    background-image: url("img/background3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ 
+ /* Styling the create Shipment Section */
+ h1{
+    margin: 0% 0% 0% 0%;
+    text-align: center;
+    margin: 10% 15% 0% 15%;
+}
+
+ #createAshipment{
+    margin: 5% 5% 2% 5%;
+    display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#fromform{
+    margin: 10px 90% 30px 0%;
+    overflow: auto;
+    top: 0px;
+    width: 90%;
+    height:79%;
+    padding: 18px 4% 20px 4%;
+    border: 1px solid #888;
+    box-shadow:	
+        0pt 2px 5px rgba(105, 108, 109,  0.7),	
+        0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+    border-radius: 5px;	
+   
+}
+
+#loginParticulars{
+    padding: 10px;
+    text-align: left;
+    font-size: 80%;
+  }
+
+#loginParticulars>input{
+    width: 100%;
+    padding: 5px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+  font-size: 120%;
+  }
+
+ /* Styling the Parcel Details Section */
+.label{
+    padding: 2% 0px 0% 0%;
+}
+
+#weightLabel,#dimensionLabel,#typeLabel{
+    padding: 0% 0px 1% 0%;
+}
+ #dimension{
+    display:flex;
+   
+  }
+  #dimension>input{
+    width: 10%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline:none;
+  font-size: 100%;
+  }
+
+.parcelPreference {
+    margin: 1% 0px 0% 0%;
+    height: 35px;
+    padding: 0% 1%;
+    border-radius: 5px;
+    font-size: 120%;
+  }
+
+ #weight{
+  width: 15%;
+  margin: 1% 0px 0% 0%;
+  padding: 0.7% 1%;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-size: 120%;
+  outline:none;
+  }
+
+/* Turn off number input spinners */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+   -webkit-appearance: none; 
+   margin: 0; 
+ }
+/* Adding asterisk to required inputs */
+.required>label:after { 
+    content:"*"; 
+    color: #e32;
+}
+#label>label:after { 
+    content:"*"; 
+    color: #e32;
+}
+
+ /* Set a style for all buttons */
+#previewButton {
+    background-color: rgba(0, 0, 0, 0.705);
+    color: white;
+    padding: 14px 20px;
+    margin: 0% 0% 1% 65%;
+    border: none;
+    cursor: pointer;
+    width: 35%;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 120%;
+    outline:none;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+
+ /* Styling the Preview Section */
+  #preview{
+    margin: 5% 0% 0% 0%;
+    position:auto;
+    display:none;
+    font-size: 130%;
+}
+p{
+    display: inline-block;
+}
+
+#shipmentOrderPreview{
+ margin: 2% 0% 0% 15%;
+ overflow: auto;
+ top: 0px;
+ width: 60%;	
+ height:79%;
+ padding: 18px 4% 20px 4%;
+ border: 1px solid #888;
+ box-shadow:	
+     0pt 2px 5px rgba(105, 108, 109,  0.7),	
+     0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+ border-radius: 30px 30px  0px 30px;	
+ background-color: rgba(222, 184, 135, 0.671);
+}
+
+#dimensionPreview>p{
+    width: 3%;
+  padding: 12px 0px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+  outline:none;
+  font-size: 100%;
+  }
+
+  #particulars{
+    padding: 0px 10px 10px 10px;
+    margin: 0px 0px 40px 0px;
+    font-size: 100%;
+    /* text-align: left */
+  }
+
+  #buttons{
+    display:flex;
+    padding: 14px 20px;
+    justify-content: space-between;
+    margin: 0% 0% 1% 0%;
+    border: none;
+    width: 100%;
+   
+  }
+
+  #submitButton,#editButton{
+    background-color: rgba(0, 0, 0, 0.705);
+     color: white;
+     width: 10%;
+     font-size: 120%;
+     border-radius: 10px;
+     text-align: center;
+     cursor: pointer;
+  }
+
+ 
+   /* For desktop: */
+   @media only screen and (min-width: 768px) {
+    h1{
+        margin: 0% 0% 0% 0%;
+        text-align: center;
+        margin: 5% 30% 0% 5%;
+    }
+    #fromform{
+        margin:1% 10% 0px 0%;
+        width: 70%;	
+        height:79%;
+    }
+    #createAshipment{
+        margin: 3% 0% 2% 15%;
+        display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #previewButton {
+    padding: 1% 3%;
+    margin: 0% 0% 1% 80%;
+    width: 17%;
+    border-radius: 10px;
+    font-size: 120%;
+    }
+  }

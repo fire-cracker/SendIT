@@ -1,26 +1,26 @@
 const confirmPassword = document.getElementById('confirmPassword');
-const message = document.getElementById('message');
-const letter = document.getElementById('letter');
-const capital = document.getElementById('capital');
-const number = document.getElementById('number');
-const length = document.getElementById('length');
+// const message = document.getElementById('message');
+// const letter = document.getElementById('letter');
+// const capital = document.getElementById('capital');
+// const number = document.getElementById('number');
+// const length = document.getElementById('length');
 const loginPassword = document.getElementById('loginPassword');
 const loginShowPassword = document.getElementById('loginShowPassword');
 const password = document.getElementById('password');
 const showPassword = document.getElementById('showPassword');
 const login = document.getElementById('login');
 const register = document.getElementById('register');
-const to_register = document.getElementById('to_register');
-const to_login = document.getElementById('to_login');
+const toRegister = document.getElementById('to_register');
+const toLogin = document.getElementById('to_login');
 
 
 // eventListener toggles the Login/signup page visibility
-to_register.addEventListener('click', () => {
+toRegister.addEventListener('click', () => {
   login.style.display = 'none';
   register.style.display = 'block';
 });
 
-to_login.addEventListener('click', () => {
+toLogin.addEventListener('click', () => {
   login.style.display = 'block';
   register.style.display = 'none';
 });
@@ -37,23 +37,52 @@ loginShowPassword.addEventListener('click', () => {
 showPassword.addEventListener('click', () => {
   if (password.type === 'password') {
     password.type = 'text';
-    confirmPassword.type = 'text';
+    // confirmPassword.type = 'text';
   } else {
     password.type = 'password';
-    confirmPassword.type = 'password';
+    // confirmPassword.type = 'password';
   }
 });
 
 
 // When the user clicks on the password field, show the message box
-password.addEventListener('keyup', () => {
-  message.style.display = 'block';
-});
+// password.addEventListener('keyup', () => {
+//   message.style.display = 'block';
+// });
 
 // When the user clicks outside of the password field, hide the message box
-password.addEventListener('blur', () => {
-  message.style.display = 'none';
-});
+// password.addEventListener('blur', () => {
+//   message.style.display = 'none';
+// });
+
+// When the user starts to type text into the password field
+// password.onkeyup = function () {
+//   let count = 0;
+//   // Validate lowercase letters
+//   const lowerCase = /[a-z]/g;
+//   validate(letter, lowerCase, count++);
+
+//   // Validate capital letters
+//   const upperCase = /[A-Z]/g;
+//   validate(capital, upperCase, count++);
+
+//   // Validate numbers
+//   const numbers = /[0-9]/g;
+//   validate(number, numbers, count++);
+
+//   // Validate length
+//   if (password.value.length >= 8) {
+//     length.classList.remove('invalid');
+//     length.classList.add('valid');
+//     count++;
+//   } else {
+//     length.classList.remove('valid');
+//     length.classList.add('invalid');
+//   }
+//   if (count == 4) {
+//     message.style.display = 'none';
+//   }
+// };
 
 
 /**
@@ -62,46 +91,19 @@ password.addEventListener('blur', () => {
  * @param {*} check - the Regex pattern to be checked for
  * @param {*} count - count stores the number of rules obeyed
  */
-function validate(attribute, check, count) {
-  if (password.value.match(check)) {
-    attribute.classList.remove('invalid');
-    attribute.classList.add('valid');
-  } else {
-    attribute.classList.remove('valid');
-    attribute.classList.add('invalid');
-  }
-}
+// function validate(attribute, check, count) {
+//   if (password.value.match(check)) {
+//     attribute.classList.remove('invalid');
+//     attribute.classList.add('valid');
+//   } else {
+//     attribute.classList.remove('valid');
+//     attribute.classList.add('invalid');
+//   }
+// }
 
-// When the user starts to type text into the password field
-password.onkeyup = function () {
-  let count = 0;
-  // Validate lowercase letters
-  const lowerCase = /[a-z]/g;
-  validate(letter, lowerCase, count++);
 
-  // Validate capital letters
-  const upperCase = /[A-Z]/g;
-  validate(capital, upperCase, count++);
-
-  // Validate numbers
-  const numbers = /[0-9]/g;
-  validate(number, numbers, count++);
-
-  // Validate length
-  if (password.value.length >= 8) {
-    length.classList.remove('invalid');
-    length.classList.add('valid');
-    count++;
-  } else {
-    length.classList.remove('valid');
-    length.classList.add('invalid');
-  }
-  if (count === 4) {
-    message.style.display = 'none';
-  }
-};
-/* checks if the text entered in the "password section"
-and "confirm password" section are the same
+/* checks if the text entered in the 'password section'
+and 'confirm password' section are the same
 */
 // confirmPassword.onkeyup = function () {
 //     if (confirmPassword.value == password.value) {

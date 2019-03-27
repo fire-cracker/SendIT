@@ -14,7 +14,6 @@ export const OrderValidation = (req, res, next) => {
 
   const wrong = {};
   if (!toName || Validator.isEmpty(toName.trim()) || !Validator.isAlpha(toName.replace(/ +/g, ''))) {
-    console.log(toName);
     wrong.toName = 'Name of sender is required';
   }
   if (!toAddress || Validator.isEmpty(toAddress.trim())) {
@@ -72,11 +71,11 @@ export const orderLength = (req, res, next) => {
   if (!Validator.isLength(toEmail, { min: 10, max: 50 })) {
     wrong.toEmail = 'email of recipient should be between 10 to 50 characters';
   }
-  if (!Validator.isLength(weight, { max: 4 })) {
-    wrong.weight = 'weight of parcel should be between 1 to 4 characters';
+  if (!Validator.isLength(weight, { max: 10 })) {
+    wrong.weight = 'weight of parcel should be between 1 to 10 characters';
   }
   if (!Validator.isLength(price, { min: 3, max: 10 })) {
-    wrong.weight = 'price of parcel should be between 3 to 10 characters';
+    wrong.price = 'price of parcel should be between 3 to 10 characters';
   }
   if ((Object.keys(wrong).length) > 0) return res.status(400).json({ status: 'Bad Request', success: 'false', Error_Log: wrong });
   return next();

@@ -7,14 +7,17 @@
   },
   "scripts": {
     "start-dev": "nodemon app.js --exec babel-node --presets env",
-    "test": " npm run create && npm run build && mocha dist/test/*.js --timeout 300000 --exit",
-    "start": "npm run build && node ./dist/app.js",
-    "build": "npm run clear && babel ./ --out -d dist --ignore node_modules,UI",
-    "clear": "rimraf dist coverage",
+    "start": "npm run build && npm run build:dev && node ./dist/app.js",
+    "test": "npm run create && npm run build && mocha dist/test/*.js --timeout 300000 --exit",
+    "build": "npm run clear && babel ./ --out -d dist --ignore client,node_modules,UI,webpack.config.js",
+    "build:prod": "npm run clear && webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "clear": "rimraf dist coverage ./client/public/dist1",
     "cover": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec ./dist/test/*.js --exit",
     "coverage": "npm run create && npm run cover",
     "create": "babel-node ./Api/db/db.js",
-    "heroku-postbuild": "npm run create"
+    "heroku-postbuild": "npm run create",
+    "watch": "webpack --mode development -w"
   },
   "repository": {
     "type": "git",
@@ -29,11 +32,15 @@
   "author": "Oyedeji Peace <oyedejipeace@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/polyfill": "^7.0.0",
     "@types/swagger-ui-express": "3.0.0",
     "ajv": "6.5.4",
+    "babel-cli": "6.26.0",
     "babel-eslint": "^10.0.1",
+    "babel-loader": "8.0.4",
     "bcryptjs": "2.4.3",
     "body-parser": "1.18.3",
+    "cors": "^2.8.5",
     "dotenv": "6.0.0",
     "express": "4.16.3",
     "express-validator": "5.3.0",
@@ -45,7 +52,10 @@
     "pg": "7.6.0",
     "rimraf": "2.6.2",
     "swagger-ui-express": "4.0.1",
+    "unfetch": "4.0.1",
     "validator": "^10.9.0",
+    "webpack": "4.23.1",
+    "webpack-cli": "3.1.2",
     "yamljs": "0.3.0"
   },
   "devDependencies": {
@@ -53,6 +63,8 @@
     "babel-core": "6.26.3",
     "babel-plugin-istanbul": "5.1.0",
     "babel-preset-env": "1.7.0",
+    "@babel/core": "7.1.2",
+    "@babel/preset-env": "7.1.0",
     "chai": "4.1.2",
     "coveralls": "3.0.2",
     "eslint": "5.5.0",
