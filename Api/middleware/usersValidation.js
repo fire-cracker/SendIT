@@ -46,14 +46,14 @@ export const userLength = (req, res, next) => {
     userName, userEmail, userPassword,
   } = req.body;
   const error = {};
-  if (!Validator.isLength(userName, { min: 3, max: 30 })) {
-    error.userName = 'name should be between 3 to 30 characters';
+  if (!Validator.isLength(userName, { min: 8, max: 30 })) {
+    error.userName = 'name must be between 3 to 30 characters';
   }
   if (!Validator.isLength(userEmail, { min: 10, max: 30 })) {
     error.userEmail = 'email must be between 10 to 30 characters';
   }
   if (!Validator.isLength(userPassword, { min: 8, max: 15 })) {
-    error.userPassword = 'Passowrd of sender should be between 8 to 15 characters';
+    error.userPassword = 'Password must be between 8 to 15 characters';
   }
   if ((Object.keys(error).length) > 0) return res.status(400).json({ status: 'Bad Request', success: 'false', Error_Log: error });
   return next();
@@ -67,7 +67,7 @@ export const emailvalidation = (req, res, next) => {
   const { userEmail } = req.body;
   const error = {};
   if (!Validator.isEmail(userEmail)) {
-    error.userEmail = 'Email of parcel Sender is invalid';
+    error.userEmail = 'Email is invalid';
   }
   if ((Object.keys(error).length) > 0) return res.status(400).json({ status: 'Bad Request', success: 'false', Error_Log: error });
   return next();

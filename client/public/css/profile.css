@@ -169,11 +169,11 @@ a{
     height:130px;
     border-right:1px solid black;
   }
-#fromparticulars,
-#toparticulars,
-#parcelparticulars,{
-    padding: 0px 2%
-}
+  #fromparticulars,
+  #toparticulars,
+  #parcelparticulars{
+      padding: 0px 2%
+  }
 
   /* For desktop: */
 @media only screen and (min-width: 768px) {

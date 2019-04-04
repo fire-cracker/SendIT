@@ -73,7 +73,7 @@ describe('Validate orders Route', () => {
             res.body.auth = 'false';
             res.body.message = 'Failed to authenticate token';
           })
-          .expect(500, end);
+          .expect(401, end);
       });
       it('should be return "No token provided" when no token is supplied', (end) => {
         request(app).get('/api/v1/parcels/1')

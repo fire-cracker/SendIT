@@ -64,20 +64,20 @@ class Controller {
 */
   async createOrder(req, res) {
     const {
-      fromName, fromAddress, fromEmail, toName, toAddress, toEmail, type, weight, price,
+      fromAddress, toAddress, weight,
     } = req.body;
     const user = req.body.userName;
-    const newOrder = [req.body.userId = req.body.userId, fromName, fromAddress, fromEmail,
-      toName, toAddress, toEmail, type, weight, price];
+    const price = weight * 1000;
+    const newOrder = [req.body.userId = req.body.userId, fromAddress, toAddress, weight, price];
     const command = `INSERT INTO
-    orders("userId","fromName", "fromAddress", "fromEmail", "toName", "toAddress", "toEmail", type, weight, price)
-      VALUES($1, $2, $3, $4, $5,$6, $7, $8, $9, $10)
+    orders("userId", "fromAddress", "toAddress", weight, price)
+      VALUES($1, $2, $3, $4, $5)
       returning *`;
     const { rows } = await database.query(command, newOrder, user);
     return res.status(201).send({
       user,
       order_sent: rows[0],
-      status: 'Order Sent Successfully',
+      status: 'Order created successfully',
     });
   }
 
@@ -179,7 +179,6 @@ class Controller {
     return res.status(200).send({
       user,
       parcelId: req.params.parcelId,
-      old_Order: rows[0],
       update: response.rows[0],
       status: 'Order Cancelled successful',
     });
